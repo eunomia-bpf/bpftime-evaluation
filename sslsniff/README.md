@@ -36,11 +36,11 @@ $ ./wrk https://127.0.0.1:4043/index.html -c 100 -d 10
 Running 10s test @ https://127.0.0.1:4043/index.html
   2 threads and 100 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     6.30ms   10.72ms 152.76ms   94.56%
-    Req/Sec    10.97k     3.00k   20.62k    79.08%
-  216076 requests in 10.04s, 56.67MB read
-Requests/sec:  21516.79
-Transfer/sec:      5.64MB
+    Latency     9.18ms   18.95ms 165.75ms   94.73%
+    Req/Sec     9.71k     5.05k   32.14k    87.56%
+  189498 requests in 10.02s, 49.70MB read
+Requests/sec:  18916.15
+Transfer/sec:      4.96MB
 ```
 
 ## Test for kernel sslsniff
@@ -67,11 +67,11 @@ $ ./wrk https://127.0.0.1:4043/index.html -c 100 -d 10
 Running 10s test @ https://127.0.0.1:4043/index.html
   2 threads and 100 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    20.94ms   28.31ms 289.79ms   93.24%
-    Req/Sec     3.37k     1.19k    5.79k    71.35%
-  65106 requests in 10.01s, 17.07MB read
-Requests/sec:   6502.37
-Transfer/sec:      1.71MB
+    Latency    13.59ms   11.30ms 156.13ms   91.27%
+    Req/Sec     4.01k     0.95k    5.95k    71.50%
+  80242 requests in 10.10s, 21.04MB read
+Requests/sec:   7948.46
+Transfer/sec:      2.08MB
 ```
 
 ## test for userspace sslsniff
@@ -79,7 +79,7 @@ Transfer/sec:      1.71MB
 in one console, start userspace sslsniff
 
 ```console
-sudo ~/.bpftime/bpftime load example/sslsniff/sslsniff
+sudo ~/.bpftime/bpftime load ./sslsniff
 ```
 
 in another console, restart nginx
@@ -87,3 +87,23 @@ in another console, restart nginx
 ```console
 sudo ~/.bpftime/bpftime start nginx -- -c $(pwd)/nginx.conf -p $(pwd)
 ```
+
+in another console, run wrk
+
+```console
+$ ./wrk https://127.0.0.1:4043/index.html -c 100 -d 10
+Running 10s test @ https://127.0.0.1:4043/index.html
+  2 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     6.32ms    6.18ms 164.79ms   97.80%
+    Req/Sec     8.41k     1.30k   11.20k    87.37%
+  166451 requests in 10.04s, 43.65MB read
+Requests/sec:  16580.88
+Transfer/sec:      4.35MB
+```
+
+Note:
+
+1. No locks in hash maps
+2. Using ubpf JIT
+3. Using LTO
