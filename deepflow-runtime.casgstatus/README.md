@@ -35,6 +35,15 @@ Running 10s test @ https://127.0.0.1:446
   320042 requests in 10.10s, 39.68MB read
 Requests/sec:  31688.27
 Transfer/sec:      3.93MB
+root@mnfe-pve:~/bpftime/example/go-trace-test# wrk -c 10 -t 10 https://127.0.0.1:446
+Running 10s test @ https://127.0.0.1:446
+  10 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   265.43us  144.65us   3.90ms   94.37%
+    Req/Sec     3.84k   272.13     4.30k    92.47%
+  385548 requests in 10.10s, 47.80MB read
+Requests/sec:  38174.06
+Transfer/sec:      4.73MB
 ```
 #### With kernel uprobe
 ```console
@@ -47,6 +56,15 @@ Running 10s test @ https://127.0.0.1:446
   145189 requests in 10.10s, 18.00MB read
 Requests/sec:  14374.98
 Transfer/sec:      1.78MB
+root@mnfe-pve:~/bpftime/example/go-trace-test# wrk -c 10 -t 10 https://127.0.0.1:446
+Running 10s test @ https://127.0.0.1:446
+  10 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   383.59us  206.67us   5.24ms   94.90%
+    Req/Sec     2.68k   196.55     3.07k    93.45%
+  268169 requests in 10.10s, 33.25MB read
+Requests/sec:  26553.20
+Transfer/sec:      3.29MB
 ```
 #### With bpftime userspace uprobe (mocked hashmap (by arraymap))
 - No userspace lock for shared hashmap
@@ -62,6 +80,15 @@ Running 10s test @ https://127.0.0.1:446
   189310 requests in 10.02s, 23.47MB read
 Requests/sec:  18886.51
 Transfer/sec:      2.34MB
+root@mnfe-pve:~/bpftime/example/go-trace-test# wrk -c 10 -t 10 https://127.0.0.1:446
+Running 10s test @ https://127.0.0.1:446
+  10 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   360.93us  185.84us   4.55ms   94.51%
+    Req/Sec     2.83k   214.48     3.18k    95.34%
+  284074 requests in 10.10s, 35.22MB read
+Requests/sec:  28126.84
+Transfer/sec:      3.49MB
 ```
 ### HTTP
 These tests were performed using `go-server-http/main`
@@ -76,6 +103,15 @@ Running 10s test @ http://127.0.0.1:447
   418411 requests in 10.10s, 51.87MB read
 Requests/sec:  41425.58
 Transfer/sec:      5.14MB
+root@mnfe-pve:~/bpftime/example/go-trace-test# wrk -c 10 -t 10 http://127.0.0.1:447
+Running 10s test @ http://127.0.0.1:447
+  10 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   603.96us    4.46ms  93.68ms   98.98%
+    Req/Sec     4.81k   612.91     5.55k    97.62%
+  482566 requests in 10.10s, 59.83MB read
+Requests/sec:  47778.24
+Transfer/sec:      5.92MB
 ```
 #### With kernel uprobe
 ```console
@@ -88,6 +124,15 @@ Running 10s test @ http://127.0.0.1:447
   173881 requests in 10.01s, 21.56MB read
 Requests/sec:  17364.72
 Transfer/sec:      2.15MB
+root@mnfe-pve:~/bpftime/example/go-trace-test# wrk -c 10 -t 10 http://127.0.0.1:447
+Running 10s test @ http://127.0.0.1:447
+  10 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   298.07us  365.81us  15.67ms   95.81%
+    Req/Sec     3.75k   183.14     4.11k    85.33%
+  376415 requests in 10.10s, 46.67MB read
+Requests/sec:  37270.72
+Transfer/sec:      4.62MB
 ```
 #### With bpftime userspace uprobe (mocked hashmap (by arraymap))
 - No userspace lock for shared hashmap
@@ -103,4 +148,13 @@ Running 10s test @ http://127.0.0.1:447
   227212 requests in 10.02s, 28.17MB read
 Requests/sec:  22671.80
 Transfer/sec:      2.81MB
+root@mnfe-pve:~/bpftime/example/go-trace-test# wrk -c 10 -t 10 http://127.0.0.1:447
+Running 10s test @ http://127.0.0.1:447
+  10 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   267.16us  260.85us  11.58ms   95.30%
+    Req/Sec     4.04k   184.37     4.43k    78.20%
+  405645 requests in 10.10s, 50.29MB read
+Requests/sec:  40165.08
+Transfer/sec:      4.98MB
 ```
