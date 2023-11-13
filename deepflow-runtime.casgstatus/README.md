@@ -25,40 +25,40 @@ Memory: 81639MiB / 257870MiB
 ```
 ### Without trace
 ```console
-root@mnfe-pve:~/go-https-server-test# wrk https://127.0.0.1:446  -c 100 -t 10
+root@mnfe-pve:~/deepflow# wrk -c 100 -t 10 https://127.0.0.1:446
 Running 10s test @ https://127.0.0.1:446
   10 threads and 100 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     3.75ms    5.01ms 112.19ms   87.93%
-    Req/Sec     3.98k   774.36     7.12k    87.81%
-  393188 requests in 10.10s, 48.75MB read
-Requests/sec:  38927.86
-Transfer/sec:      4.83MB
+    Latency     6.99ms   15.99ms 350.69ms   93.88%
+    Req/Sec     3.26k     1.20k    7.77k    77.91%
+  320042 requests in 10.10s, 39.68MB read
+Requests/sec:  31688.27
+Transfer/sec:      3.93MB
 ```
 ### With kernel uprobe
 ```console
-root@mnfe-pve:~/go-https-server-test# wrk https://127.0.0.1:446  -c 100 -t 10
+root@mnfe-pve:~/deepflow# wrk -c 100 -t 10 https://127.0.0.1:446
 Running 10s test @ https://127.0.0.1:446
   10 threads and 100 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    10.29ms   14.05ms 200.14ms   87.09%
-    Req/Sec     1.71k   495.75     4.45k    76.32%
-  168179 requests in 10.02s, 20.85MB read
-Requests/sec:  16777.05
-Transfer/sec:      2.08MB
+    Latency    10.60ms   14.99ms 437.61ms   89.41%
+    Req/Sec     1.51k   539.99     4.39k    84.77%
+  145189 requests in 10.10s, 18.00MB read
+Requests/sec:  14374.98
+Transfer/sec:      1.78MB
 ```
-### With bpftime userspace uprobe
+### With bpftime userspace uprobe (mocked hashmap (by arraymap))
 - No userspace lock for shared hashmap
 - With LLVM JIT
 - Release mode
 ```console
-root@mnfe-pve:~/go-https-server-test# wrk https://127.0.0.1:446  -c 100 -t 10
+root@mnfe-pve:~/deepflow# wrk -c 100 -t 10 https://127.0.0.1:446
 Running 10s test @ https://127.0.0.1:446
   10 threads and 100 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    10.41ms   16.19ms 350.39ms   88.89%
-    Req/Sec     1.79k   520.84     3.57k    71.57%
-  175589 requests in 10.04s, 21.77MB read
-Requests/sec:  17496.67
-Transfer/sec:      2.17MB
+    Latency     8.91ms   11.85ms 248.82ms   85.49%
+    Req/Sec     1.92k   700.05     4.52k    70.82%
+  189310 requests in 10.02s, 23.47MB read
+Requests/sec:  18886.51
+Transfer/sec:      2.34MB
 ```
