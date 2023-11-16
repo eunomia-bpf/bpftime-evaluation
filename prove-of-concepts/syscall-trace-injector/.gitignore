@@ -1,0 +1,12 @@
+*.o
+*.so
+victim
+injector
+out.txt
+frida
+frida-lock
+*.ii
+*.s
+test.txt
+agent.test
+test.c
