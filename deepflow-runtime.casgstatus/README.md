@@ -1,14 +1,45 @@
 # deepflow with userspace uprobe
 
+TODO: more complex for deepflow
+
+with wrk:
+
+```sh
+wrk/wrk https://127.0.0.1:4043/index.html -c 512 -t 4 -d 10
+```
+
+| Data Size | Requests/sec | Transfer/sec |
+|-----------|--------------|--------------|
+| 1 KB      |              |              |
+| 2 KB      |              |              |
+| 4 KB      |              |              |
+| 16 KB     |              |              |
+| 128 KB    |              |              |
+| 256 KB    |              |              |
+
+Test with 4 different types:
+
+1. deepflow with partly userspace uprobe in bpftime
+2. deepflow with kernel uprobe, totally running in kernel
+3. deepflow without enable uprobe, only kprobe or syscall tracepoints, sockets
+4. without deepflow
+
+You should test it with two types of server:
+
+1. Golang server with https enabled, use goroutine to handle requests
+2. Golang server with only http enabled, use goroutine to handle requests
+
 ## Usage
-- Build and run bpftime_daemon. see https://github.com/eunomia-bpf/bpftime
+
+- Build and run bpftime_daemon. see <https://github.com/eunomia-bpf/bpftime>
 - Run the go-server (./go-server/main). If not runnable, build it with `go build main.go`
-- Run rust_example from https://github.com/eunomia-bpf/deepflow/tree/main/build-results . If unable to run, see https://github.com/eunomia-bpf/deepflow/blob/main/build.md for how to build it
+- Run rust_example from <https://github.com/eunomia-bpf/deepflow/tree/main/build-results> . If unable to run, see <https://github.com/eunomia-bpf/deepflow/blob/main/build.md> for how to build it
 - Use attach mode to run bpftime agent. `bpftime attach PID`. PID could be retrived from `ps -aux | grep main`
 
 ## Test examples (https)
 
 On my machine:
+
 ```console
 root@mnfe-pve 
 ------------- 
@@ -22,9 +53,13 @@ GPU: NVIDIA Tesla P40
 GPU: AMD ATI Radeon HD 7470/8470 / R5 235/310 OEM 
 Memory: 81639MiB / 257870MiB 
 ```
+
 ### HTTPS
+
 These tests were performed using `go-server/main`
+
 #### Without trace
+
 ```console
 root@mnfe-pve:~/deepflow# wrk -c 10 -t 10 https://127.0.0.1:446
 Running 10s test @ https://127.0.0.1:446
@@ -36,7 +71,9 @@ Running 10s test @ https://127.0.0.1:446
 Requests/sec:  37935.70
 Transfer/sec:      4.70MB
 ```
+
 #### With kernel uprobe
+
 ```console
 root@mnfe-pve:~/deepflow# wrk -c 10 -t 10 https://127.0.0.1:446
 Running 10s test @ https://127.0.0.1:446
@@ -48,10 +85,13 @@ Running 10s test @ https://127.0.0.1:446
 Requests/sec:  30321.11
 Transfer/sec:      3.76MB
 ```
+
 #### With bpftime userspace uprobe (mocked hashmap (by arraymap))
+
 - No userspace lock for shared hashmap
 - With LLVM JIT
 - Release mode
+
 ```console
 root@mnfe-pve:~/deepflow# wrk -c 10 -t 10 https://127.0.0.1:446
 Running 10s test @ https://127.0.0.1:446
@@ -63,9 +103,13 @@ Running 10s test @ https://127.0.0.1:446
 Requests/sec:  36942.72
 Transfer/sec:      4.58MB
 ```
+
 ### HTTP
+
 These tests were performed using `go-server-http/main`
+
 #### Without trace
+
 ```console
 root@mnfe-pve:~/deepflow# wrk -c 10 -t 10 http://127.0.0.1:447
 Running 10s test @ http://127.0.0.1:447
@@ -77,7 +121,9 @@ Running 10s test @ http://127.0.0.1:447
 Requests/sec:  48773.46
 Transfer/sec:      6.05MB
 ```
+
 #### With kernel uprobe
+
 ```console
 root@mnfe-pve:~/deepflow# wrk -c 10 -t 10 http://127.0.0.1:447
 Running 10s test @ http://127.0.0.1:447
@@ -89,10 +135,13 @@ Running 10s test @ http://127.0.0.1:447
 Requests/sec:  42214.27
 Transfer/sec:      5.23MB
 ```
+
 #### With bpftime userspace uprobe (mocked hashmap (by arraymap))
+
 - No userspace lock for shared hashmap
 - With LLVM JIT
 - Release mode
+
 ```console
 root@mnfe-pve:~/deepflow# wrk -c 10 -t 10 http://127.0.0.1:447
 Running 10s test @ http://127.0.0.1:447
