@@ -49,12 +49,13 @@ wrk/wrk https://127.0.0.1:4043/data/example2k.txt -c 512 -t 4 -d 10 >> test-log.
 
 | Data Size | Requests/sec | Transfer/sec |
 |-----------|--------------|--------------|
-| 30 B      |              |              |
-| 1 KB      |              |              |
-| 4 KB      |              |              |
-| 16 KB     |              |              |
-| 64 KB     |              |              |
-| 256 KB    |              |              |
+| 1K        |      12302.14 |        15.05MB |
+| 2K        |      11328.92 |        24.89MB |
+| 4K        |      10883.19 |        45.12MB |
+| 16K       |       7263.48 |       115.01MB |
+| 128K      |       2869.12 |       358.33MB |
+| 256K      |       1757.73 |       438.65MB |
+
 
 ## Test for kernel sslsniff
 
@@ -75,12 +76,12 @@ This sslsniff is from bpftime/example/sslsniff/sslsniff. The userspace part modi
 
 | Data Size | Requests/sec | Transfer/sec |
 |-----------|--------------|--------------|
-| 30 B      |              |              |
-| 1 KB      |              |              |
-| 4 KB      |              |              |
-| 16 KB     |              |              |
-| 64 KB     |              |              |
-| 256 KB    |              |              |
+| 1K        |       5344.41 |         6.54MB |
+| 2K        |       5880.44 |        12.92MB |
+| 4K        |       5620.01 |        23.30MB |
+| 16K       |       3688.97 |        58.42MB |
+| 128K      |       1925.22 |       240.46MB |
+| 256K      |       1242.59 |       310.10MB |
 
 ## test for userspace sslsniff
 
@@ -105,9 +106,9 @@ sudo BPFTIME_USE_JIT=true LD_PRELOAD=build/runtime/agent/libbpftime-agent.so ngi
 
 | Data Size | Requests/sec | Transfer/sec |
 |-----------|--------------|--------------|
-| 30 B      |              |              |
-| 1 KB      |              |              |
-| 4 KB      |              |              |
-| 16 KB     |              |              |
-| 64 KB     |              |              |
-| 256 KB    |              |              |
+| 1K        |       9311.06 |        11.39MB |
+| 2K        |       9528.57 |        20.93MB |
+| 4K        |       9504.57 |        39.40MB |
+| 16K       |       6473.85 |       102.50MB |
+| 128K      |       2567.10 |       320.62MB |
+| 256K      |       1657.66 |       413.66MB |
