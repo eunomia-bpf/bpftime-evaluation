@@ -75,9 +75,9 @@ These tests were performed using `go-server/main`
 |1 KB       |24650.99      |26.85MB       |
 |2 KB       |24150.70      |49.89MB       |
 |4 KB       |18588.55      |75.04MB       |
-|16 KB      |14640.25      |230.67MB      |
-|128 KB     |6296.53       |787.95MB      |
-|256 KB     |3964.68       |0.97GB        |
+|16 KB      |14375.65      |226.51MB      |
+|128 KB     |6263.09       |783.76MB      |
+|256 KB     |3793.46       |0.93GB        |
 #### With bpftime userspace uprobe (mocked hashmap (by arraymap))
 
 - No userspace lock for shared hashmap
@@ -111,12 +111,12 @@ These tests were performed using `go-server-http/main`
 
 | Data Size | Requests/sec | Transfer/sec |
 |-----------|--------------|--------------|
-|1 KB       |36018.41      |39.23MB       |
-|2 KB       |34182.96      |70.61MB       |
-|4 KB       |27675.39      |111.73MB      |
-|16 KB      |23956.41      |377.46MB      |
-|128 KB     |15529.68      |1.90GB        |
-|256 KB     |11663.97      |2.85GB        |
+|1 KB       |35790.68      |38.98MB       |
+|2 KB       |33427.74      |69.05MB       |
+|4 KB       |26541.33      |107.15MB      |
+|16 KB      |23743.19      |374.09MB      |
+|128 KB     |14970.04      |1.83GB        |
+|256 KB     |11550.26      |2.82GB        |
 
 #### With bpftime userspace uprobe (mocked hashmap (by arraymap))
 
