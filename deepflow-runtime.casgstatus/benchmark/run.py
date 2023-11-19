@@ -5,11 +5,11 @@ from io import StringIO
 
 WRK_PATH = "wrk"
 DEEPFLOW = "../../assets/rust_sample"
-BPFTIME_DAEMON = "/root/.bpftime/bpftime_daemon"
-BPFTIME_CLI = "/root/.cargo/bin/bpftime"
+BPFTIME_DAEMON = "../../assets/bpftime_daemon"
+BPFTIME_CLI = "../../assets/bpftime"
 
 
-def parse_wrk_output(text: str) -> (float, float):
+def parse_wrk_output(text: str) -> typing.Tuple[float, float]:
     req_sec = -1
     transfer_sec = -1
     for line in text.splitlines():
@@ -52,7 +52,7 @@ async def handle_stdout(
 async def run_wrk(url: str) -> str:
     # Run wrk
     wrk = await asyncio.subprocess.create_subprocess_exec(
-        WRK_PATH, "-c", "10", "-t", "10", url, stdout=asyncio.subprocess.PIPE
+        WRK_PATH, "-c", "500", "-t", "10", url, stdout=asyncio.subprocess.PIPE
     )
     print("WRK started")
     stdout, _ = await wrk.communicate()
@@ -67,7 +67,7 @@ async def run_server(executable: str, data_size: int) -> asyncio.subprocess.Proc
         stdout=asyncio.subprocess.PIPE,
         stderr=asyncio.subprocess.STDOUT,
         cwd=wd,
-        env={"BPFTIME_USE_JIT": "1"},
+        env={"BPFTIME_USE_JIT": "1", "GOMAXPROCS": "20"},
     )
     return server
 
@@ -229,7 +229,7 @@ async def main():
     out = []
     for size in DATA_SIZES:
         print(f"Running test for size {size}")
-        result = await run_kernel_probe_test(
+        result = await run_userspace_probe_test(
             "../go-server/main", size, "https://127.0.0.1:446"
         )
         print(result)

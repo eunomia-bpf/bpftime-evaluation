@@ -5,7 +5,7 @@ TODO: more complex for deepflow
 with wrk:
 
 ```sh
-wrk/wrk https://127.0.0.1:446/ -c 10 -t 10 -d 10
+wrk/wrk https://127.0.0.1:446/ -c 500 -t 10 -d 10
 ```
 
 | Data Size | Requests/sec | Transfer/sec |
@@ -59,43 +59,41 @@ Memory: 81639MiB / 257870MiB
 These tests were performed using `go-server/main`
 
 #### Without trace
-
 | Data Size | Requests/sec | Transfer/sec |
 |-----------|--------------|--------------|
-|10 B       |36918.99      |4.47MB        |
-|1 KB       |35857.13      |39.05MB       |
-|2 KB       |35574.07      |73.48MB       |
-|4 KB       |28947.76      |116.86MB      |
-|16 KB      |22114.53      |348.43MB      |
-|128 KB     |9193.90       |1.12GB        |
-|256 KB     |5765.85       |1.41GB        |
+|10 B       |259055.53     |31.13MB       |
+|1 KB       |255503.06     |278.27MB      |
+|2 KB       |240685.38     |497.17MB      |
+|4 KB       |172574.61     |696.72MB      |
+|16 KB      |123732.81     |1.90GB        |
+|128 KB     |32158.82      |3.93GB        |
+|256 KB     |18158.14      |4.44GB        |
+
 #### With kernel uprobe
-
 | Data Size | Requests/sec | Transfer/sec |
 |-----------|--------------|--------------|
-|10 B       |26369.66      |3.17MB        |
-|1 KB       |25261.59      |27.51MB       |
-|2 KB       |23898.41      |49.37MB       |
-|4 KB       |18579.09      |75.00MB       |
-|16 KB      |15042.08      |237.00MB      |
-|128 KB     |6496.96       |813.00MB      |
-|256 KB     |4510.20       |1.10GB        |
+|10 B       |95356.66      |11.46MB       |
+|1 KB       |96107.28      |104.67MB      |
+|2 KB       |94280.83      |194.75MB      |
+|4 KB       |71658.19      |289.29MB      |
+|16 KB      |56206.68      |0.86GB        |
+|128 KB     |26142.56      |3.20GB        |
+|256 KB     |15227.34      |3.72GB        |
 #### With bpftime userspace uprobe (mocked hashmap (by arraymap))
 
 - No userspace lock for shared hashmap
 - With LLVM JIT
 - Release mode
-
+- ThinLTO
 | Data Size | Requests/sec | Transfer/sec |
 |-----------|--------------|--------------|
-|10 B       |38285.68      |4.60MB        |
-|1 KB       |26984.35      |29.39MB       |
-|2 KB       |26051.57      |53.81MB       |
-|4 KB       |27981.90      |112.96MB      |
-|16 KB      |20532.01      |323.50MB      |
-|128 KB     |8807.77       |1.08GB        |
-|256 KB     |4599.50       |1.12GB        |
-
+|10 B       |113668.80     |13.66MB       |
+|1 KB       |113875.62     |124.02MB      |
+|2 KB       |107866.63     |222.82MB      |
+|4 KB       |86927.05      |350.94MB      |
+|16 KB      |69111.42      |1.06GB        |
+|128 KB     |26550.50      |3.25GB        |
+|256 KB     |14926.84      |3.65GB        |
 ### HTTP
 
 These tests were performed using `go-server-http/main`
@@ -128,7 +126,7 @@ These tests were performed using `go-server-http/main`
 - No userspace lock for shared hashmap
 - With LLVM JIT
 - Release mode
-
+- ThinLTO
 | Data Size | Requests/sec | Transfer/sec |
 |-----------|--------------|--------------|
 |1 KB       |37977.61      |41.36MB       |
