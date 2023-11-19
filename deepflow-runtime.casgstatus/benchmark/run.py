@@ -2,11 +2,16 @@ import asyncio
 import pathlib
 import typing
 from io import StringIO
+import argparse
 
 WRK_PATH = "wrk"
 DEEPFLOW = "../../assets/rust_sample"
 BPFTIME_DAEMON = "../../assets/bpftime_daemon"
 BPFTIME_CLI = "../../assets/bpftime"
+
+wrk_conn = -1
+wrk_thread = -1
+no_uprobe = False
 
 
 def parse_wrk_output(text: str) -> typing.Tuple[float, float]:
@@ -52,7 +57,7 @@ async def handle_stdout(
 async def run_wrk(url: str) -> str:
     # Run wrk
     wrk = await asyncio.subprocess.create_subprocess_exec(
-        WRK_PATH, "-c", "100", "-t", "10", url, stdout=asyncio.subprocess.PIPE
+        WRK_PATH, "-c", str(wrk_conn), "-t", str(wrk_thread), url, stdout=asyncio.subprocess.PIPE
     )
     print("WRK started")
     stdout, _ = await wrk.communicate()
@@ -102,8 +107,14 @@ async def start_deepflow(
     shutup_after_start: bool = True,
 ) -> typing.Tuple[asyncio.subprocess.Process, asyncio.Task]:
     # Run deepflow
+    env = {}
+    if no_uprobe:
+        env["NO_UPROBE"] = "1"
     deepflow = await asyncio.subprocess.create_subprocess_exec(
-        DEEPFLOW, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.STDOUT
+        DEEPFLOW,
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.STDOUT,
+        env=env,
     )
     deepflow_start_cb = asyncio.Event()
     shut_up_deepflow = asyncio.Event()
@@ -225,16 +236,66 @@ async def run_userspace_probe_test(
 
 
 async def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-t",
+        "--type",
+        help="Test type (no-probe, kernel-uprobe, no-uprobe, user-uprobe)",
+        action="store",
+        choices=["no-probe", "kernel-uprobe", "no-uprobe", "user-uprobe"],
+        required=True,
+    )
+    parser.add_argument("--http", help="Test with http server", action="store_true")
+    parser.add_argument("--https", help="Test with https server", action="store_true")
+    parser.add_argument(
+        "--wrk-thread", help="wrk thread count", action="store", type=int, default=10
+    )
+    parser.add_argument(
+        "--wrk-conn",
+        help="wrk connection count",
+        action="store",
+        type=int,
+        default=100,
+    )
+    args = parser.parse_args()
+    global wrk_conn, wrk_thread
+    wrk_conn = args.wrk_conn
+    wrk_thread = args.wrk_thread
+    if (args.http ^ args.https) == 0:
+        print("You CAN NOT set or unset http&https at the sametime")
+        exit(1)
+    run_func = None
+    if args.type == "no-probe":
+        run_func = run_vanilla_test
+    elif args.type == "kernel-uprobe":
+        run_func = run_kernel_probe_test
+    elif args.type == "no-uprobe":
+        global no_uprobe
+        no_uprobe = True
+        run_func = run_kernel_probe_test
+    elif args.type == "user-uprobe":
+        run_func = run_userspace_probe_test
+    else:
+        assert False
+    use_https = args.https
     DATA_SIZES = [10] + [x * 1024 for x in [1, 2, 4, 16, 128, 256]]
     out = []
     for size in DATA_SIZES:
         print(f"Running test for size {size}")
-        result = await run_userspace_probe_test(
-            "../go-server-http/main", size, "http://127.0.0.1:447"
+        result = await run_func(
+            "../go-server/main" if use_https else "../go-server-http/main",
+            size,
+            "https://127.0.0.1:446" if use_https else "http://127.0.0.1:447",
         )
         print(result)
         out.append(parse_wrk_output(result))
     print(out)
+    print("run_func", run_func)
+    print("type", args.type),
+    print("use http", args.http)
+    print("use https", args.https)
+    print("wrk conn", wrk_conn)
+    print("wrk thd", wrk_thread)
     buf = StringIO()
     buf.write("| Data Size | Requests/sec | Transfer/sec |\n")
     buf.write("|-----------|--------------|--------------|\n")
