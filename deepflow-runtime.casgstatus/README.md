@@ -5,7 +5,7 @@ TODO: more complex for deepflow
 with wrk:
 
 ```sh
-wrk/wrk https://127.0.0.1:4043/index.html -c 512 -t 4 -d 10
+wrk/wrk https://127.0.0.1:446/ -c 10 -t 10 -d 10
 ```
 
 | Data Size | Requests/sec | Transfer/sec |
@@ -60,49 +60,38 @@ These tests were performed using `go-server/main`
 
 #### Without trace
 
-```console
-root@mnfe-pve:~/deepflow# wrk -c 10 -t 10 https://127.0.0.1:446
-Running 10s test @ https://127.0.0.1:446
-  10 threads and 10 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   283.60us  215.40us   5.49ms   93.34%
-    Req/Sec     3.81k   335.28     4.29k    96.14%
-  383164 requests in 10.10s, 47.50MB read
-Requests/sec:  37935.70
-Transfer/sec:      4.70MB
-```
-
+| Data Size | Requests/sec | Transfer/sec |
+|-----------|--------------|--------------|
+| 1 KB      | 36507.02      |  39.76MB    |
+| 2 KB      |  35523.79      |  73.38MB     |
+| 4 KB      |  28123.61      | 113.53MB      |
+| 16 KB     | 21759.68      | 342.85MB   |
+| 128 KB    |  8606.76     |  1.05GB     |
+| 256 KB    |   5642.76     |  1.38GB      |
 #### With kernel uprobe
 
-```console
-root@mnfe-pve:~/deepflow# wrk -c 10 -t 10 https://127.0.0.1:446
-Running 10s test @ https://127.0.0.1:446
-  10 threads and 10 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   342.61us  212.46us   3.74ms   89.09%
-    Req/Sec     3.05k   591.47     4.95k    77.30%
-  306242 requests in 10.10s, 37.97MB read
-Requests/sec:  30321.11
-Transfer/sec:      3.76MB
-```
-
+| Data Size | Requests/sec | Transfer/sec |
+|-----------|--------------|--------------|
+|1 KB       |24650.99      |26.85MB       |
+|2 KB       |24150.70      |49.89MB       |
+|4 KB       |18588.55      |75.04MB       |
+|16 KB      |14640.25      |230.67MB      |
+|128 KB     |6296.53       |787.95MB      |
+|256 KB     |3964.68       |0.97GB        |
 #### With bpftime userspace uprobe (mocked hashmap (by arraymap))
 
 - No userspace lock for shared hashmap
 - With LLVM JIT
 - Release mode
 
-```console
-root@mnfe-pve:~/deepflow# wrk -c 10 -t 10 https://127.0.0.1:446
-Running 10s test @ https://127.0.0.1:446
-  10 threads and 10 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   273.69us  173.21us   4.93ms   93.94%
-    Req/Sec     3.75k     0.88k    6.60k    67.47%
-  373118 requests in 10.10s, 46.26MB read
-Requests/sec:  36942.72
-Transfer/sec:      4.58MB
-```
+| Data Size | Requests/sec | Transfer/sec |
+|-----------|--------------|--------------|
+|1 KB       |26096.27      |28.42MB       |
+|2 KB       |25639.88      |52.96MB       |
+|4 KB       |18579.01      |75.00MB       |
+|16 KB      |15010.58      |236.51MB      |
+|128 KB     |6429.31       |804.57MB      |
+|256 KB     |4161.75       |1.02GB        |
 
 ### HTTP
 
@@ -110,31 +99,24 @@ These tests were performed using `go-server-http/main`
 
 #### Without trace
 
-```console
-root@mnfe-pve:~/deepflow# wrk -c 10 -t 10 http://127.0.0.1:447
-Running 10s test @ http://127.0.0.1:447
-  10 threads and 10 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   709.25us    5.17ms 102.39ms   98.67%
-    Req/Sec     4.91k   698.19     5.74k    96.43%
-  492576 requests in 10.10s, 61.07MB read
-Requests/sec:  48773.46
-Transfer/sec:      6.05MB
-```
-
+| Data Size | Requests/sec | Transfer/sec |
+|-----------|--------------|--------------|
+| 1 KB      |   43417.58   |  47.29MB     |
+| 2 KB      |   41130.66   |  84.96MB     |
+| 4 KB      |   35208.03   |  142.13MB    |
+| 16 KB     |   35413.57   |  557.97MB    |
+| 128 KB    |   20155.85   |  2.46GB      |
+| 256 KB    |   15352.78   |  3.75GB      |
 #### With kernel uprobe
 
-```console
-root@mnfe-pve:~/deepflow# wrk -c 10 -t 10 http://127.0.0.1:447
-Running 10s test @ http://127.0.0.1:447
-  10 threads and 10 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   252.71us  186.02us   5.23ms   94.17%
-    Req/Sec     4.25k   554.85     6.31k    66.50%
-  426355 requests in 10.10s, 52.86MB read
-Requests/sec:  42214.27
-Transfer/sec:      5.23MB
-```
+| Data Size | Requests/sec | Transfer/sec |
+|-----------|--------------|--------------|
+|1 KB       |36018.41      |39.23MB       |
+|2 KB       |34182.96      |70.61MB       |
+|4 KB       |27675.39      |111.73MB      |
+|16 KB      |23956.41      |377.46MB      |
+|128 KB     |15529.68      |1.90GB        |
+|256 KB     |11663.97      |2.85GB        |
 
 #### With bpftime userspace uprobe (mocked hashmap (by arraymap))
 
@@ -142,14 +124,11 @@ Transfer/sec:      5.23MB
 - With LLVM JIT
 - Release mode
 
-```console
-root@mnfe-pve:~/deepflow# wrk -c 10 -t 10 http://127.0.0.1:447
-Running 10s test @ http://127.0.0.1:447
-  10 threads and 10 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   217.71us  148.94us   4.05ms   94.43%
-    Req/Sec     4.82k     1.00k    8.04k    62.57%
-  484277 requests in 10.10s, 60.04MB read
-Requests/sec:  47949.59
-Transfer/sec:      5.94MB
-```
+| Data Size | Requests/sec | Transfer/sec |
+|-----------|--------------|--------------|
+|1 KB       |37977.61      |41.36MB       |
+|2 KB       |37424.72      |77.31MB       |
+|4 KB       |30036.29      |121.26MB      |
+|16 KB      |28305.94      |445.98MB      |
+|128 KB     |17180.66      |2.10GB        |
+|256 KB     |12339.24      |3.01GB        |
