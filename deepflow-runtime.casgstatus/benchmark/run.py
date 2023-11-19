@@ -52,7 +52,7 @@ async def handle_stdout(
 async def run_wrk(url: str) -> str:
     # Run wrk
     wrk = await asyncio.subprocess.create_subprocess_exec(
-        WRK_PATH, "-c", "500", "-t", "10", url, stdout=asyncio.subprocess.PIPE
+        WRK_PATH, "-c", "250", "-t", "10", url, stdout=asyncio.subprocess.PIPE
     )
     print("WRK started")
     stdout, _ = await wrk.communicate()
