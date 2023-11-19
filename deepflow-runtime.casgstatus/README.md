@@ -62,22 +62,24 @@ These tests were performed using `go-server/main`
 
 | Data Size | Requests/sec | Transfer/sec |
 |-----------|--------------|--------------|
-| 1 KB      | 36507.02      |  39.76MB    |
-| 2 KB      |  35523.79      |  73.38MB     |
-| 4 KB      |  28123.61      | 113.53MB      |
-| 16 KB     | 21759.68      | 342.85MB   |
-| 128 KB    |  8606.76     |  1.05GB     |
-| 256 KB    |   5642.76     |  1.38GB      |
+|10 B       |36918.99      |4.47MB        |
+|1 KB       |35857.13      |39.05MB       |
+|2 KB       |35574.07      |73.48MB       |
+|4 KB       |28947.76      |116.86MB      |
+|16 KB      |22114.53      |348.43MB      |
+|128 KB     |9193.90       |1.12GB        |
+|256 KB     |5765.85       |1.41GB        |
 #### With kernel uprobe
 
 | Data Size | Requests/sec | Transfer/sec |
 |-----------|--------------|--------------|
-|1 KB       |24650.99      |26.85MB       |
-|2 KB       |24150.70      |49.89MB       |
-|4 KB       |18588.55      |75.04MB       |
-|16 KB      |14375.65      |226.51MB      |
-|128 KB     |6263.09       |783.76MB      |
-|256 KB     |3793.46       |0.93GB        |
+|10 B       |26369.66      |3.17MB        |
+|1 KB       |25261.59      |27.51MB       |
+|2 KB       |23898.41      |49.37MB       |
+|4 KB       |18579.09      |75.00MB       |
+|16 KB      |15042.08      |237.00MB      |
+|128 KB     |6496.96       |813.00MB      |
+|256 KB     |4510.20       |1.10GB        |
 #### With bpftime userspace uprobe (mocked hashmap (by arraymap))
 
 - No userspace lock for shared hashmap
@@ -86,12 +88,13 @@ These tests were performed using `go-server/main`
 
 | Data Size | Requests/sec | Transfer/sec |
 |-----------|--------------|--------------|
-|1 KB       |26096.27      |28.42MB       |
-|2 KB       |25639.88      |52.96MB       |
-|4 KB       |18579.01      |75.00MB       |
-|16 KB      |15010.58      |236.51MB      |
-|128 KB     |6429.31       |804.57MB      |
-|256 KB     |4161.75       |1.02GB        |
+|10 B       |38285.68      |4.60MB        |
+|1 KB       |26984.35      |29.39MB       |
+|2 KB       |26051.57      |53.81MB       |
+|4 KB       |27981.90      |112.96MB      |
+|16 KB      |20532.01      |323.50MB      |
+|128 KB     |8807.77       |1.08GB        |
+|256 KB     |4599.50       |1.12GB        |
 
 ### HTTP
 
@@ -101,16 +104,18 @@ These tests were performed using `go-server-http/main`
 
 | Data Size | Requests/sec | Transfer/sec |
 |-----------|--------------|--------------|
+| 10 B      |   48174.22   |  5.79MB      |
 | 1 KB      |   43417.58   |  47.29MB     |
 | 2 KB      |   41130.66   |  84.96MB     |
 | 4 KB      |   35208.03   |  142.13MB    |
-| 16 KB     |   35413.57   |  557.97MB    |
+| 16 KB     |   32904.51   |  518.43MB    |
 | 128 KB    |   20155.85   |  2.46GB      |
 | 256 KB    |   15352.78   |  3.75GB      |
 #### With kernel uprobe
 
 | Data Size | Requests/sec | Transfer/sec |
 |-----------|--------------|--------------|
+|10 B       |36592.86      |4.40MB        |
 |1 KB       |35790.68      |38.98MB       |
 |2 KB       |33427.74      |69.05MB       |
 |4 KB       |26541.33      |107.15MB      |

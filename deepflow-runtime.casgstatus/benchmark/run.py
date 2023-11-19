@@ -225,12 +225,12 @@ async def run_userspace_probe_test(
 
 
 async def main():
-    DATA_SIZES = [x * 1024 for x in [1, 2, 4, 16, 128, 256]]
+    DATA_SIZES = [10] + [x * 1024 for x in [1, 2, 4, 16, 128, 256]]
     out = []
     for size in DATA_SIZES:
         print(f"Running test for size {size}")
-        result = await run_userspace_probe_test(
-            "../go-server-http/main", size, "http://127.0.0.1:447"
+        result = await run_kernel_probe_test(
+            "../go-server/main", size, "https://127.0.0.1:446"
         )
         print(result)
         out.append(parse_wrk_output(result))
@@ -248,7 +248,7 @@ async def main():
     for size, v in zip(DATA_SIZES, out):
         req, trans = v
         buf.write(
-            f"|{pad(str(size//1024)+' KB',11)}|{pad(str(req),14)}|{pad(str(trans),14)}|\n"
+            f"|{pad((str(size//1024)+' KB') if size>=1024 else (str(size)+' B'),11)}|{pad(str(req),14)}|{pad(str(trans),14)}|\n"
         )
     print(buf.getvalue())
 
