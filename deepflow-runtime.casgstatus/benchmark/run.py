@@ -52,7 +52,7 @@ async def handle_stdout(
 async def run_wrk(url: str) -> str:
     # Run wrk
     wrk = await asyncio.subprocess.create_subprocess_exec(
-        WRK_PATH, "-c", "250", "-t", "10", url, stdout=asyncio.subprocess.PIPE
+        WRK_PATH, "-c", "100", "-t", "10", url, stdout=asyncio.subprocess.PIPE
     )
     print("WRK started")
     stdout, _ = await wrk.communicate()
@@ -230,7 +230,7 @@ async def main():
     for size in DATA_SIZES:
         print(f"Running test for size {size}")
         result = await run_userspace_probe_test(
-            "../go-server/main", size, "https://127.0.0.1:446"
+            "../go-server-http/main", size, "http://127.0.0.1:447"
         )
         print(result)
         out.append(parse_wrk_output(result))
