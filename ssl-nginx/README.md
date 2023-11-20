@@ -56,7 +56,6 @@ wrk/wrk https://127.0.0.1:4043/data/example2k.txt -c 512 -t 4 -d 10 >> test-log.
 | 128K      |       2869.12 |       358.33MB |
 | 256K      |       1757.73 |       438.65MB |
 
-
 ## Test for kernel sslsniff
 
 In one console, it will hook nginx:

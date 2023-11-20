@@ -1,4 +1,4 @@
-index.html: index.html
+index.html:
 wrk/wrk:
 	git clone https://github.com/wg/wrk
 	cd wrk && make
