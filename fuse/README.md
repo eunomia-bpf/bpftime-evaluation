@@ -13,34 +13,58 @@ Test for linux source tree compression/decompression
 The syscall of linux compression/decompression:
 
 ```console
-$ strace -c time tar czf linux.tar.gz linux/
-135.20user 155.30system 4:02.60elapsed 119%CPU (0avgtext+0avgdata 2944maxresident)k
-5985960inputs+7846976outputs (2major+584minor)pagefaults 0swaps
+$ strace -c -f time t
+ar czf linux.tar.gz linux/
+strace: Process 26014 attached
+strace: Process 26015 attached
+strace: Process 26016 attached
+139.02user 241.99system 9:52.16elapsed 64%CPU (0avgtext+0avgdata 2944maxresident)k
+11277648inputs+7845632outputs (13major+564minor)pagefaults 0swaps
 % time     seconds  usecs/call     calls    errors syscall
 ------ ----------- ----------- --------- --------- ----------------
-100.00  155.314474   155314474         1           wait4
-  0.00    0.003373          30       112           write
-  0.00    0.000018           4         4           rt_sigaction
-  0.00    0.000000           0         1           read
-  0.00    0.000000           0         2           close
-  0.00    0.000000           0         8           mmap
-  0.00    0.000000           0         3           mprotect
-  0.00    0.000000           0         1           munmap
-  0.00    0.000000           0         1           brk
-  0.00    0.000000           0         2           pread64
-  0.00    0.000000           0         1         1 access
-  0.00    0.000000           0         1           clone
-  0.00    0.000000           0         1           execve
-  0.00    0.000000           0         2         1 arch_prctl
-  0.00    0.000000           0         1           set_tid_address
-  0.00    0.000000           0         2           openat
-  0.00    0.000000           0         2           newfstatat
-  0.00    0.000000           0         1           set_robust_list
-  0.00    0.000000           0         1           prlimit64
-  0.00    0.000000           0         1           rseq
+ 81.03  476.171706    79361951         6         3 wait4
+ 11.31   66.494371          68    976564         1 read
+  6.20   36.409685          64    567822           write
+  0.85    5.005722          18    274889         6 newfstatat
+  0.29    1.707477          19     89813        24 openat
+  0.26    1.532994          17     89804           close
+  0.03    0.192929          17     10824           getdents64
+  0.03    0.147562          13     10825           fcntl
+  0.00    0.001381          22        62           brk
+  0.00    0.000910          14        65           readlinkat
+  0.00    0.000450           9        46           mmap
+  0.00    0.000150          10        15           mprotect
+  0.00    0.000144          72         2           clone
+  0.00    0.000086          21         4         4 connect
+  0.00    0.000082          20         4           socket
+  0.00    0.000064          10         6           lseek
+  0.00    0.000045          11         4           munmap
+  0.00    0.000040          20         2         2 statfs
+  0.00    0.000035           1        26           rt_sigaction
+  0.00    0.000026           3         8           pread64
+  0.00    0.000021          21         1           pipe2
+  0.00    0.000019           3         5         5 access
+  0.00    0.000019           4         4           prlimit64
+  0.00    0.000013           6         2           getrandom
+  0.00    0.000012           1         8         4 arch_prctl
+  0.00    0.000012           3         4           set_tid_address
+  0.00    0.000012           3         4           rseq
+  0.00    0.000011           1         6           set_robust_list
+  0.00    0.000000           0         3           rt_sigprocmask
+  0.00    0.000000           0         1           rt_sigreturn
+  0.00    0.000000           0         1         1 ioctl
+  0.00    0.000000           0         2           dup
+  0.00    0.000000           0         1           getpid
+  0.00    0.000000           0         1           vfork
+  0.00    0.000000           0        10         6 execve
+  0.00    0.000000           0         1           creat
+  0.00    0.000000           0         1           getuid
+  0.00    0.000000           0         1           getgid
+  0.00    0.000000           0         2           geteuid
+  0.00    0.000000           0         1           getegid
+  0.00    0.000000           0         1           getppid
 ------ ----------- ----------- --------- --------- ----------------
-100.00  155.317865     1049445       148         2 total
-(venv) yunwei@yunwei37server:~$ 
+100.00  587.665978         290   2020851        56 total
 ```
 
 The syscall of linux find:
