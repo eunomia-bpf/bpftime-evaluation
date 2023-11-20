@@ -2,7 +2,7 @@
 
 Syscount: Tracing syscalls, printing top 10...
 
-The similar approach can be used widely in observation daemons.
+The similar approach is used widely in observation daemons.
 
 The test result shows that:
 
