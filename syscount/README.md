@@ -4,6 +4,42 @@ The code is at bpftime/example/libbpf-tools/syscount
 
 Test env is similar to ssl-nginx.
 
+Test nginx:
+
+```sh
+sudo nginx -c $(pwd)/nginx.conf -p $(pwd)
+make
+```
+
+## Test nginx with syscount for 20 times
+
+Run with syscount.
+
+```sh
+$ sudo ./example/libbpf-tools/syscount/syscount
+Tracing syscalls, printing top 10... Ctrl+C to quit.
+```
+
+res:
+
+```sh
+Requests/sec statistics:
+Mean: 32053.66
+Median: 32288.62
+Stdev: 3092.01
+Min: 27080.95
+Max: 37208.48
+
+Transfer/sec statistics:
+Mean: 9.97
+Median: 10.04
+Stdev: 0.96
+Min: 8.42
+Max: 11.57
+```
+
+## Test nginx with syscount fiilter other pid for 20 times
+
 Run with an unexisting pid to test the effect of syscount.
 
 ```sh
@@ -11,65 +47,39 @@ $ sudo ./example/libbpf-tools/syscount/syscount -p 123
 Tracing syscalls, printing top 10... Ctrl+C to quit.
 ```
 
-Test nginx:
-
-```sh
-cd ssl-nginx
-sudo nginx -c $(pwd)/nginx.conf -p $(pwd)
-wrk/wrk https://127.0.0.1:4043/index.html -c 512 -t 4 -d 10
-```
-
-Test nginx with syscount for 20 times:
+res:
 
 ```sh
 Requests/sec statistics:
-Mean: 19206.49
-Median: 19157.42
-Stdev: 1739.92
-Min: 14960.37
-Max: 21936.57
+Mean: 35716.34
+Median: 35967.76
+Stdev: 2479.69
+Min: 31142.76
+Max: 39226.01
 
 Transfer/sec statistics:
-Mean: 5.04
-Median: 5.03
-Stdev: 0.46
-Min: 3.92
-Max: 5.75
+Mean: 11.10
+Median: 11.18
+Stdev: 0.77
+Min: 9.68
+Max: 12.20
 ```
 
-Test nginx with syscount fiilter other pid for 20 times:
-
-```sh
-Requests/sec statistics:
-Mean: 18870.67
-Median: 18934.76
-Stdev: 2660.73
-Min: 13218.06
-Max: 22620.20
-
-Transfer/sec statistics:
-Mean: 4.95
-Median: 4.96
-Stdev: 0.70
-Min: 3.47
-Max: 5.93
-```
-
-Test nginx with out syscount for 20 times:
+## Test nginx without syscount for 20 times
 
 ```sh
 len:  20
 Requests/sec statistics:
-Mean: 19037.96
-Median: 19335.42
-Stdev: 2511.87
-Min: 13510.60
-Max: 23511.76
+Mean: 39335.21
+Median: 39495.93
+Stdev: 2765.97
+Min: 31005.75
+Max: 42489.23
 
 Transfer/sec statistics:
-Mean: 4.99
-Median: 5.07
-Stdev: 0.66
-Min: 3.54
-Max: 6.17
+Mean: 12.23
+Median: 12.28
+Stdev: 0.86
+Min: 9.64
+Max: 13.21
 ```
