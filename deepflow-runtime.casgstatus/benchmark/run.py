@@ -22,7 +22,11 @@ def parse_wrk_output(text: str) -> typing.Tuple[float, float]:
             req_sec = line.replace("Requests/sec:", "").strip()
         elif line.startswith("Transfer/sec:"):
             transfer_sec = line.replace("Transfer/sec:", "").strip()
-    return req_sec, transfer_sec
+    if transfer_sec.endswith("MB"):
+        transfer_sec = float(transfer_sec[:-2])
+    elif transfer_sec.endswith("GB"):
+        transfer_sec = float(transfer_sec[:-2]) * 1024
+    return float(req_sec), float(transfer_sec)
 
 
 async def handle_stdout(
@@ -57,7 +61,13 @@ async def handle_stdout(
 async def run_wrk(url: str) -> str:
     # Run wrk
     wrk = await asyncio.subprocess.create_subprocess_exec(
-        WRK_PATH, "-c", str(wrk_conn), "-t", str(wrk_thread), url, stdout=asyncio.subprocess.PIPE
+        WRK_PATH,
+        "-c",
+        str(wrk_conn),
+        "-t",
+        str(wrk_thread),
+        url,
+        stdout=asyncio.subprocess.PIPE,
     )
     print("WRK started")
     stdout, _ = await wrk.communicate()
@@ -278,17 +288,25 @@ async def main():
     else:
         assert False
     use_https = args.https
-    DATA_SIZES = [10] + [x * 1024 for x in [1, 2, 4, 16, 128, 256]]
+    DATA_SIZES = [x * 1024 for x in [1, 2, 4, 16, 128, 256]]
     out = []
     for size in DATA_SIZES:
-        print(f"Running test for size {size}")
-        result = await run_func(
-            "../go-server/main" if use_https else "../go-server-http/main",
-            size,
-            "https://127.0.0.1:446" if use_https else "http://127.0.0.1:447",
-        )
-        print(result)
-        out.append(parse_wrk_output(result))
+        req, trans = 0, 0
+        N = 1
+        for _ in range(N):
+            print(f"Running test for size {size}")
+            result = await run_func(
+                "../go-server/main" if use_https else "../go-server-http/main",
+                size,
+                "https://127.0.0.1:446" if use_https else "http://127.0.0.1:447",
+            )
+            print(result)
+            a, b = parse_wrk_output(result)
+            req += a
+            trans += b
+        req /= N
+        trans /= N
+        out.append((req, trans))
     print(out)
     print("run_func", run_func)
     print("type", args.type),
@@ -309,7 +327,7 @@ async def main():
     for size, v in zip(DATA_SIZES, out):
         req, trans = v
         buf.write(
-            f"|{pad((str(size//1024)+' KB') if size>=1024 else (str(size)+' B'),11)}|{pad(str(req),14)}|{pad(str(trans),14)}|\n"
+            f"|{pad((str(size//1024)+' KB') if size>=1024 else (str(size)+' B'),11)}|{pad(str(req),14)}|{pad(str(trans)+'MB',14)}|\n"
         )
     print(buf.getvalue())
 
