@@ -20,6 +20,36 @@ def parse_file(file_name: str) -> list:
 
 
 def main():
+    _EXAMPLE = {
+        "https": {
+            "kernel-uprobe": {
+                "details": [{"size": 1, "transfer": 11111, "request": 1111}],
+                "statistics": {
+                    "transfer": [
+                        {
+                            "size": 1,
+                            "avg": 0,
+                            "min": math.inf,
+                            "max": -math.inf,
+                            "std_dev": 0,
+                            "sqr_dev": 0,
+                            "count": 0,
+                        }
+                    ],
+                    "request": [],
+                },
+            },
+            "no-probe": json.loads(ENTRY),
+            "no-uprobe": json.loads(ENTRY),
+            "user-uprobe": json.loads(ENTRY),
+        },
+        "http": {
+            "kernel-uprobe": json.loads(ENTRY),
+            "no-probe": json.loads(ENTRY),
+            "no-uprobe": json.loads(ENTRY),
+            "user-uprobe": json.loads(ENTRY),
+        },
+    }
     ENTRY = json.dumps(
         {
             "details": [],
@@ -74,11 +104,11 @@ def main():
                         t["avg"] += entry_2[key]
                         t["min"] = min(t["min"], entry_2[key])
                         t["max"] = max(t["max"], entry_2[key])
-                        t["sqr_dev"] += entry_2[key]**2
+                        t["sqr_dev"] += entry_2[key] ** 2
                 for val in size_diff.values():
                     val["avg"] /= val["count"]
                     val["sqr_dev"] /= val["count"]
-                    val["sqr_dev"] -= (val["avg"] ** 2)
+                    val["sqr_dev"] -= val["avg"] ** 2
                     val["std_dev"] = val["sqr_dev"] ** 0.5
                 ty["statistics"][key] = list(
                     sorted(
