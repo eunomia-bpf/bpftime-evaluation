@@ -101,3 +101,13 @@ $ strace -c find linux/ > /dev/null
 ------ ----------- ----------- --------- --------- ----------------
 100.00    0.832870          10     82460        19 total
 ```
+
+## test find with fuse
+
+```console
+$ time find bpftime-evaluation/fuse/data > /dev/null
+
+real    0m12.971s
+user    0m0.000s
+sys     0m2.824s
+```
