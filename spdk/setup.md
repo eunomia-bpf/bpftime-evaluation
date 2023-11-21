@@ -80,7 +80,7 @@ On my Xeon system, this drops the performance to about 1.6M IO/s.
 
 Now with bpftime:
 
-```
+```sh
 bpftime load bpftrace -- -e 'uprobe:/home/jimharris/git/spdk/build/examples/bdevperf:spdk_bdev_io_complete { @completed = count(); }'
 # now in other terminal
 bpftime start build/examples/bdevperf -- -w randread -o 4096 -q 16 -t 5 -c null.json
