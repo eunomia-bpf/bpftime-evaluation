@@ -20,6 +20,12 @@ def parse_file(file_name: str) -> list:
 
 
 def main():
+    ENTRY = json.dumps(
+        {
+            "details": [],
+            "statistics": {"transfer": [], "request": []},
+        }
+    )
     _EXAMPLE = {
         "https": {
             "kernel-uprobe": {
@@ -50,12 +56,6 @@ def main():
             "user-uprobe": json.loads(ENTRY),
         },
     }
-    ENTRY = json.dumps(
-        {
-            "details": [],
-            "statistics": {"transfer": [], "request": []},
-        }
-    )
     data = {
         "https": {
             "kernel-uprobe": json.loads(ENTRY),
@@ -116,7 +116,7 @@ def main():
                         key=lambda t: t["size"],
                     )
                 )
-    with open("test-data-multi.json", "w") as f:
+    with open("test-data-multi-without-smatrt-ptr.json", "w") as f:
         json.dump(data, f)
 
 
