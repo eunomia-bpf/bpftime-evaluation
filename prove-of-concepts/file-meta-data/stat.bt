@@ -1,0 +1,21 @@
+#!/usr/bin/env bpftrace
+
+BEGIN
+{
+    printf("Tracing stat and fstat calls... Hit Ctrl-C to end.\n");
+}
+
+uprobe:/usr/lib/x86_64-linux-gnu/libc.so.6:stat
+{
+    printf("stat called for %s\n", str(arg0));
+}
+
+uprobe:/usr/lib/x86_64-linux-gnu/libc.so.6:fstat
+{
+    printf("fstat called for FD %d\n", arg0);
+}
+
+END
+{
+    printf("Ending trace...\n");
+}

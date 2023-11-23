@@ -14,7 +14,7 @@ struct linux_dirent64 {
     char           d_name[]; /* Filename (null-terminated) */
 };
 
-#define BUF_SIZE 1024
+#define BUF_SIZE 2048
 
 int main(int argc, char *argv[]) {
     int fd;
