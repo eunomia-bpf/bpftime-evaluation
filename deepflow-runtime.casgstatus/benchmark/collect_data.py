@@ -3,7 +3,6 @@ import json
 from collections import defaultdict
 import math
 
-
 def parse_file(file_name: str) -> list:
     result = []
     with open(file_name, "r") as f:
@@ -17,7 +16,6 @@ def parse_file(file_name: str) -> list:
         trans = float(c[:-2])
         result.append({"size": size, "request": req, "transfer": trans})
     return result
-
 
 def main():
     ENTRY = json.dumps(
@@ -118,7 +116,6 @@ def main():
                 )
     with open("test-data-multi-without-smatrt-ptr.json", "w") as f:
         json.dump(data, f)
-
 
 if __name__ == "__main__":
     main()

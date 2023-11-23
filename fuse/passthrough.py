@@ -108,8 +108,7 @@ def main(mountpoint, root):
     log_thread = threading.Thread(target=print_op_counts, daemon=True)
     log_thread.start()
 
-    FUSE(fs, mountpoint, nothreads=True, foreground=True)
-
+    FUSE(fs, mountpoint, nothreads=True, foreground=True, allow_root=True)
 
 if __name__ == "__main__":
     import sys

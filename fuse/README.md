@@ -104,6 +104,14 @@ $ strace -c find linux/ > /dev/null
 
 ## test find with fuse
 
+mount linux source tree to fuse
+
+```console
+python3 passthrough.py ~/linux/ ./data/ 
+```
+
+use find:
+
 ```console
 $ time find bpftime-evaluation/fuse/data > /dev/null
 

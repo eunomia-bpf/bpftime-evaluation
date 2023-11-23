@@ -1,1 +1,3510 @@
-{"https": {"kernel-uprobe": {"details": [[{"size": 1, "request": 75864.4, "transfer": 82.62}, {"size": 2, "request": 76746.81, "transfer": 158.53}, {"size": 4, "request": 58954.21, "transfer": 238.0}, {"size": 16, "request": 49473.67, "transfer": 779.52}, {"size": 128, "request": 25920.46, "transfer": 3246.08}, {"size": 256, "request": 15820.53, "transfer": 3962.88}], [{"size": 1, "request": 75473.33, "transfer": 82.2}, {"size": 2, "request": 76283.0, "transfer": 157.57}, {"size": 4, "request": 58527.76, "transfer": 236.28}, {"size": 16, "request": 49376.47, "transfer": 777.99}, {"size": 128, "request": 26108.1, "transfer": 3266.56}, {"size": 256, "request": 15901.27, "transfer": 3983.36}], [{"size": 1, "request": 75626.74, "transfer": 82.36}, {"size": 2, "request": 78747.64, "transfer": 162.67}, {"size": 4, "request": 59769.2, "transfer": 241.29}, {"size": 16, "request": 48158.94, "transfer": 758.8}, {"size": 128, "request": 24612.08, "transfer": 3082.24}, {"size": 256, "request": 15938.93, "transfer": 3983.36}], [{"size": 1, "request": 78501.35, "transfer": 85.5}, {"size": 2, "request": 75709.39, "transfer": 156.39}, {"size": 4, "request": 60585.55, "transfer": 244.58}, {"size": 16, "request": 48756.25, "transfer": 768.22}, {"size": 128, "request": 25680.22, "transfer": 3215.36}, {"size": 256, "request": 15229.29, "transfer": 3809.28}], [{"size": 1, "request": 76595.34, "transfer": 83.42}, {"size": 2, "request": 81831.22, "transfer": 169.04}, {"size": 4, "request": 59415.59, "transfer": 239.86}, {"size": 16, "request": 50224.88, "transfer": 791.36}, {"size": 128, "request": 26373.56, "transfer": 3297.28}, {"size": 256, "request": 15881.52, "transfer": 3973.12}], [{"size": 1, "request": 84509.89, "transfer": 92.04}, {"size": 2, "request": 74691.28, "transfer": 154.29}, {"size": 4, "request": 60310.22, "transfer": 243.47}, {"size": 16, "request": 52022.86, "transfer": 819.68}, {"size": 128, "request": 26243.45, "transfer": 3287.04}, {"size": 256, "request": 15895.43, "transfer": 3973.12}], [{"size": 1, "request": 75388.3, "transfer": 82.11}, {"size": 2, "request": 83133.66, "transfer": 171.73}, {"size": 4, "request": 58505.86, "transfer": 236.19}, {"size": 16, "request": 48194.29, "transfer": 759.37}, {"size": 128, "request": 25482.97, "transfer": 3184.64}, {"size": 256, "request": 15734.44, "transfer": 3932.16}], [{"size": 1, "request": 73852.6, "transfer": 80.43}, {"size": 2, "request": 62884.69, "transfer": 129.9}, {"size": 4, "request": 58451.22, "transfer": 235.97}, {"size": 16, "request": 49123.11, "transfer": 774.01}, {"size": 128, "request": 25778.26, "transfer": 3225.6}, {"size": 256, "request": 15440.51, "transfer": 3860.48}], [{"size": 1, "request": 75188.96, "transfer": 81.89}, {"size": 2, "request": 71451.87, "transfer": 147.6}, {"size": 4, "request": 64804.58, "transfer": 261.62}, {"size": 16, "request": 47932.72, "transfer": 755.25}, {"size": 128, "request": 24709.32, "transfer": 3092.48}, {"size": 256, "request": 15574.61, "transfer": 3901.44}], [{"size": 1, "request": 83464.68, "transfer": 90.9}, {"size": 2, "request": 81846.5, "transfer": 169.07}, {"size": 4, "request": 58804.89, "transfer": 237.4}, {"size": 16, "request": 49366.78, "transfer": 777.82}, {"size": 128, "request": 24434.12, "transfer": 3061.76}, {"size": 256, "request": 15897.04, "transfer": 3973.12}]], "statistics": {"transfer": [{"size": 1, "avg": 84.34700000000001, "min": 80.43, "max": 92.04, "std_dev": 3.7714322213184452, "sqr_dev": 14.223700999998982, "count": 10}, {"size": 2, "avg": 157.67899999999997, "min": 129.9, "max": 171.73, "std_dev": 11.69747789055425, "sqr_dev": 136.8309890000055, "count": 10}, {"size": 4, "avg": 241.46600000000004, "min": 235.97, "max": 261.62, "std_dev": 7.321128601519769, "sqr_dev": 53.5989239999908, "count": 10}, {"size": 16, "avg": 776.202, "min": 755.25, "max": 819.68, "std_dev": 17.973799709578536, "sqr_dev": 323.0574760000454, "count": 10}, {"size": 128, "avg": 3195.904, "min": 3061.76, "max": 3297.28, "std_dev": 83.12079922618618, "sqr_dev": 6909.067263999954, "count": 10}, {"size": 256, "avg": 3935.232, "min": 3809.28, "max": 3983.36, "std_dev": 56.83891849780293, "sqr_dev": 3230.662655999884, "count": 10}], "request": [{"size": 1, "avg": 77446.55899999998, "min": 73852.6, "max": 84509.89, "std_dev": 3462.714378286629, "sqr_dev": 11990390.865592957, "count": 10}, {"size": 2, "avg": 76332.60600000001, "min": 62884.69, "max": 83133.66, "std_dev": 5662.586964196031, "sqr_dev": 32064891.127082825, "count": 10}, {"size": 4, "avg": 59812.90799999998, "min": 58451.22, "max": 64804.58, "std_dev": 1813.518481642236, "sqr_dev": 3288849.2832579613, "count": 10}, {"size": 16, "avg": 49262.996999999996, "min": 47932.72, "max": 52022.86, "std_dev": 1140.928005301872, "sqr_dev": 1301716.7132821083, "count": 10}, {"size": 128, "avg": 25534.254, "min": 24434.12, "max": 26373.56, "std_dev": 671.6054416575305, "sqr_dev": 451053.8692640066, "count": 10}, {"size": 256, "avg": 15731.357, "min": 15229.29, "max": 15938.93, "std_dev": 227.61171125636392, "sqr_dev": 51807.09110105038, "count": 10}]}}, "no-probe": {"details": [[{"size": 1, "request": 121517.17, "transfer": 132.34}, {"size": 2, "request": 159677.31, "transfer": 329.84}, {"size": 4, "request": 107054.65, "transfer": 432.18}, {"size": 16, "request": 91067.96, "transfer": 1433.6}, {"size": 128, "request": 34317.39, "transfer": 4290.56}, {"size": 256, "request": 19382.72, "transfer": 4853.76}], [{"size": 1, "request": 166959.44, "transfer": 181.83}, {"size": 2, "request": 154099.5, "transfer": 318.32}, {"size": 4, "request": 119126.32, "transfer": 480.91}, {"size": 16, "request": 94798.66, "transfer": 1495.04}, {"size": 128, "request": 34852.39, "transfer": 4362.24}, {"size": 256, "request": 20003.41, "transfer": 5007.36}], [{"size": 1, "request": 155396.0, "transfer": 169.24}, {"size": 2, "request": 141288.28, "transfer": 291.85}, {"size": 4, "request": 107906.87, "transfer": 435.62}, {"size": 16, "request": 88929.51, "transfer": 1402.88}, {"size": 128, "request": 34800.98, "transfer": 4352.0}, {"size": 256, "request": 19547.39, "transfer": 4894.72}], [{"size": 1, "request": 153421.33, "transfer": 167.09}, {"size": 2, "request": 159154.19, "transfer": 328.76}, {"size": 4, "request": 93360.7, "transfer": 376.9}, {"size": 16, "request": 94242.18, "transfer": 1484.8}, {"size": 128, "request": 34567.26, "transfer": 4321.28}, {"size": 256, "request": 19009.13, "transfer": 4751.36}], [{"size": 1, "request": 118003.65, "transfer": 128.52}, {"size": 2, "request": 157777.48, "transfer": 325.91}, {"size": 4, "request": 112711.6, "transfer": 455.02}, {"size": 16, "request": 98869.41, "transfer": 1556.48}, {"size": 128, "request": 34249.26, "transfer": 4290.56}, {"size": 256, "request": 19840.71, "transfer": 4966.4}], [{"size": 1, "request": 156662.85, "transfer": 170.62}, {"size": 2, "request": 156194.43, "transfer": 322.64}, {"size": 4, "request": 118250.41, "transfer": 477.37}, {"size": 16, "request": 90916.04, "transfer": 1433.6}, {"size": 128, "request": 35004.77, "transfer": 4382.72}, {"size": 256, "request": 17185.9, "transfer": 4300.8}], [{"size": 1, "request": 147424.95, "transfer": 160.56}, {"size": 2, "request": 120811.43, "transfer": 249.56}, {"size": 4, "request": 115189.33, "transfer": 465.02}, {"size": 16, "request": 103729.95, "transfer": 1638.4}, {"size": 128, "request": 34391.7, "transfer": 4300.8}, {"size": 256, "request": 19625.7, "transfer": 4915.2}], [{"size": 1, "request": 159621.03, "transfer": 173.84}, {"size": 2, "request": 156364.65, "transfer": 323.0}, {"size": 4, "request": 111235.07, "transfer": 449.06}, {"size": 16, "request": 90771.19, "transfer": 1433.6}, {"size": 128, "request": 34648.84, "transfer": 4331.52}, {"size": 256, "request": 19799.35, "transfer": 4956.16}], [{"size": 1, "request": 158488.68, "transfer": 172.61}, {"size": 2, "request": 155290.0, "transfer": 320.78}, {"size": 4, "request": 89839.33, "transfer": 362.68}, {"size": 16, "request": 90485.99, "transfer": 1423.36}, {"size": 128, "request": 35295.67, "transfer": 4413.44}, {"size": 256, "request": 19693.47, "transfer": 4925.44}], [{"size": 1, "request": 145386.13, "transfer": 158.34}, {"size": 2, "request": 153552.95, "transfer": 317.19}, {"size": 4, "request": 120224.12, "transfer": 485.34}, {"size": 16, "request": 90986.4, "transfer": 1433.6}, {"size": 128, "request": 34339.32, "transfer": 4300.8}, {"size": 256, "request": 19751.93, "transfer": 4945.92}]], "statistics": {"transfer": [{"size": 1, "avg": 161.499, "min": 128.52, "max": 181.83, "std_dev": 16.769621015395874, "sqr_dev": 281.22018900000694, "count": 10}, {"size": 2, "avg": 312.78499999999997, "min": 249.56, "max": 329.84, "std_dev": 23.38683743048658, "sqr_dev": 546.9441650000081, "count": 10}, {"size": 4, "avg": 442.00999999999993, "min": 362.68, "max": 485.34, "std_dev": 40.07427254486394, "sqr_dev": 1605.9473200000357, "count": 10}, {"size": 16, "avg": 1473.5360000000003, "min": 1402.88, "max": 1638.4, "std_dev": 69.66963688723419, "sqr_dev": 4853.858303999063, "count": 10}, {"size": 128, "avg": 4334.592000000001, "min": 4290.56, "max": 4413.44, "std_dev": 39.93599999995766, "sqr_dev": 1594.8840959966183, "count": 10}, {"size": 256, "avg": 4851.7119999999995, "min": 4300.8, "max": 5007.36, "std_dev": 195.46333450549167, "sqr_dev": 38205.91513600573, "count": 10}], "request": [{"size": 1, "avg": 148288.123, "min": 118003.65, "max": 166959.44, "std_dev": 15398.415064505156, "sqr_dev": 237111186.4987793, "count": 10}, {"size": 2, "avg": 151421.02199999997, "min": 120811.43, "max": 159677.31, "std_dev": 11322.126805070786, "sqr_dev": 128190555.39010239, "count": 10}, {"size": 4, "avg": 109489.84, "min": 89839.33, "max": 120224.12, "std_dev": 9927.091703520398, "sqr_dev": 98547149.69010353, "count": 10}, {"size": 16, "avg": 93479.72899999999, "min": 88929.51, "max": 103729.95, "std_dev": 4382.300451859734, "sqr_dev": 19204557.250370026, "count": 10}, {"size": 128, "avg": 34646.757999999994, "min": 34249.26, "max": 35295.67, "std_dev": 323.68398693201664, "sqr_dev": 104771.3233962059, "count": 10}, {"size": 256, "avg": 19383.971, "min": 17185.9, "max": 20003.41, "std_dev": 778.0231680027593, "sqr_dev": 605320.04994905, "count": 10}]}}, "no-uprobe": {"details": [[{"size": 1, "request": 133538.97, "transfer": 145.44}, {"size": 2, "request": 141561.55, "transfer": 292.42}, {"size": 4, "request": 95468.45, "transfer": 385.41}, {"size": 16, "request": 86485.06, "transfer": 1361.92}, {"size": 128, "request": 31225.87, "transfer": 3911.68}, {"size": 256, "request": 17572.06, "transfer": 4392.96}], [{"size": 1, "request": 141276.3, "transfer": 153.86}, {"size": 2, "request": 131104.83, "transfer": 270.82}, {"size": 4, "request": 102016.22, "transfer": 411.84}, {"size": 16, "request": 81298.29, "transfer": 1280.0}, {"size": 128, "request": 30397.28, "transfer": 3809.28}, {"size": 256, "request": 16576.44, "transfer": 4147.2}], [{"size": 1, "request": 131456.38, "transfer": 143.17}, {"size": 2, "request": 127063.51, "transfer": 262.47}, {"size": 4, "request": 99976.0, "transfer": 403.6}, {"size": 16, "request": 82030.85, "transfer": 1290.24}, {"size": 128, "request": 30224.09, "transfer": 3778.56}, {"size": 256, "request": 17589.55, "transfer": 4403.2}], [{"size": 1, "request": 140285.17, "transfer": 152.78}, {"size": 2, "request": 116024.05, "transfer": 239.67}, {"size": 4, "request": 101058.09, "transfer": 407.97}, {"size": 16, "request": 78885.44, "transfer": 1239.04}, {"size": 128, "request": 30512.94, "transfer": 3819.52}, {"size": 256, "request": 17501.99, "transfer": 4382.72}], [{"size": 1, "request": 142178.27, "transfer": 154.85}, {"size": 2, "request": 128624.98, "transfer": 265.7}, {"size": 4, "request": 101499.37, "transfer": 409.75}, {"size": 16, "request": 80450.59, "transfer": 1269.76}, {"size": 128, "request": 30325.08, "transfer": 3799.04}, {"size": 256, "request": 17083.79, "transfer": 4270.08}], [{"size": 1, "request": 96656.92, "transfer": 105.27}, {"size": 2, "request": 131631.97, "transfer": 271.91}, {"size": 4, "request": 103185.89, "transfer": 416.56}, {"size": 16, "request": 81956.72, "transfer": 1290.24}, {"size": 128, "request": 29685.22, "transfer": 3717.12}, {"size": 256, "request": 17472.65, "transfer": 4372.48}], [{"size": 1, "request": 141593.35, "transfer": 154.21}, {"size": 2, "request": 127443.29, "transfer": 263.25}, {"size": 4, "request": 80175.36, "transfer": 323.67}, {"size": 16, "request": 80569.18, "transfer": 1269.76}, {"size": 128, "request": 30209.46, "transfer": 3778.56}, {"size": 256, "request": 17072.7, "transfer": 4270.08}], [{"size": 1, "request": 120186.98, "transfer": 130.9}, {"size": 2, "request": 119158.57, "transfer": 246.14}, {"size": 4, "request": 100008.88, "transfer": 403.74}, {"size": 16, "request": 82181.07, "transfer": 1290.24}, {"size": 128, "request": 30865.33, "transfer": 3860.48}, {"size": 256, "request": 17219.32, "transfer": 4311.04}], [{"size": 1, "request": 144762.89, "transfer": 157.66}, {"size": 2, "request": 136535.36, "transfer": 282.04}, {"size": 4, "request": 97097.42, "transfer": 391.98}, {"size": 16, "request": 82811.22, "transfer": 1300.48}, {"size": 128, "request": 30515.46, "transfer": 3819.52}, {"size": 256, "request": 17517.35, "transfer": 4382.72}], [{"size": 1, "request": 129058.8, "transfer": 140.56}, {"size": 2, "request": 137581.62, "transfer": 284.2}, {"size": 4, "request": 96211.63, "transfer": 388.41}, {"size": 16, "request": 86765.97, "transfer": 1372.16}, {"size": 128, "request": 30117.7, "transfer": 3768.32}, {"size": 256, "request": 17497.61, "transfer": 4382.72}]], "statistics": {"transfer": [{"size": 1, "avg": 143.87, "min": 105.27, "max": 157.66, "std_dev": 15.062935304913161, "sqr_dev": 226.89201999999932, "count": 10}, {"size": 2, "avg": 267.86199999999997, "min": 239.67, "max": 292.42, "std_dev": 15.549372849090203, "sqr_dev": 241.78299600002356, "count": 10}, {"size": 4, "avg": 394.293, "min": 323.67, "max": 416.56, "std_dev": 25.518693559819987, "sqr_dev": 651.203720999998, "count": 10}, {"size": 16, "avg": 1296.3839999999998, "min": 1239.04, "max": 1372.16, "std_dev": 38.91200000000899, "sqr_dev": 1514.1437440006994, "count": 10}, {"size": 128, "avg": 3806.208, "min": 3717.12, "max": 3911.68, "std_dev": 50.384546202220896, "sqr_dev": 2538.602496003732, "count": 10}, {"size": 256, "avg": 4331.52, "min": 4147.2, "max": 4403.2, "std_dev": 77.71613577626505, "sqr_dev": 6039.7977599948645, "count": 10}], "request": [{"size": 1, "avg": 132099.403, "min": 96656.92, "max": 144762.89, "std_dev": 13831.526429987607, "sqr_dev": 191311123.38344574, "count": 10}, {"size": 2, "avg": 129672.973, "min": 116024.05, "max": 141561.55, "std_dev": 7527.217558772912, "sqr_dev": 56659004.17709923, "count": 10}, {"size": 4, "avg": 97669.731, "min": 80175.36, "max": 103185.89, "std_dev": 6321.470052145053, "sqr_dev": 39960983.62016678, "count": 10}, {"size": 16, "avg": 82343.43899999998, "min": 78885.44, "max": 86765.97, "std_dev": 2387.157661942442, "sqr_dev": 5698521.702970505, "count": 10}, {"size": 128, "avg": 30407.843000000004, "min": 29685.22, "max": 31225.87, "std_dev": 398.4392748470793, "sqr_dev": 158753.8557406664, "count": 10}, {"size": 256, "avg": 17310.346, "min": 16576.44, "max": 17589.55, "std_dev": 306.9437336450841, "sqr_dev": 94214.45562398434, "count": 10}]}}, "user-uprobe": {"details": [[{"size": 1, "request": 102706.91, "transfer": 111.86}, {"size": 2, "request": 102359.85, "transfer": 211.44}, {"size": 4, "request": 81394.32, "transfer": 328.59}, {"size": 16, "request": 64783.24, "transfer": 1024.0}, {"size": 128, "request": 28863.03, "transfer": 3614.72}, {"size": 256, "request": 15910.65, "transfer": 3983.36}], [{"size": 1, "request": 104115.74, "transfer": 113.39}, {"size": 2, "request": 78003.37, "transfer": 161.13}, {"size": 4, "request": 81053.83, "transfer": 327.21}, {"size": 16, "request": 65090.96, "transfer": 1024.0}, {"size": 128, "request": 27841.99, "transfer": 3481.6}, {"size": 256, "request": 16581.95, "transfer": 4147.2}], [{"size": 1, "request": 101101.82, "transfer": 110.11}, {"size": 2, "request": 102304.75, "transfer": 211.33}, {"size": 4, "request": 78901.67, "transfer": 318.53}, {"size": 16, "request": 67090.87, "transfer": 1054.72}, {"size": 128, "request": 28647.08, "transfer": 3584.0}, {"size": 256, "request": 16032.91, "transfer": 4014.08}], [{"size": 1, "request": 103321.25, "transfer": 112.53}, {"size": 2, "request": 103630.81, "transfer": 214.07}, {"size": 4, "request": 64111.24, "transfer": 258.82}, {"size": 16, "request": 65361.24, "transfer": 1034.24}, {"size": 128, "request": 27990.39, "transfer": 3502.08}, {"size": 256, "request": 17014.11, "transfer": 4259.84}], [{"size": 1, "request": 101457.84, "transfer": 110.5}, {"size": 2, "request": 99241.72, "transfer": 205.0}, {"size": 4, "request": 80903.78, "transfer": 326.61}, {"size": 16, "request": 60837.57, "transfer": 962.56}, {"size": 128, "request": 28581.28, "transfer": 3573.76}, {"size": 256, "request": 16937.33, "transfer": 4239.36}], [{"size": 1, "request": 102724.61, "transfer": 111.88}, {"size": 2, "request": 100923.8, "transfer": 208.47}, {"size": 4, "request": 71541.63, "transfer": 288.82}, {"size": 16, "request": 64218.68, "transfer": 1013.76}, {"size": 128, "request": 28111.69, "transfer": 3522.56}, {"size": 256, "request": 15855.37, "transfer": 3962.88}], [{"size": 1, "request": 102473.18, "transfer": 111.6}, {"size": 2, "request": 82498.66, "transfer": 170.41}, {"size": 4, "request": 79080.42, "transfer": 319.25}, {"size": 16, "request": 62977.1, "transfer": 993.28}, {"size": 128, "request": 28725.61, "transfer": 3594.24}, {"size": 256, "request": 16651.49, "transfer": 4167.68}], [{"size": 1, "request": 100664.83, "transfer": 109.63}, {"size": 2, "request": 101892.95, "transfer": 210.48}, {"size": 4, "request": 77025.26, "transfer": 310.95}, {"size": 16, "request": 63827.26, "transfer": 1003.52}, {"size": 128, "request": 27954.51, "transfer": 3502.08}, {"size": 256, "request": 16826.82, "transfer": 4208.64}], [{"size": 1, "request": 100772.74, "transfer": 109.75}, {"size": 2, "request": 78560.26, "transfer": 162.28}, {"size": 4, "request": 79641.29, "transfer": 321.51}, {"size": 16, "request": 65411.4, "transfer": 1034.24}, {"size": 128, "request": 28251.0, "transfer": 3532.8}, {"size": 256, "request": 16814.36, "transfer": 4208.64}], [{"size": 1, "request": 101952.86, "transfer": 111.04}, {"size": 2, "request": 101952.5, "transfer": 210.6}, {"size": 4, "request": 79479.11, "transfer": 320.86}, {"size": 16, "request": 62789.43, "transfer": 993.28}, {"size": 128, "request": 27855.49, "transfer": 3481.6}, {"size": 256, "request": 16684.63, "transfer": 4177.92}]], "statistics": {"transfer": [{"size": 1, "avg": 111.229, "min": 109.63, "max": 113.39, "std_dev": 1.178375576800039, "sqr_dev": 1.3885689999988244, "count": 10}, {"size": 2, "avg": 196.52100000000002, "min": 161.13, "max": 214.07, "std_dev": 21.129003029011685, "sqr_dev": 446.43476899998495, "count": 10}, {"size": 4, "avg": 312.115, "min": 258.82, "max": 328.59, "std_dev": 20.85800194170023, "sqr_dev": 435.05624499997066, "count": 10}, {"size": 16, "avg": 1013.76, "min": 962.56, "max": 1054.72, "std_dev": 25.082774966100683, "sqr_dev": 629.1456000000471, "count": 10}, {"size": 128, "avg": 3538.9440000000004, "min": 3481.6, "max": 3614.72, "std_dev": 46.52161716876405, "sqr_dev": 2164.260863997042, "count": 10}, {"size": 256, "avg": 4136.96, "min": 3962.88, "max": 4259.84, "std_dev": 103.72265789112217, "sqr_dev": 10758.389759998769, "count": 10}], "request": [{"size": 1, "avg": 102129.178, "min": 100664.83, "max": 104115.74, "std_dev": 1081.462040940917, "sqr_dev": 1169560.1459960938, "count": 10}, {"size": 2, "avg": 95136.867, "min": 78003.37, "max": 103630.81, "std_dev": 10228.381667962962, "sqr_dev": 104619791.54552078, "count": 10}, {"size": 4, "avg": 77313.255, "min": 64111.24, "max": 81394.32, "std_dev": 5167.042366315845, "sqr_dev": 26698326.81530285, "count": 10}, {"size": 16, "avg": 64238.775, "min": 60837.57, "max": 67090.87, "std_dev": 1649.9228150808729, "sqr_dev": 2722245.295724392, "count": 10}, {"size": 128, "avg": 28282.207000000002, "min": 27841.99, "max": 28863.03, "std_dev": 368.10451746872496, "sqr_dev": 135500.93578088284, "count": 10}, {"size": 256, "avg": 16530.962, "min": 15855.37, "max": 17014.11, "std_dev": 411.87634983818384, "sqr_dev": 169642.12755602598, "count": 10}]}}}, "http": {"kernel-uprobe": {"details": [[{"size": 1, "request": 115431.23, "transfer": 125.72}, {"size": 2, "request": 114513.83, "transfer": 236.55}, {"size": 4, "request": 95924.25, "transfer": 387.24}, {"size": 16, "request": 85407.64, "transfer": 1341.44}, {"size": 128, "request": 53365.37, "transfer": 6676.48}, {"size": 256, "request": 31443.79, "transfer": 7864.32}], [{"size": 1, "request": 117276.03, "transfer": 127.72}, {"size": 2, "request": 114124.73, "transfer": 235.74}, {"size": 4, "request": 99409.38, "transfer": 401.31}, {"size": 16, "request": 84676.58, "transfer": 1331.2}, {"size": 128, "request": 51162.55, "transfer": 6400.0}, {"size": 256, "request": 20473.07, "transfer": 5120.0}], [{"size": 1, "request": 116951.87, "transfer": 127.37}, {"size": 2, "request": 116178.23, "transfer": 239.98}, {"size": 4, "request": 95790.96, "transfer": 386.7}, {"size": 16, "request": 83976.6, "transfer": 1320.96}, {"size": 128, "request": 47038.65, "transfer": 5888.0}, {"size": 256, "request": 32103.13, "transfer": 8028.16}], [{"size": 1, "request": 117561.67, "transfer": 128.04}, {"size": 2, "request": 116096.1, "transfer": 239.81}, {"size": 4, "request": 97042.52, "transfer": 391.75}, {"size": 16, "request": 83790.83, "transfer": 1320.96}, {"size": 128, "request": 48973.18, "transfer": 6123.52}, {"size": 256, "request": 19797.11, "transfer": 4956.16}], [{"size": 1, "request": 118961.94, "transfer": 129.56}, {"size": 2, "request": 114554.58, "transfer": 236.63}, {"size": 4, "request": 96408.54, "transfer": 389.19}, {"size": 16, "request": 85792.79, "transfer": 1351.68}, {"size": 128, "request": 53970.43, "transfer": 6758.4}, {"size": 256, "request": 26753.14, "transfer": 6686.72}], [{"size": 1, "request": 116052.53, "transfer": 126.39}, {"size": 2, "request": 115834.68, "transfer": 239.27}, {"size": 4, "request": 97968.72, "transfer": 395.49}, {"size": 16, "request": 82914.19, "transfer": 1310.72}, {"size": 128, "request": 48911.31, "transfer": 6123.52}, {"size": 256, "request": 36664.94, "transfer": 9175.04}], [{"size": 1, "request": 115724.36, "transfer": 126.03}, {"size": 2, "request": 114000.11, "transfer": 235.49}, {"size": 4, "request": 98132.45, "transfer": 396.15}, {"size": 16, "request": 85148.1, "transfer": 1341.44}, {"size": 128, "request": 47884.58, "transfer": 5990.4}, {"size": 256, "request": 19673.96, "transfer": 4925.44}], [{"size": 1, "request": 118289.63, "transfer": 128.83}, {"size": 2, "request": 115340.64, "transfer": 238.25}, {"size": 4, "request": 97925.28, "transfer": 395.32}, {"size": 16, "request": 85173.95, "transfer": 1341.44}, {"size": 128, "request": 47618.98, "transfer": 5959.68}, {"size": 256, "request": 28989.44, "transfer": 7249.92}], [{"size": 1, "request": 115887.65, "transfer": 126.21}, {"size": 2, "request": 111762.11, "transfer": 230.86}, {"size": 4, "request": 98009.22, "transfer": 395.66}, {"size": 16, "request": 81977.77, "transfer": 1290.24}, {"size": 128, "request": 53777.25, "transfer": 6727.68}, {"size": 256, "request": 34021.4, "transfer": 8509.44}], [{"size": 1, "request": 116614.16, "transfer": 127.0}, {"size": 2, "request": 113758.51, "transfer": 234.99}, {"size": 4, "request": 95543.13, "transfer": 385.7}, {"size": 16, "request": 82918.83, "transfer": 1310.72}, {"size": 128, "request": 53020.56, "transfer": 6635.52}, {"size": 256, "request": 27780.47, "transfer": 6952.96}]], "statistics": {"transfer": [{"size": 1, "avg": 127.287, "min": 125.72, "max": 129.56, "std_dev": 1.199633694091422, "sqr_dev": 1.4391209999994317, "count": 10}, {"size": 2, "avg": 236.75699999999998, "min": 230.86, "max": 239.98, "std_dev": 2.623894243298346, "sqr_dev": 6.884821000014199, "count": 10}, {"size": 4, "avg": 392.451, "min": 385.7, "max": 401.31, "std_dev": 4.866815077647277, "sqr_dev": 23.685889000014868, "count": 10}, {"size": 16, "avg": 1326.0800000000002, "min": 1290.24, "max": 1351.68, "std_dev": 17.883391177284214, "sqr_dev": 319.81567999976687, "count": 10}, {"size": 128, "avg": 6328.32, "min": 5888.0, "max": 6758.4, "std_dev": 330.61089250055267, "sqr_dev": 109303.56224001199, "count": 10}, {"size": 256, "avg": 6946.816000000001, "min": 4925.44, "max": 9175.04, "std_dev": 1447.8737186039364, "sqr_dev": 2096338.3050239906, "count": 10}], "request": [{"size": 1, "avg": 116875.10699999999, "min": 115431.23, "max": 118961.94, "std_dev": 1101.0242905678722, "sqr_dev": 1212254.4884204865, "count": 10}, {"size": 2, "avg": 114616.35199999998, "min": 111762.11, "max": 116178.23, "std_dev": 1271.0781438764889, "sqr_dev": 1615639.6478404999, "count": 10}, {"size": 4, "avg": 97215.44499999999, "min": 95543.13, "max": 99409.38, "std_dev": 1205.387692606281, "sqr_dev": 1452959.4894866943, "count": 10}, {"size": 16, "avg": 84177.72799999999, "min": 81977.77, "max": 85792.79, "std_dev": 1204.7967625111735, "sqr_dev": 1451535.238957405, "count": 10}, {"size": 128, "avg": 50572.286, "min": 47038.65, "max": 53970.43, "std_dev": 2640.2896964204656, "sqr_dev": 6971129.681024075, "count": 10}, {"size": 256, "avg": 27770.044999999995, "min": 19673.96, "max": 36664.94, "std_dev": 5790.957450690293, "sqr_dev": 33535188.195705414, "count": 10}]}}, "no-probe": {"details": [[{"size": 1, "request": 253100.9, "transfer": 275.65}, {"size": 2, "request": 250460.95, "transfer": 517.37}, {"size": 4, "request": 203285.23, "transfer": 820.64}, {"size": 16, "request": 171543.27, "transfer": 2703.36}, {"size": 128, "request": 69228.34, "transfer": 8663.04}, {"size": 256, "request": 47178.32, "transfer": 11796.48}], [{"size": 1, "request": 258042.66, "transfer": 281.03}, {"size": 2, "request": 251008.67, "transfer": 518.5}, {"size": 4, "request": 207974.57, "transfer": 839.57}, {"size": 16, "request": 170477.55, "transfer": 2682.88}, {"size": 128, "request": 85408.26, "transfer": 10690.56}, {"size": 256, "request": 49554.64, "transfer": 12390.4}], [{"size": 1, "request": 254491.07, "transfer": 277.17}, {"size": 2, "request": 251242.24, "transfer": 518.98}, {"size": 4, "request": 208365.04, "transfer": 841.15}, {"size": 16, "request": 170442.24, "transfer": 2682.88}, {"size": 128, "request": 81547.49, "transfer": 10209.28}, {"size": 256, "request": 46355.18, "transfer": 11591.68}], [{"size": 1, "request": 254001.88, "transfer": 276.63}, {"size": 2, "request": 253875.75, "transfer": 524.42}, {"size": 4, "request": 203705.36, "transfer": 822.34}, {"size": 16, "request": 172019.35, "transfer": 2713.6}, {"size": 128, "request": 81172.77, "transfer": 10158.08}, {"size": 256, "request": 47303.55, "transfer": 11827.2}], [{"size": 1, "request": 255883.46, "transfer": 278.68}, {"size": 2, "request": 250702.17, "transfer": 517.87}, {"size": 4, "request": 201929.2, "transfer": 815.17}, {"size": 16, "request": 172891.36, "transfer": 2723.84}, {"size": 128, "request": 87335.0, "transfer": 10926.08}, {"size": 256, "request": 49211.25, "transfer": 12308.48}], [{"size": 1, "request": 250246.37, "transfer": 272.54}, {"size": 2, "request": 246999.92, "transfer": 510.22}, {"size": 4, "request": 204934.42, "transfer": 827.3}, {"size": 16, "request": 170683.48, "transfer": 2693.12}, {"size": 128, "request": 75390.68, "transfer": 9431.04}, {"size": 256, "request": 49937.19, "transfer": 12492.8}], [{"size": 1, "request": 256746.62, "transfer": 279.62}, {"size": 2, "request": 252290.63, "transfer": 521.15}, {"size": 4, "request": 202368.04, "transfer": 816.94}, {"size": 16, "request": 171319.07, "transfer": 2703.36}, {"size": 128, "request": 76243.77, "transfer": 9543.68}, {"size": 256, "request": 41785.19, "transfer": 10455.04}], [{"size": 1, "request": 250931.18, "transfer": 273.29}, {"size": 2, "request": 249997.13, "transfer": 516.41}, {"size": 4, "request": 207723.84, "transfer": 838.56}, {"size": 16, "request": 173981.12, "transfer": 2744.32}, {"size": 128, "request": 83019.44, "transfer": 10383.36}, {"size": 256, "request": 45260.12, "transfer": 11325.44}], [{"size": 1, "request": 253039.72, "transfer": 275.58}, {"size": 2, "request": 245311.05, "transfer": 506.73}, {"size": 4, "request": 204520.06, "transfer": 825.63}, {"size": 16, "request": 172505.72, "transfer": 2713.6}, {"size": 128, "request": 74227.17, "transfer": 9287.68}, {"size": 256, "request": 50088.66, "transfer": 12533.76}], [{"size": 1, "request": 256684.18, "transfer": 279.55}, {"size": 2, "request": 253326.0, "transfer": 523.29}, {"size": 4, "request": 201642.29, "transfer": 814.01}, {"size": 16, "request": 171027.81, "transfer": 2693.12}, {"size": 128, "request": 84402.32, "transfer": 10557.44}, {"size": 256, "request": 43568.6, "transfer": 10895.36}]], "statistics": {"transfer": [{"size": 1, "avg": 276.97400000000005, "min": 272.54, "max": 281.03, "std_dev": 2.6473352639912378, "sqr_dev": 7.0083839999715565, "count": 10}, {"size": 2, "avg": 517.4939999999999, "min": 506.73, "max": 524.42, "std_dev": 5.179345904658857, "sqr_dev": 26.825624000106473, "count": 10}, {"size": 4, "avg": 826.131, "min": 814.01, "max": 841.15, "std_dev": 9.789453968433158, "sqr_dev": 95.8334090000717, "count": 10}, {"size": 16, "avg": 2705.408, "min": 2682.88, "max": 2744.32, "std_dev": 18.20302216668102, "sqr_dev": 331.3500160006806, "count": 10}, {"size": 128, "avg": 9985.024000000001, "min": 8663.04, "max": 10926.08, "std_dev": 684.5108742919906, "sqr_dev": 468555.1370239854, "count": 10}, {"size": 256, "avg": 11761.663999999999, "min": 10455.04, "max": 12533.76, "std_dev": 671.375508686465, "sqr_dev": 450745.0736640096, "count": 10}], "request": [{"size": 1, "avg": 254316.804, "min": 250246.37, "max": 258042.66, "std_dev": 2431.3511374698314, "sqr_dev": 5911468.353675842, "count": 10}, {"size": 2, "avg": 250521.45099999997, "min": 245311.05, "max": 253875.75, "std_dev": 2507.2778415897105, "sqr_dev": 6286442.174926758, "count": 10}, {"size": 4, "avg": 204644.80500000002, "min": 201642.29, "max": 208365.04, "std_dev": 2425.111232498467, "sqr_dev": 5881164.489990234, "count": 10}, {"size": 16, "avg": 171689.097, "min": 170442.24, "max": 173981.12, "std_dev": 1100.1816202422765, "sqr_dev": 1210399.597518921, "count": 10}, {"size": 128, "avg": 79797.524, "min": 69228.34, "max": 87335.0, "std_dev": 5473.741042747931, "sqr_dev": 29961841.003063202, "count": 10}, {"size": 256, "avg": 47024.27, "min": 41785.19, "max": 50088.66, "std_dev": 2685.3769311327524, "sqr_dev": 7211249.26225996, "count": 10}]}}, "no-uprobe": {"details": [[{"size": 1, "request": 197400.91, "transfer": 214.99}, {"size": 2, "request": 165348.56, "transfer": 341.55}, {"size": 4, "request": 161794.76, "transfer": 653.15}, {"size": 16, "request": 134882.99, "transfer": 2129.92}, {"size": 128, "request": 69627.77, "transfer": 8714.24}, {"size": 256, "request": 46724.53, "transfer": 11683.84}], [{"size": 1, "request": 196714.27, "transfer": 214.24}, {"size": 2, "request": 196356.62, "transfer": 405.61}, {"size": 4, "request": 161597.88, "transfer": 652.36}, {"size": 16, "request": 132973.01, "transfer": 2099.2}, {"size": 128, "request": 73458.69, "transfer": 9195.52}, {"size": 256, "request": 39374.08, "transfer": 9850.88}], [{"size": 1, "request": 188934.81, "transfer": 205.77}, {"size": 2, "request": 183311.38, "transfer": 378.66}, {"size": 4, "request": 162416.02, "transfer": 655.66}, {"size": 16, "request": 133651.12, "transfer": 2109.44}, {"size": 128, "request": 69621.2, "transfer": 8714.24}, {"size": 256, "request": 43930.96, "transfer": 10987.52}], [{"size": 1, "request": 198090.0, "transfer": 215.74}, {"size": 2, "request": 190349.36, "transfer": 393.2}, {"size": 4, "request": 163726.93, "transfer": 660.95}, {"size": 16, "request": 134868.41, "transfer": 2129.92}, {"size": 128, "request": 68028.74, "transfer": 8509.44}, {"size": 256, "request": 45636.08, "transfer": 11417.6}], [{"size": 1, "request": 194383.96, "transfer": 211.7}, {"size": 2, "request": 174696.85, "transfer": 360.86}, {"size": 4, "request": 160660.42, "transfer": 648.57}, {"size": 16, "request": 135793.71, "transfer": 2140.16}, {"size": 128, "request": 68494.54, "transfer": 8570.88}, {"size": 256, "request": 42505.98, "transfer": 10629.12}], [{"size": 1, "request": 193619.73, "transfer": 210.87}, {"size": 2, "request": 192823.94, "transfer": 398.31}, {"size": 4, "request": 163163.35, "transfer": 658.68}, {"size": 16, "request": 134924.55, "transfer": 2129.92}, {"size": 128, "request": 75269.95, "transfer": 9420.8}, {"size": 256, "request": 43748.49, "transfer": 10946.56}], [{"size": 1, "request": 174123.37, "transfer": 189.64}, {"size": 2, "request": 184269.93, "transfer": 380.64}, {"size": 4, "request": 162482.02, "transfer": 655.92}, {"size": 16, "request": 133711.17, "transfer": 2109.44}, {"size": 128, "request": 67463.41, "transfer": 8437.76}, {"size": 256, "request": 45336.25, "transfer": 11335.68}], [{"size": 1, "request": 194032.75, "transfer": 211.32}, {"size": 2, "request": 181315.5, "transfer": 374.54}, {"size": 4, "request": 163695.16, "transfer": 660.82}, {"size": 16, "request": 136329.56, "transfer": 2150.4}, {"size": 128, "request": 71536.23, "transfer": 8949.76}, {"size": 256, "request": 45227.55, "transfer": 11315.2}], [{"size": 1, "request": 194702.77, "transfer": 212.05}, {"size": 2, "request": 198195.32, "transfer": 409.4}, {"size": 4, "request": 165616.99, "transfer": 668.58}, {"size": 16, "request": 136604.45, "transfer": 2150.4}, {"size": 128, "request": 74147.97, "transfer": 9277.44}, {"size": 256, "request": 44652.85, "transfer": 11171.84}], [{"size": 1, "request": 184801.63, "transfer": 201.27}, {"size": 2, "request": 192721.28, "transfer": 398.1}, {"size": 4, "request": 159078.19, "transfer": 642.18}, {"size": 16, "request": 128939.77, "transfer": 2027.52}, {"size": 128, "request": 66925.71, "transfer": 8376.32}, {"size": 256, "request": 44544.77, "transfer": 11141.12}]], "statistics": {"transfer": [{"size": 1, "avg": 208.75899999999996, "min": 189.64, "max": 215.74, "std_dev": 7.606915866500614, "sqr_dev": 57.865169000018795, "count": 10}, {"size": 2, "avg": 384.087, "min": 341.55, "max": 409.4, "std_dev": 20.166956661827573, "sqr_dev": 406.7061410000315, "count": 10}, {"size": 4, "avg": 655.687, "min": 642.18, "max": 668.58, "std_dev": 6.927376198817313, "sqr_dev": 47.9885409999406, "count": 10}, {"size": 16, "avg": 2117.6320000000005, "min": 2027.52, "max": 2150.4, "std_dev": 34.20834424519541, "sqr_dev": 1170.2108159977943, "count": 10}, {"size": 128, "avg": 8816.64, "min": 8376.32, "max": 9420.8, "std_dev": 353.80644833014577, "sqr_dev": 125179.00287999213, "count": 10}, {"size": 256, "avg": 11047.936, "min": 9850.88, "max": 11683.84, "std_dev": 483.89715641239354, "sqr_dev": 234156.45798400044, "count": 10}], "request": [{"size": 1, "avg": 191680.41999999998, "min": 174123.37, "max": 198090.0, "std_dev": 6985.632441209848, "sqr_dev": 48799060.60368347, "count": 10}, {"size": 2, "avg": 185938.874, "min": 165348.56, "max": 198195.32, "std_dev": 9762.255232142765, "sqr_dev": 95301627.21749878, "count": 10}, {"size": 4, "avg": 162423.172, "min": 159078.19, "max": 165616.99, "std_dev": 1715.8612194051193, "sqr_dev": 2944179.724258423, "count": 10}, {"size": 16, "avg": 134267.874, "min": 128939.77, "max": 136604.45, "std_dev": 2096.764566382965, "sqr_dev": 4396421.646839142, "count": 10}, {"size": 128, "avg": 70457.421, "min": 66925.71, "max": 75269.95, "std_dev": 2820.072619353839, "sqr_dev": 7952809.578429222, "count": 10}, {"size": 256, "avg": 44168.153999999995, "min": 39374.08, "max": 46724.53, "std_dev": 1937.3112749129764, "sqr_dev": 3753174.9759049416, "count": 10}]}}, "user-uprobe": {"details": [[{"size": 1, "request": 166965.23, "transfer": 181.84}, {"size": 2, "request": 165340.23, "transfer": 341.54}, {"size": 4, "request": 133475.65, "transfer": 538.83}, {"size": 16, "request": 116389.36, "transfer": 1832.96}, {"size": 128, "request": 67650.79, "transfer": 8468.48}, {"size": 256, "request": 41216.68, "transfer": 10311.68}], [{"size": 1, "request": 160981.48, "transfer": 175.32}, {"size": 2, "request": 158367.05, "transfer": 327.13}, {"size": 4, "request": 134111.18, "transfer": 541.39}, {"size": 16, "request": 117803.8, "transfer": 1853.44}, {"size": 128, "request": 63495.25, "transfer": 7946.24}, {"size": 256, "request": 42469.71, "transfer": 10618.88}], [{"size": 1, "request": 163632.24, "transfer": 178.21}, {"size": 2, "request": 164962.26, "transfer": 340.76}, {"size": 4, "request": 135337.52, "transfer": 546.34}, {"size": 16, "request": 113394.27, "transfer": 1781.76}, {"size": 128, "request": 61400.87, "transfer": 7680.0}, {"size": 256, "request": 41530.98, "transfer": 10383.36}], [{"size": 1, "request": 165122.79, "transfer": 179.83}, {"size": 2, "request": 158661.06, "transfer": 327.74}, {"size": 4, "request": 133308.49, "transfer": 538.15}, {"size": 16, "request": 114352.03, "transfer": 1802.24}, {"size": 128, "request": 62776.13, "transfer": 7854.08}, {"size": 256, "request": 42955.5, "transfer": 10741.76}], [{"size": 1, "request": 161404.53, "transfer": 175.79}, {"size": 2, "request": 159691.15, "transfer": 329.87}, {"size": 4, "request": 131864.83, "transfer": 532.33}, {"size": 16, "request": 114807.59, "transfer": 1812.48}, {"size": 128, "request": 64730.49, "transfer": 8099.84}, {"size": 256, "request": 40452.15, "transfer": 10117.12}], [{"size": 1, "request": 164261.87, "transfer": 178.9}, {"size": 2, "request": 160009.52, "transfer": 330.53}, {"size": 4, "request": 134289.31, "transfer": 542.11}, {"size": 16, "request": 113079.95, "transfer": 1781.76}, {"size": 128, "request": 61745.75, "transfer": 7731.2}, {"size": 256, "request": 44039.17, "transfer": 11018.24}], [{"size": 1, "request": 162205.91, "transfer": 176.66}, {"size": 2, "request": 165844.3, "transfer": 342.58}, {"size": 4, "request": 133605.44, "transfer": 539.35}, {"size": 16, "request": 115892.78, "transfer": 1822.72}, {"size": 128, "request": 64061.79, "transfer": 8017.92}, {"size": 256, "request": 42876.89, "transfer": 10721.28}], [{"size": 1, "request": 159271.02, "transfer": 173.46}, {"size": 2, "request": 162910.86, "transfer": 336.52}, {"size": 4, "request": 134728.82, "transfer": 543.89}, {"size": 16, "request": 115333.55, "transfer": 1812.48}, {"size": 128, "request": 60973.14, "transfer": 7628.8}, {"size": 256, "request": 42295.82, "transfer": 10577.92}], [{"size": 1, "request": 164144.01, "transfer": 178.77}, {"size": 2, "request": 161565.2, "transfer": 333.74}, {"size": 4, "request": 135353.97, "transfer": 546.41}, {"size": 16, "request": 115618.01, "transfer": 1822.72}, {"size": 128, "request": 62536.77, "transfer": 7823.36}, {"size": 256, "request": 35513.06, "transfer": 8878.08}], [{"size": 1, "request": 165511.28, "transfer": 180.26}, {"size": 2, "request": 163483.5, "transfer": 337.7}, {"size": 4, "request": 134378.91, "transfer": 542.48}, {"size": 16, "request": 112893.89, "transfer": 1781.76}, {"size": 128, "request": 63118.07, "transfer": 7895.04}, {"size": 256, "request": 40672.98, "transfer": 10178.56}]], "statistics": {"transfer": [{"size": 1, "avg": 177.90400000000002, "min": 173.46, "max": 181.84, "std_dev": 2.42962219285036, "sqr_dev": 5.903063999990991, "count": 10}, {"size": 2, "avg": 334.811, "min": 327.13, "max": 342.58, "std_dev": 5.524298054957116, "sqr_dev": 30.517869000002975, "count": 10}, {"size": 4, "avg": 541.128, "min": 532.33, "max": 546.41, "std_dev": 4.00336558410298, "sqr_dev": 16.026935999980196, "count": 10}, {"size": 16, "avg": 1810.4319999999996, "min": 1781.76, "max": 1853.44, "std_dev": 22.805562830183593, "sqr_dev": 520.0936960014515, "count": 10}, {"size": 128, "avg": 7914.495999999999, "min": 7628.8, "max": 8468.48, "std_dev": 231.40814104957613, "sqr_dev": 53549.72774402052, "count": 10}, {"size": 256, "avg": 10354.688, "min": 8878.08, "max": 11018.24, "std_dev": 558.0903338492712, "sqr_dev": 311464.820735991, "count": 10}], "request": [{"size": 1, "avg": 163350.03600000002, "min": 159271.02, "max": 166965.23, "std_dev": 2230.8559352136863, "sqr_dev": 4976718.203678131, "count": 10}, {"size": 2, "avg": 162083.513, "min": 158367.05, "max": 165844.3, "std_dev": 2673.951256986101, "sqr_dev": 7150015.324737549, "count": 10}, {"size": 4, "avg": 134045.41199999998, "min": 131864.83, "max": 135353.97, "std_dev": 991.9749083498918, "sqr_dev": 984014.2187957764, "count": 10}, {"size": 16, "avg": 114956.523, "min": 112893.89, "max": 117803.8, "std_dev": 1490.6544918861562, "sqr_dev": 2222050.814180374, "count": 10}, {"size": 128, "avg": 63248.90499999999, "min": 60973.14, "max": 67650.79, "std_dev": 1841.0523744387501, "sqr_dev": 3389473.8454265594, "count": 10}, {"size": 256, "avg": 41402.294, "min": 35513.06, "max": 44039.17, "std_dev": 2228.1500217094263, "sqr_dev": 4964652.519243717, "count": 10}]}}}}
+{
+    "https": {
+        "kernel-uprobe": {
+            "details": [
+                [
+                    {
+                        "size": 1,
+                        "request": 75864.4,
+                        "transfer": 82.62
+                    },
+                    {
+                        "size": 2,
+                        "request": 76746.81,
+                        "transfer": 158.53
+                    },
+                    {
+                        "size": 4,
+                        "request": 58954.21,
+                        "transfer": 238.0
+                    },
+                    {
+                        "size": 16,
+                        "request": 49473.67,
+                        "transfer": 779.52
+                    },
+                    {
+                        "size": 128,
+                        "request": 25920.46,
+                        "transfer": 3246.08
+                    },
+                    {
+                        "size": 256,
+                        "request": 15820.53,
+                        "transfer": 3962.88
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 75473.33,
+                        "transfer": 82.2
+                    },
+                    {
+                        "size": 2,
+                        "request": 76283.0,
+                        "transfer": 157.57
+                    },
+                    {
+                        "size": 4,
+                        "request": 58527.76,
+                        "transfer": 236.28
+                    },
+                    {
+                        "size": 16,
+                        "request": 49376.47,
+                        "transfer": 777.99
+                    },
+                    {
+                        "size": 128,
+                        "request": 26108.1,
+                        "transfer": 3266.56
+                    },
+                    {
+                        "size": 256,
+                        "request": 15901.27,
+                        "transfer": 3983.36
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 75626.74,
+                        "transfer": 82.36
+                    },
+                    {
+                        "size": 2,
+                        "request": 78747.64,
+                        "transfer": 162.67
+                    },
+                    {
+                        "size": 4,
+                        "request": 59769.2,
+                        "transfer": 241.29
+                    },
+                    {
+                        "size": 16,
+                        "request": 48158.94,
+                        "transfer": 758.8
+                    },
+                    {
+                        "size": 128,
+                        "request": 24612.08,
+                        "transfer": 3082.24
+                    },
+                    {
+                        "size": 256,
+                        "request": 15938.93,
+                        "transfer": 3983.36
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 78501.35,
+                        "transfer": 85.5
+                    },
+                    {
+                        "size": 2,
+                        "request": 75709.39,
+                        "transfer": 156.39
+                    },
+                    {
+                        "size": 4,
+                        "request": 60585.55,
+                        "transfer": 244.58
+                    },
+                    {
+                        "size": 16,
+                        "request": 48756.25,
+                        "transfer": 768.22
+                    },
+                    {
+                        "size": 128,
+                        "request": 25680.22,
+                        "transfer": 3215.36
+                    },
+                    {
+                        "size": 256,
+                        "request": 15229.29,
+                        "transfer": 3809.28
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 76595.34,
+                        "transfer": 83.42
+                    },
+                    {
+                        "size": 2,
+                        "request": 81831.22,
+                        "transfer": 169.04
+                    },
+                    {
+                        "size": 4,
+                        "request": 59415.59,
+                        "transfer": 239.86
+                    },
+                    {
+                        "size": 16,
+                        "request": 50224.88,
+                        "transfer": 791.36
+                    },
+                    {
+                        "size": 128,
+                        "request": 26373.56,
+                        "transfer": 3297.28
+                    },
+                    {
+                        "size": 256,
+                        "request": 15881.52,
+                        "transfer": 3973.12
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 84509.89,
+                        "transfer": 92.04
+                    },
+                    {
+                        "size": 2,
+                        "request": 74691.28,
+                        "transfer": 154.29
+                    },
+                    {
+                        "size": 4,
+                        "request": 60310.22,
+                        "transfer": 243.47
+                    },
+                    {
+                        "size": 16,
+                        "request": 52022.86,
+                        "transfer": 819.68
+                    },
+                    {
+                        "size": 128,
+                        "request": 26243.45,
+                        "transfer": 3287.04
+                    },
+                    {
+                        "size": 256,
+                        "request": 15895.43,
+                        "transfer": 3973.12
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 75388.3,
+                        "transfer": 82.11
+                    },
+                    {
+                        "size": 2,
+                        "request": 83133.66,
+                        "transfer": 171.73
+                    },
+                    {
+                        "size": 4,
+                        "request": 58505.86,
+                        "transfer": 236.19
+                    },
+                    {
+                        "size": 16,
+                        "request": 48194.29,
+                        "transfer": 759.37
+                    },
+                    {
+                        "size": 128,
+                        "request": 25482.97,
+                        "transfer": 3184.64
+                    },
+                    {
+                        "size": 256,
+                        "request": 15734.44,
+                        "transfer": 3932.16
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 73852.6,
+                        "transfer": 80.43
+                    },
+                    {
+                        "size": 2,
+                        "request": 62884.69,
+                        "transfer": 129.9
+                    },
+                    {
+                        "size": 4,
+                        "request": 58451.22,
+                        "transfer": 235.97
+                    },
+                    {
+                        "size": 16,
+                        "request": 49123.11,
+                        "transfer": 774.01
+                    },
+                    {
+                        "size": 128,
+                        "request": 25778.26,
+                        "transfer": 3225.6
+                    },
+                    {
+                        "size": 256,
+                        "request": 15440.51,
+                        "transfer": 3860.48
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 75188.96,
+                        "transfer": 81.89
+                    },
+                    {
+                        "size": 2,
+                        "request": 71451.87,
+                        "transfer": 147.6
+                    },
+                    {
+                        "size": 4,
+                        "request": 64804.58,
+                        "transfer": 261.62
+                    },
+                    {
+                        "size": 16,
+                        "request": 47932.72,
+                        "transfer": 755.25
+                    },
+                    {
+                        "size": 128,
+                        "request": 24709.32,
+                        "transfer": 3092.48
+                    },
+                    {
+                        "size": 256,
+                        "request": 15574.61,
+                        "transfer": 3901.44
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 83464.68,
+                        "transfer": 90.9
+                    },
+                    {
+                        "size": 2,
+                        "request": 81846.5,
+                        "transfer": 169.07
+                    },
+                    {
+                        "size": 4,
+                        "request": 58804.89,
+                        "transfer": 237.4
+                    },
+                    {
+                        "size": 16,
+                        "request": 49366.78,
+                        "transfer": 777.82
+                    },
+                    {
+                        "size": 128,
+                        "request": 24434.12,
+                        "transfer": 3061.76
+                    },
+                    {
+                        "size": 256,
+                        "request": 15897.04,
+                        "transfer": 3973.12
+                    }
+                ]
+            ],
+            "statistics": {
+                "transfer": [
+                    {
+                        "size": 1,
+                        "avg": 84.34700000000001,
+                        "min": 80.43,
+                        "max": 92.04,
+                        "std_dev": 3.7714322213184452,
+                        "sqr_dev": 14.223700999998982,
+                        "count": 10
+                    },
+                    {
+                        "size": 2,
+                        "avg": 157.67899999999997,
+                        "min": 129.9,
+                        "max": 171.73,
+                        "std_dev": 11.69747789055425,
+                        "sqr_dev": 136.8309890000055,
+                        "count": 10
+                    },
+                    {
+                        "size": 4,
+                        "avg": 241.46600000000004,
+                        "min": 235.97,
+                        "max": 261.62,
+                        "std_dev": 7.321128601519769,
+                        "sqr_dev": 53.5989239999908,
+                        "count": 10
+                    },
+                    {
+                        "size": 16,
+                        "avg": 776.202,
+                        "min": 755.25,
+                        "max": 819.68,
+                        "std_dev": 17.973799709578536,
+                        "sqr_dev": 323.0574760000454,
+                        "count": 10
+                    },
+                    {
+                        "size": 128,
+                        "avg": 3195.904,
+                        "min": 3061.76,
+                        "max": 3297.28,
+                        "std_dev": 83.12079922618618,
+                        "sqr_dev": 6909.067263999954,
+                        "count": 10
+                    },
+                    {
+                        "size": 256,
+                        "avg": 3935.232,
+                        "min": 3809.28,
+                        "max": 3983.36,
+                        "std_dev": 56.83891849780293,
+                        "sqr_dev": 3230.662655999884,
+                        "count": 10
+                    }
+                ],
+                "request": [
+                    {
+                        "size": 1,
+                        "avg": 77446.55899999998,
+                        "min": 73852.6,
+                        "max": 84509.89,
+                        "std_dev": 3462.714378286629,
+                        "sqr_dev": 11990390.865592957,
+                        "count": 10
+                    },
+                    {
+                        "size": 2,
+                        "avg": 76332.60600000001,
+                        "min": 62884.69,
+                        "max": 83133.66,
+                        "std_dev": 5662.586964196031,
+                        "sqr_dev": 32064891.127082825,
+                        "count": 10
+                    },
+                    {
+                        "size": 4,
+                        "avg": 59812.90799999998,
+                        "min": 58451.22,
+                        "max": 64804.58,
+                        "std_dev": 1813.518481642236,
+                        "sqr_dev": 3288849.2832579613,
+                        "count": 10
+                    },
+                    {
+                        "size": 16,
+                        "avg": 49262.996999999996,
+                        "min": 47932.72,
+                        "max": 52022.86,
+                        "std_dev": 1140.928005301872,
+                        "sqr_dev": 1301716.7132821083,
+                        "count": 10
+                    },
+                    {
+                        "size": 128,
+                        "avg": 25534.254,
+                        "min": 24434.12,
+                        "max": 26373.56,
+                        "std_dev": 671.6054416575305,
+                        "sqr_dev": 451053.8692640066,
+                        "count": 10
+                    },
+                    {
+                        "size": 256,
+                        "avg": 15731.357,
+                        "min": 15229.29,
+                        "max": 15938.93,
+                        "std_dev": 227.61171125636392,
+                        "sqr_dev": 51807.09110105038,
+                        "count": 10
+                    }
+                ]
+            }
+        },
+        "no-probe": {
+            "details": [
+                [
+                    {
+                        "size": 1,
+                        "request": 121517.17,
+                        "transfer": 132.34
+                    },
+                    {
+                        "size": 2,
+                        "request": 159677.31,
+                        "transfer": 329.84
+                    },
+                    {
+                        "size": 4,
+                        "request": 107054.65,
+                        "transfer": 432.18
+                    },
+                    {
+                        "size": 16,
+                        "request": 91067.96,
+                        "transfer": 1433.6
+                    },
+                    {
+                        "size": 128,
+                        "request": 34317.39,
+                        "transfer": 4290.56
+                    },
+                    {
+                        "size": 256,
+                        "request": 19382.72,
+                        "transfer": 4853.76
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 166959.44,
+                        "transfer": 181.83
+                    },
+                    {
+                        "size": 2,
+                        "request": 154099.5,
+                        "transfer": 318.32
+                    },
+                    {
+                        "size": 4,
+                        "request": 119126.32,
+                        "transfer": 480.91
+                    },
+                    {
+                        "size": 16,
+                        "request": 94798.66,
+                        "transfer": 1495.04
+                    },
+                    {
+                        "size": 128,
+                        "request": 34852.39,
+                        "transfer": 4362.24
+                    },
+                    {
+                        "size": 256,
+                        "request": 20003.41,
+                        "transfer": 5007.36
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 155396.0,
+                        "transfer": 169.24
+                    },
+                    {
+                        "size": 2,
+                        "request": 141288.28,
+                        "transfer": 291.85
+                    },
+                    {
+                        "size": 4,
+                        "request": 107906.87,
+                        "transfer": 435.62
+                    },
+                    {
+                        "size": 16,
+                        "request": 88929.51,
+                        "transfer": 1402.88
+                    },
+                    {
+                        "size": 128,
+                        "request": 34800.98,
+                        "transfer": 4352.0
+                    },
+                    {
+                        "size": 256,
+                        "request": 19547.39,
+                        "transfer": 4894.72
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 153421.33,
+                        "transfer": 167.09
+                    },
+                    {
+                        "size": 2,
+                        "request": 159154.19,
+                        "transfer": 328.76
+                    },
+                    {
+                        "size": 4,
+                        "request": 93360.7,
+                        "transfer": 376.9
+                    },
+                    {
+                        "size": 16,
+                        "request": 94242.18,
+                        "transfer": 1484.8
+                    },
+                    {
+                        "size": 128,
+                        "request": 34567.26,
+                        "transfer": 4321.28
+                    },
+                    {
+                        "size": 256,
+                        "request": 19009.13,
+                        "transfer": 4751.36
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 118003.65,
+                        "transfer": 128.52
+                    },
+                    {
+                        "size": 2,
+                        "request": 157777.48,
+                        "transfer": 325.91
+                    },
+                    {
+                        "size": 4,
+                        "request": 112711.6,
+                        "transfer": 455.02
+                    },
+                    {
+                        "size": 16,
+                        "request": 98869.41,
+                        "transfer": 1556.48
+                    },
+                    {
+                        "size": 128,
+                        "request": 34249.26,
+                        "transfer": 4290.56
+                    },
+                    {
+                        "size": 256,
+                        "request": 19840.71,
+                        "transfer": 4966.4
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 156662.85,
+                        "transfer": 170.62
+                    },
+                    {
+                        "size": 2,
+                        "request": 156194.43,
+                        "transfer": 322.64
+                    },
+                    {
+                        "size": 4,
+                        "request": 118250.41,
+                        "transfer": 477.37
+                    },
+                    {
+                        "size": 16,
+                        "request": 90916.04,
+                        "transfer": 1433.6
+                    },
+                    {
+                        "size": 128,
+                        "request": 35004.77,
+                        "transfer": 4382.72
+                    },
+                    {
+                        "size": 256,
+                        "request": 17185.9,
+                        "transfer": 4300.8
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 147424.95,
+                        "transfer": 160.56
+                    },
+                    {
+                        "size": 2,
+                        "request": 120811.43,
+                        "transfer": 249.56
+                    },
+                    {
+                        "size": 4,
+                        "request": 115189.33,
+                        "transfer": 465.02
+                    },
+                    {
+                        "size": 16,
+                        "request": 103729.95,
+                        "transfer": 1638.4
+                    },
+                    {
+                        "size": 128,
+                        "request": 34391.7,
+                        "transfer": 4300.8
+                    },
+                    {
+                        "size": 256,
+                        "request": 19625.7,
+                        "transfer": 4915.2
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 159621.03,
+                        "transfer": 173.84
+                    },
+                    {
+                        "size": 2,
+                        "request": 156364.65,
+                        "transfer": 323.0
+                    },
+                    {
+                        "size": 4,
+                        "request": 111235.07,
+                        "transfer": 449.06
+                    },
+                    {
+                        "size": 16,
+                        "request": 90771.19,
+                        "transfer": 1433.6
+                    },
+                    {
+                        "size": 128,
+                        "request": 34648.84,
+                        "transfer": 4331.52
+                    },
+                    {
+                        "size": 256,
+                        "request": 19799.35,
+                        "transfer": 4956.16
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 158488.68,
+                        "transfer": 172.61
+                    },
+                    {
+                        "size": 2,
+                        "request": 155290.0,
+                        "transfer": 320.78
+                    },
+                    {
+                        "size": 4,
+                        "request": 89839.33,
+                        "transfer": 362.68
+                    },
+                    {
+                        "size": 16,
+                        "request": 90485.99,
+                        "transfer": 1423.36
+                    },
+                    {
+                        "size": 128,
+                        "request": 35295.67,
+                        "transfer": 4413.44
+                    },
+                    {
+                        "size": 256,
+                        "request": 19693.47,
+                        "transfer": 4925.44
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 145386.13,
+                        "transfer": 158.34
+                    },
+                    {
+                        "size": 2,
+                        "request": 153552.95,
+                        "transfer": 317.19
+                    },
+                    {
+                        "size": 4,
+                        "request": 120224.12,
+                        "transfer": 485.34
+                    },
+                    {
+                        "size": 16,
+                        "request": 90986.4,
+                        "transfer": 1433.6
+                    },
+                    {
+                        "size": 128,
+                        "request": 34339.32,
+                        "transfer": 4300.8
+                    },
+                    {
+                        "size": 256,
+                        "request": 19751.93,
+                        "transfer": 4945.92
+                    }
+                ]
+            ],
+            "statistics": {
+                "transfer": [
+                    {
+                        "size": 1,
+                        "avg": 161.499,
+                        "min": 128.52,
+                        "max": 181.83,
+                        "std_dev": 16.769621015395874,
+                        "sqr_dev": 281.22018900000694,
+                        "count": 10
+                    },
+                    {
+                        "size": 2,
+                        "avg": 312.78499999999997,
+                        "min": 249.56,
+                        "max": 329.84,
+                        "std_dev": 23.38683743048658,
+                        "sqr_dev": 546.9441650000081,
+                        "count": 10
+                    },
+                    {
+                        "size": 4,
+                        "avg": 442.00999999999993,
+                        "min": 362.68,
+                        "max": 485.34,
+                        "std_dev": 40.07427254486394,
+                        "sqr_dev": 1605.9473200000357,
+                        "count": 10
+                    },
+                    {
+                        "size": 16,
+                        "avg": 1473.5360000000003,
+                        "min": 1402.88,
+                        "max": 1638.4,
+                        "std_dev": 69.66963688723419,
+                        "sqr_dev": 4853.858303999063,
+                        "count": 10
+                    },
+                    {
+                        "size": 128,
+                        "avg": 4334.592000000001,
+                        "min": 4290.56,
+                        "max": 4413.44,
+                        "std_dev": 39.93599999995766,
+                        "sqr_dev": 1594.8840959966183,
+                        "count": 10
+                    },
+                    {
+                        "size": 256,
+                        "avg": 4851.7119999999995,
+                        "min": 4300.8,
+                        "max": 5007.36,
+                        "std_dev": 195.46333450549167,
+                        "sqr_dev": 38205.91513600573,
+                        "count": 10
+                    }
+                ],
+                "request": [
+                    {
+                        "size": 1,
+                        "avg": 148288.123,
+                        "min": 118003.65,
+                        "max": 166959.44,
+                        "std_dev": 15398.415064505156,
+                        "sqr_dev": 237111186.4987793,
+                        "count": 10
+                    },
+                    {
+                        "size": 2,
+                        "avg": 151421.02199999997,
+                        "min": 120811.43,
+                        "max": 159677.31,
+                        "std_dev": 11322.126805070786,
+                        "sqr_dev": 128190555.39010239,
+                        "count": 10
+                    },
+                    {
+                        "size": 4,
+                        "avg": 109489.84,
+                        "min": 89839.33,
+                        "max": 120224.12,
+                        "std_dev": 9927.091703520398,
+                        "sqr_dev": 98547149.69010353,
+                        "count": 10
+                    },
+                    {
+                        "size": 16,
+                        "avg": 93479.72899999999,
+                        "min": 88929.51,
+                        "max": 103729.95,
+                        "std_dev": 4382.300451859734,
+                        "sqr_dev": 19204557.250370026,
+                        "count": 10
+                    },
+                    {
+                        "size": 128,
+                        "avg": 34646.757999999994,
+                        "min": 34249.26,
+                        "max": 35295.67,
+                        "std_dev": 323.68398693201664,
+                        "sqr_dev": 104771.3233962059,
+                        "count": 10
+                    },
+                    {
+                        "size": 256,
+                        "avg": 19383.971,
+                        "min": 17185.9,
+                        "max": 20003.41,
+                        "std_dev": 778.0231680027593,
+                        "sqr_dev": 605320.04994905,
+                        "count": 10
+                    }
+                ]
+            }
+        },
+        "no-uprobe": {
+            "details": [
+                [
+                    {
+                        "size": 1,
+                        "request": 133538.97,
+                        "transfer": 145.44
+                    },
+                    {
+                        "size": 2,
+                        "request": 141561.55,
+                        "transfer": 292.42
+                    },
+                    {
+                        "size": 4,
+                        "request": 95468.45,
+                        "transfer": 385.41
+                    },
+                    {
+                        "size": 16,
+                        "request": 86485.06,
+                        "transfer": 1361.92
+                    },
+                    {
+                        "size": 128,
+                        "request": 31225.87,
+                        "transfer": 3911.68
+                    },
+                    {
+                        "size": 256,
+                        "request": 17572.06,
+                        "transfer": 4392.96
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 141276.3,
+                        "transfer": 153.86
+                    },
+                    {
+                        "size": 2,
+                        "request": 131104.83,
+                        "transfer": 270.82
+                    },
+                    {
+                        "size": 4,
+                        "request": 102016.22,
+                        "transfer": 411.84
+                    },
+                    {
+                        "size": 16,
+                        "request": 81298.29,
+                        "transfer": 1280.0
+                    },
+                    {
+                        "size": 128,
+                        "request": 30397.28,
+                        "transfer": 3809.28
+                    },
+                    {
+                        "size": 256,
+                        "request": 16576.44,
+                        "transfer": 4147.2
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 131456.38,
+                        "transfer": 143.17
+                    },
+                    {
+                        "size": 2,
+                        "request": 127063.51,
+                        "transfer": 262.47
+                    },
+                    {
+                        "size": 4,
+                        "request": 99976.0,
+                        "transfer": 403.6
+                    },
+                    {
+                        "size": 16,
+                        "request": 82030.85,
+                        "transfer": 1290.24
+                    },
+                    {
+                        "size": 128,
+                        "request": 30224.09,
+                        "transfer": 3778.56
+                    },
+                    {
+                        "size": 256,
+                        "request": 17589.55,
+                        "transfer": 4403.2
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 140285.17,
+                        "transfer": 152.78
+                    },
+                    {
+                        "size": 2,
+                        "request": 116024.05,
+                        "transfer": 239.67
+                    },
+                    {
+                        "size": 4,
+                        "request": 101058.09,
+                        "transfer": 407.97
+                    },
+                    {
+                        "size": 16,
+                        "request": 78885.44,
+                        "transfer": 1239.04
+                    },
+                    {
+                        "size": 128,
+                        "request": 30512.94,
+                        "transfer": 3819.52
+                    },
+                    {
+                        "size": 256,
+                        "request": 17501.99,
+                        "transfer": 4382.72
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 142178.27,
+                        "transfer": 154.85
+                    },
+                    {
+                        "size": 2,
+                        "request": 128624.98,
+                        "transfer": 265.7
+                    },
+                    {
+                        "size": 4,
+                        "request": 101499.37,
+                        "transfer": 409.75
+                    },
+                    {
+                        "size": 16,
+                        "request": 80450.59,
+                        "transfer": 1269.76
+                    },
+                    {
+                        "size": 128,
+                        "request": 30325.08,
+                        "transfer": 3799.04
+                    },
+                    {
+                        "size": 256,
+                        "request": 17083.79,
+                        "transfer": 4270.08
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 96656.92,
+                        "transfer": 105.27
+                    },
+                    {
+                        "size": 2,
+                        "request": 131631.97,
+                        "transfer": 271.91
+                    },
+                    {
+                        "size": 4,
+                        "request": 103185.89,
+                        "transfer": 416.56
+                    },
+                    {
+                        "size": 16,
+                        "request": 81956.72,
+                        "transfer": 1290.24
+                    },
+                    {
+                        "size": 128,
+                        "request": 29685.22,
+                        "transfer": 3717.12
+                    },
+                    {
+                        "size": 256,
+                        "request": 17472.65,
+                        "transfer": 4372.48
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 141593.35,
+                        "transfer": 154.21
+                    },
+                    {
+                        "size": 2,
+                        "request": 127443.29,
+                        "transfer": 263.25
+                    },
+                    {
+                        "size": 4,
+                        "request": 80175.36,
+                        "transfer": 323.67
+                    },
+                    {
+                        "size": 16,
+                        "request": 80569.18,
+                        "transfer": 1269.76
+                    },
+                    {
+                        "size": 128,
+                        "request": 30209.46,
+                        "transfer": 3778.56
+                    },
+                    {
+                        "size": 256,
+                        "request": 17072.7,
+                        "transfer": 4270.08
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 120186.98,
+                        "transfer": 130.9
+                    },
+                    {
+                        "size": 2,
+                        "request": 119158.57,
+                        "transfer": 246.14
+                    },
+                    {
+                        "size": 4,
+                        "request": 100008.88,
+                        "transfer": 403.74
+                    },
+                    {
+                        "size": 16,
+                        "request": 82181.07,
+                        "transfer": 1290.24
+                    },
+                    {
+                        "size": 128,
+                        "request": 30865.33,
+                        "transfer": 3860.48
+                    },
+                    {
+                        "size": 256,
+                        "request": 17219.32,
+                        "transfer": 4311.04
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 144762.89,
+                        "transfer": 157.66
+                    },
+                    {
+                        "size": 2,
+                        "request": 136535.36,
+                        "transfer": 282.04
+                    },
+                    {
+                        "size": 4,
+                        "request": 97097.42,
+                        "transfer": 391.98
+                    },
+                    {
+                        "size": 16,
+                        "request": 82811.22,
+                        "transfer": 1300.48
+                    },
+                    {
+                        "size": 128,
+                        "request": 30515.46,
+                        "transfer": 3819.52
+                    },
+                    {
+                        "size": 256,
+                        "request": 17517.35,
+                        "transfer": 4382.72
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 129058.8,
+                        "transfer": 140.56
+                    },
+                    {
+                        "size": 2,
+                        "request": 137581.62,
+                        "transfer": 284.2
+                    },
+                    {
+                        "size": 4,
+                        "request": 96211.63,
+                        "transfer": 388.41
+                    },
+                    {
+                        "size": 16,
+                        "request": 86765.97,
+                        "transfer": 1372.16
+                    },
+                    {
+                        "size": 128,
+                        "request": 30117.7,
+                        "transfer": 3768.32
+                    },
+                    {
+                        "size": 256,
+                        "request": 17497.61,
+                        "transfer": 4382.72
+                    }
+                ]
+            ],
+            "statistics": {
+                "transfer": [
+                    {
+                        "size": 1,
+                        "avg": 143.87,
+                        "min": 105.27,
+                        "max": 157.66,
+                        "std_dev": 15.062935304913161,
+                        "sqr_dev": 226.89201999999932,
+                        "count": 10
+                    },
+                    {
+                        "size": 2,
+                        "avg": 267.86199999999997,
+                        "min": 239.67,
+                        "max": 292.42,
+                        "std_dev": 15.549372849090203,
+                        "sqr_dev": 241.78299600002356,
+                        "count": 10
+                    },
+                    {
+                        "size": 4,
+                        "avg": 394.293,
+                        "min": 323.67,
+                        "max": 416.56,
+                        "std_dev": 25.518693559819987,
+                        "sqr_dev": 651.203720999998,
+                        "count": 10
+                    },
+                    {
+                        "size": 16,
+                        "avg": 1296.3839999999998,
+                        "min": 1239.04,
+                        "max": 1372.16,
+                        "std_dev": 38.91200000000899,
+                        "sqr_dev": 1514.1437440006994,
+                        "count": 10
+                    },
+                    {
+                        "size": 128,
+                        "avg": 3806.208,
+                        "min": 3717.12,
+                        "max": 3911.68,
+                        "std_dev": 50.384546202220896,
+                        "sqr_dev": 2538.602496003732,
+                        "count": 10
+                    },
+                    {
+                        "size": 256,
+                        "avg": 4331.52,
+                        "min": 4147.2,
+                        "max": 4403.2,
+                        "std_dev": 77.71613577626505,
+                        "sqr_dev": 6039.7977599948645,
+                        "count": 10
+                    }
+                ],
+                "request": [
+                    {
+                        "size": 1,
+                        "avg": 132099.403,
+                        "min": 96656.92,
+                        "max": 144762.89,
+                        "std_dev": 13831.526429987607,
+                        "sqr_dev": 191311123.38344574,
+                        "count": 10
+                    },
+                    {
+                        "size": 2,
+                        "avg": 129672.973,
+                        "min": 116024.05,
+                        "max": 141561.55,
+                        "std_dev": 7527.217558772912,
+                        "sqr_dev": 56659004.17709923,
+                        "count": 10
+                    },
+                    {
+                        "size": 4,
+                        "avg": 97669.731,
+                        "min": 80175.36,
+                        "max": 103185.89,
+                        "std_dev": 6321.470052145053,
+                        "sqr_dev": 39960983.62016678,
+                        "count": 10
+                    },
+                    {
+                        "size": 16,
+                        "avg": 82343.43899999998,
+                        "min": 78885.44,
+                        "max": 86765.97,
+                        "std_dev": 2387.157661942442,
+                        "sqr_dev": 5698521.702970505,
+                        "count": 10
+                    },
+                    {
+                        "size": 128,
+                        "avg": 30407.843000000004,
+                        "min": 29685.22,
+                        "max": 31225.87,
+                        "std_dev": 398.4392748470793,
+                        "sqr_dev": 158753.8557406664,
+                        "count": 10
+                    },
+                    {
+                        "size": 256,
+                        "avg": 17310.346,
+                        "min": 16576.44,
+                        "max": 17589.55,
+                        "std_dev": 306.9437336450841,
+                        "sqr_dev": 94214.45562398434,
+                        "count": 10
+                    }
+                ]
+            }
+        },
+        "user-uprobe": {
+            "details": [
+                [
+                    {
+                        "size": 1,
+                        "request": 102706.91,
+                        "transfer": 111.86
+                    },
+                    {
+                        "size": 2,
+                        "request": 102359.85,
+                        "transfer": 211.44
+                    },
+                    {
+                        "size": 4,
+                        "request": 81394.32,
+                        "transfer": 328.59
+                    },
+                    {
+                        "size": 16,
+                        "request": 64783.24,
+                        "transfer": 1024.0
+                    },
+                    {
+                        "size": 128,
+                        "request": 28863.03,
+                        "transfer": 3614.72
+                    },
+                    {
+                        "size": 256,
+                        "request": 15910.65,
+                        "transfer": 3983.36
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 104115.74,
+                        "transfer": 113.39
+                    },
+                    {
+                        "size": 2,
+                        "request": 78003.37,
+                        "transfer": 161.13
+                    },
+                    {
+                        "size": 4,
+                        "request": 81053.83,
+                        "transfer": 327.21
+                    },
+                    {
+                        "size": 16,
+                        "request": 65090.96,
+                        "transfer": 1024.0
+                    },
+                    {
+                        "size": 128,
+                        "request": 27841.99,
+                        "transfer": 3481.6
+                    },
+                    {
+                        "size": 256,
+                        "request": 16581.95,
+                        "transfer": 4147.2
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 101101.82,
+                        "transfer": 110.11
+                    },
+                    {
+                        "size": 2,
+                        "request": 102304.75,
+                        "transfer": 211.33
+                    },
+                    {
+                        "size": 4,
+                        "request": 78901.67,
+                        "transfer": 318.53
+                    },
+                    {
+                        "size": 16,
+                        "request": 67090.87,
+                        "transfer": 1054.72
+                    },
+                    {
+                        "size": 128,
+                        "request": 28647.08,
+                        "transfer": 3584.0
+                    },
+                    {
+                        "size": 256,
+                        "request": 16032.91,
+                        "transfer": 4014.08
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 103321.25,
+                        "transfer": 112.53
+                    },
+                    {
+                        "size": 2,
+                        "request": 103630.81,
+                        "transfer": 214.07
+                    },
+                    {
+                        "size": 4,
+                        "request": 64111.24,
+                        "transfer": 258.82
+                    },
+                    {
+                        "size": 16,
+                        "request": 65361.24,
+                        "transfer": 1034.24
+                    },
+                    {
+                        "size": 128,
+                        "request": 27990.39,
+                        "transfer": 3502.08
+                    },
+                    {
+                        "size": 256,
+                        "request": 17014.11,
+                        "transfer": 4259.84
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 101457.84,
+                        "transfer": 110.5
+                    },
+                    {
+                        "size": 2,
+                        "request": 99241.72,
+                        "transfer": 205.0
+                    },
+                    {
+                        "size": 4,
+                        "request": 80903.78,
+                        "transfer": 326.61
+                    },
+                    {
+                        "size": 16,
+                        "request": 60837.57,
+                        "transfer": 962.56
+                    },
+                    {
+                        "size": 128,
+                        "request": 28581.28,
+                        "transfer": 3573.76
+                    },
+                    {
+                        "size": 256,
+                        "request": 16937.33,
+                        "transfer": 4239.36
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 102724.61,
+                        "transfer": 111.88
+                    },
+                    {
+                        "size": 2,
+                        "request": 100923.8,
+                        "transfer": 208.47
+                    },
+                    {
+                        "size": 4,
+                        "request": 71541.63,
+                        "transfer": 288.82
+                    },
+                    {
+                        "size": 16,
+                        "request": 64218.68,
+                        "transfer": 1013.76
+                    },
+                    {
+                        "size": 128,
+                        "request": 28111.69,
+                        "transfer": 3522.56
+                    },
+                    {
+                        "size": 256,
+                        "request": 15855.37,
+                        "transfer": 3962.88
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 102473.18,
+                        "transfer": 111.6
+                    },
+                    {
+                        "size": 2,
+                        "request": 82498.66,
+                        "transfer": 170.41
+                    },
+                    {
+                        "size": 4,
+                        "request": 79080.42,
+                        "transfer": 319.25
+                    },
+                    {
+                        "size": 16,
+                        "request": 62977.1,
+                        "transfer": 993.28
+                    },
+                    {
+                        "size": 128,
+                        "request": 28725.61,
+                        "transfer": 3594.24
+                    },
+                    {
+                        "size": 256,
+                        "request": 16651.49,
+                        "transfer": 4167.68
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 100664.83,
+                        "transfer": 109.63
+                    },
+                    {
+                        "size": 2,
+                        "request": 101892.95,
+                        "transfer": 210.48
+                    },
+                    {
+                        "size": 4,
+                        "request": 77025.26,
+                        "transfer": 310.95
+                    },
+                    {
+                        "size": 16,
+                        "request": 63827.26,
+                        "transfer": 1003.52
+                    },
+                    {
+                        "size": 128,
+                        "request": 27954.51,
+                        "transfer": 3502.08
+                    },
+                    {
+                        "size": 256,
+                        "request": 16826.82,
+                        "transfer": 4208.64
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 100772.74,
+                        "transfer": 109.75
+                    },
+                    {
+                        "size": 2,
+                        "request": 78560.26,
+                        "transfer": 162.28
+                    },
+                    {
+                        "size": 4,
+                        "request": 79641.29,
+                        "transfer": 321.51
+                    },
+                    {
+                        "size": 16,
+                        "request": 65411.4,
+                        "transfer": 1034.24
+                    },
+                    {
+                        "size": 128,
+                        "request": 28251.0,
+                        "transfer": 3532.8
+                    },
+                    {
+                        "size": 256,
+                        "request": 16814.36,
+                        "transfer": 4208.64
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 101952.86,
+                        "transfer": 111.04
+                    },
+                    {
+                        "size": 2,
+                        "request": 101952.5,
+                        "transfer": 210.6
+                    },
+                    {
+                        "size": 4,
+                        "request": 79479.11,
+                        "transfer": 320.86
+                    },
+                    {
+                        "size": 16,
+                        "request": 62789.43,
+                        "transfer": 993.28
+                    },
+                    {
+                        "size": 128,
+                        "request": 27855.49,
+                        "transfer": 3481.6
+                    },
+                    {
+                        "size": 256,
+                        "request": 16684.63,
+                        "transfer": 4177.92
+                    }
+                ]
+            ],
+            "statistics": {
+                "transfer": [
+                    {
+                        "size": 1,
+                        "avg": 111.229,
+                        "min": 109.63,
+                        "max": 113.39,
+                        "std_dev": 1.178375576800039,
+                        "sqr_dev": 1.3885689999988244,
+                        "count": 10
+                    },
+                    {
+                        "size": 2,
+                        "avg": 196.52100000000002,
+                        "min": 161.13,
+                        "max": 214.07,
+                        "std_dev": 21.129003029011685,
+                        "sqr_dev": 446.43476899998495,
+                        "count": 10
+                    },
+                    {
+                        "size": 4,
+                        "avg": 312.115,
+                        "min": 258.82,
+                        "max": 328.59,
+                        "std_dev": 20.85800194170023,
+                        "sqr_dev": 435.05624499997066,
+                        "count": 10
+                    },
+                    {
+                        "size": 16,
+                        "avg": 1013.76,
+                        "min": 962.56,
+                        "max": 1054.72,
+                        "std_dev": 25.082774966100683,
+                        "sqr_dev": 629.1456000000471,
+                        "count": 10
+                    },
+                    {
+                        "size": 128,
+                        "avg": 3538.9440000000004,
+                        "min": 3481.6,
+                        "max": 3614.72,
+                        "std_dev": 46.52161716876405,
+                        "sqr_dev": 2164.260863997042,
+                        "count": 10
+                    },
+                    {
+                        "size": 256,
+                        "avg": 4136.96,
+                        "min": 3962.88,
+                        "max": 4259.84,
+                        "std_dev": 103.72265789112217,
+                        "sqr_dev": 10758.389759998769,
+                        "count": 10
+                    }
+                ],
+                "request": [
+                    {
+                        "size": 1,
+                        "avg": 102129.178,
+                        "min": 100664.83,
+                        "max": 104115.74,
+                        "std_dev": 1081.462040940917,
+                        "sqr_dev": 1169560.1459960938,
+                        "count": 10
+                    },
+                    {
+                        "size": 2,
+                        "avg": 95136.867,
+                        "min": 78003.37,
+                        "max": 103630.81,
+                        "std_dev": 10228.381667962962,
+                        "sqr_dev": 104619791.54552078,
+                        "count": 10
+                    },
+                    {
+                        "size": 4,
+                        "avg": 77313.255,
+                        "min": 64111.24,
+                        "max": 81394.32,
+                        "std_dev": 5167.042366315845,
+                        "sqr_dev": 26698326.81530285,
+                        "count": 10
+                    },
+                    {
+                        "size": 16,
+                        "avg": 64238.775,
+                        "min": 60837.57,
+                        "max": 67090.87,
+                        "std_dev": 1649.9228150808729,
+                        "sqr_dev": 2722245.295724392,
+                        "count": 10
+                    },
+                    {
+                        "size": 128,
+                        "avg": 28282.207000000002,
+                        "min": 27841.99,
+                        "max": 28863.03,
+                        "std_dev": 368.10451746872496,
+                        "sqr_dev": 135500.93578088284,
+                        "count": 10
+                    },
+                    {
+                        "size": 256,
+                        "avg": 16530.962,
+                        "min": 15855.37,
+                        "max": 17014.11,
+                        "std_dev": 411.87634983818384,
+                        "sqr_dev": 169642.12755602598,
+                        "count": 10
+                    }
+                ]
+            }
+        }
+    },
+    "http": {
+        "kernel-uprobe": {
+            "details": [
+                [
+                    {
+                        "size": 1,
+                        "request": 115431.23,
+                        "transfer": 125.72
+                    },
+                    {
+                        "size": 2,
+                        "request": 114513.83,
+                        "transfer": 236.55
+                    },
+                    {
+                        "size": 4,
+                        "request": 95924.25,
+                        "transfer": 387.24
+                    },
+                    {
+                        "size": 16,
+                        "request": 85407.64,
+                        "transfer": 1341.44
+                    },
+                    {
+                        "size": 128,
+                        "request": 53365.37,
+                        "transfer": 6676.48
+                    },
+                    {
+                        "size": 256,
+                        "request": 31443.79,
+                        "transfer": 7864.32
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 117276.03,
+                        "transfer": 127.72
+                    },
+                    {
+                        "size": 2,
+                        "request": 114124.73,
+                        "transfer": 235.74
+                    },
+                    {
+                        "size": 4,
+                        "request": 99409.38,
+                        "transfer": 401.31
+                    },
+                    {
+                        "size": 16,
+                        "request": 84676.58,
+                        "transfer": 1331.2
+                    },
+                    {
+                        "size": 128,
+                        "request": 51162.55,
+                        "transfer": 6400.0
+                    },
+                    {
+                        "size": 256,
+                        "request": 20473.07,
+                        "transfer": 5120.0
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 116951.87,
+                        "transfer": 127.37
+                    },
+                    {
+                        "size": 2,
+                        "request": 116178.23,
+                        "transfer": 239.98
+                    },
+                    {
+                        "size": 4,
+                        "request": 95790.96,
+                        "transfer": 386.7
+                    },
+                    {
+                        "size": 16,
+                        "request": 83976.6,
+                        "transfer": 1320.96
+                    },
+                    {
+                        "size": 128,
+                        "request": 47038.65,
+                        "transfer": 5888.0
+                    },
+                    {
+                        "size": 256,
+                        "request": 32103.13,
+                        "transfer": 8028.16
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 117561.67,
+                        "transfer": 128.04
+                    },
+                    {
+                        "size": 2,
+                        "request": 116096.1,
+                        "transfer": 239.81
+                    },
+                    {
+                        "size": 4,
+                        "request": 97042.52,
+                        "transfer": 391.75
+                    },
+                    {
+                        "size": 16,
+                        "request": 83790.83,
+                        "transfer": 1320.96
+                    },
+                    {
+                        "size": 128,
+                        "request": 48973.18,
+                        "transfer": 6123.52
+                    },
+                    {
+                        "size": 256,
+                        "request": 19797.11,
+                        "transfer": 4956.16
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 118961.94,
+                        "transfer": 129.56
+                    },
+                    {
+                        "size": 2,
+                        "request": 114554.58,
+                        "transfer": 236.63
+                    },
+                    {
+                        "size": 4,
+                        "request": 96408.54,
+                        "transfer": 389.19
+                    },
+                    {
+                        "size": 16,
+                        "request": 85792.79,
+                        "transfer": 1351.68
+                    },
+                    {
+                        "size": 128,
+                        "request": 53970.43,
+                        "transfer": 6758.4
+                    },
+                    {
+                        "size": 256,
+                        "request": 26753.14,
+                        "transfer": 6686.72
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 116052.53,
+                        "transfer": 126.39
+                    },
+                    {
+                        "size": 2,
+                        "request": 115834.68,
+                        "transfer": 239.27
+                    },
+                    {
+                        "size": 4,
+                        "request": 97968.72,
+                        "transfer": 395.49
+                    },
+                    {
+                        "size": 16,
+                        "request": 82914.19,
+                        "transfer": 1310.72
+                    },
+                    {
+                        "size": 128,
+                        "request": 48911.31,
+                        "transfer": 6123.52
+                    },
+                    {
+                        "size": 256,
+                        "request": 36664.94,
+                        "transfer": 9175.04
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 115724.36,
+                        "transfer": 126.03
+                    },
+                    {
+                        "size": 2,
+                        "request": 114000.11,
+                        "transfer": 235.49
+                    },
+                    {
+                        "size": 4,
+                        "request": 98132.45,
+                        "transfer": 396.15
+                    },
+                    {
+                        "size": 16,
+                        "request": 85148.1,
+                        "transfer": 1341.44
+                    },
+                    {
+                        "size": 128,
+                        "request": 47884.58,
+                        "transfer": 5990.4
+                    },
+                    {
+                        "size": 256,
+                        "request": 19673.96,
+                        "transfer": 4925.44
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 118289.63,
+                        "transfer": 128.83
+                    },
+                    {
+                        "size": 2,
+                        "request": 115340.64,
+                        "transfer": 238.25
+                    },
+                    {
+                        "size": 4,
+                        "request": 97925.28,
+                        "transfer": 395.32
+                    },
+                    {
+                        "size": 16,
+                        "request": 85173.95,
+                        "transfer": 1341.44
+                    },
+                    {
+                        "size": 128,
+                        "request": 47618.98,
+                        "transfer": 5959.68
+                    },
+                    {
+                        "size": 256,
+                        "request": 28989.44,
+                        "transfer": 7249.92
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 115887.65,
+                        "transfer": 126.21
+                    },
+                    {
+                        "size": 2,
+                        "request": 111762.11,
+                        "transfer": 230.86
+                    },
+                    {
+                        "size": 4,
+                        "request": 98009.22,
+                        "transfer": 395.66
+                    },
+                    {
+                        "size": 16,
+                        "request": 81977.77,
+                        "transfer": 1290.24
+                    },
+                    {
+                        "size": 128,
+                        "request": 53777.25,
+                        "transfer": 6727.68
+                    },
+                    {
+                        "size": 256,
+                        "request": 34021.4,
+                        "transfer": 8509.44
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 116614.16,
+                        "transfer": 127.0
+                    },
+                    {
+                        "size": 2,
+                        "request": 113758.51,
+                        "transfer": 234.99
+                    },
+                    {
+                        "size": 4,
+                        "request": 95543.13,
+                        "transfer": 385.7
+                    },
+                    {
+                        "size": 16,
+                        "request": 82918.83,
+                        "transfer": 1310.72
+                    },
+                    {
+                        "size": 128,
+                        "request": 53020.56,
+                        "transfer": 6635.52
+                    },
+                    {
+                        "size": 256,
+                        "request": 27780.47,
+                        "transfer": 6952.96
+                    }
+                ]
+            ],
+            "statistics": {
+                "transfer": [
+                    {
+                        "size": 1,
+                        "avg": 127.287,
+                        "min": 125.72,
+                        "max": 129.56,
+                        "std_dev": 1.199633694091422,
+                        "sqr_dev": 1.4391209999994317,
+                        "count": 10
+                    },
+                    {
+                        "size": 2,
+                        "avg": 236.75699999999998,
+                        "min": 230.86,
+                        "max": 239.98,
+                        "std_dev": 2.623894243298346,
+                        "sqr_dev": 6.884821000014199,
+                        "count": 10
+                    },
+                    {
+                        "size": 4,
+                        "avg": 392.451,
+                        "min": 385.7,
+                        "max": 401.31,
+                        "std_dev": 4.866815077647277,
+                        "sqr_dev": 23.685889000014868,
+                        "count": 10
+                    },
+                    {
+                        "size": 16,
+                        "avg": 1326.0800000000002,
+                        "min": 1290.24,
+                        "max": 1351.68,
+                        "std_dev": 17.883391177284214,
+                        "sqr_dev": 319.81567999976687,
+                        "count": 10
+                    },
+                    {
+                        "size": 128,
+                        "avg": 6328.32,
+                        "min": 5888.0,
+                        "max": 6758.4,
+                        "std_dev": 330.61089250055267,
+                        "sqr_dev": 109303.56224001199,
+                        "count": 10
+                    },
+                    {
+                        "size": 256,
+                        "avg": 6946.816000000001,
+                        "min": 4925.44,
+                        "max": 9175.04,
+                        "std_dev": 1447.8737186039364,
+                        "sqr_dev": 2096338.3050239906,
+                        "count": 10
+                    }
+                ],
+                "request": [
+                    {
+                        "size": 1,
+                        "avg": 116875.10699999999,
+                        "min": 115431.23,
+                        "max": 118961.94,
+                        "std_dev": 1101.0242905678722,
+                        "sqr_dev": 1212254.4884204865,
+                        "count": 10
+                    },
+                    {
+                        "size": 2,
+                        "avg": 114616.35199999998,
+                        "min": 111762.11,
+                        "max": 116178.23,
+                        "std_dev": 1271.0781438764889,
+                        "sqr_dev": 1615639.6478404999,
+                        "count": 10
+                    },
+                    {
+                        "size": 4,
+                        "avg": 97215.44499999999,
+                        "min": 95543.13,
+                        "max": 99409.38,
+                        "std_dev": 1205.387692606281,
+                        "sqr_dev": 1452959.4894866943,
+                        "count": 10
+                    },
+                    {
+                        "size": 16,
+                        "avg": 84177.72799999999,
+                        "min": 81977.77,
+                        "max": 85792.79,
+                        "std_dev": 1204.7967625111735,
+                        "sqr_dev": 1451535.238957405,
+                        "count": 10
+                    },
+                    {
+                        "size": 128,
+                        "avg": 50572.286,
+                        "min": 47038.65,
+                        "max": 53970.43,
+                        "std_dev": 2640.2896964204656,
+                        "sqr_dev": 6971129.681024075,
+                        "count": 10
+                    },
+                    {
+                        "size": 256,
+                        "avg": 27770.044999999995,
+                        "min": 19673.96,
+                        "max": 36664.94,
+                        "std_dev": 5790.957450690293,
+                        "sqr_dev": 33535188.195705414,
+                        "count": 10
+                    }
+                ]
+            }
+        },
+        "no-probe": {
+            "details": [
+                [
+                    {
+                        "size": 1,
+                        "request": 253100.9,
+                        "transfer": 275.65
+                    },
+                    {
+                        "size": 2,
+                        "request": 250460.95,
+                        "transfer": 517.37
+                    },
+                    {
+                        "size": 4,
+                        "request": 203285.23,
+                        "transfer": 820.64
+                    },
+                    {
+                        "size": 16,
+                        "request": 171543.27,
+                        "transfer": 2703.36
+                    },
+                    {
+                        "size": 128,
+                        "request": 69228.34,
+                        "transfer": 8663.04
+                    },
+                    {
+                        "size": 256,
+                        "request": 47178.32,
+                        "transfer": 11796.48
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 258042.66,
+                        "transfer": 281.03
+                    },
+                    {
+                        "size": 2,
+                        "request": 251008.67,
+                        "transfer": 518.5
+                    },
+                    {
+                        "size": 4,
+                        "request": 207974.57,
+                        "transfer": 839.57
+                    },
+                    {
+                        "size": 16,
+                        "request": 170477.55,
+                        "transfer": 2682.88
+                    },
+                    {
+                        "size": 128,
+                        "request": 85408.26,
+                        "transfer": 10690.56
+                    },
+                    {
+                        "size": 256,
+                        "request": 49554.64,
+                        "transfer": 12390.4
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 254491.07,
+                        "transfer": 277.17
+                    },
+                    {
+                        "size": 2,
+                        "request": 251242.24,
+                        "transfer": 518.98
+                    },
+                    {
+                        "size": 4,
+                        "request": 208365.04,
+                        "transfer": 841.15
+                    },
+                    {
+                        "size": 16,
+                        "request": 170442.24,
+                        "transfer": 2682.88
+                    },
+                    {
+                        "size": 128,
+                        "request": 81547.49,
+                        "transfer": 10209.28
+                    },
+                    {
+                        "size": 256,
+                        "request": 46355.18,
+                        "transfer": 11591.68
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 254001.88,
+                        "transfer": 276.63
+                    },
+                    {
+                        "size": 2,
+                        "request": 253875.75,
+                        "transfer": 524.42
+                    },
+                    {
+                        "size": 4,
+                        "request": 203705.36,
+                        "transfer": 822.34
+                    },
+                    {
+                        "size": 16,
+                        "request": 172019.35,
+                        "transfer": 2713.6
+                    },
+                    {
+                        "size": 128,
+                        "request": 81172.77,
+                        "transfer": 10158.08
+                    },
+                    {
+                        "size": 256,
+                        "request": 47303.55,
+                        "transfer": 11827.2
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 255883.46,
+                        "transfer": 278.68
+                    },
+                    {
+                        "size": 2,
+                        "request": 250702.17,
+                        "transfer": 517.87
+                    },
+                    {
+                        "size": 4,
+                        "request": 201929.2,
+                        "transfer": 815.17
+                    },
+                    {
+                        "size": 16,
+                        "request": 172891.36,
+                        "transfer": 2723.84
+                    },
+                    {
+                        "size": 128,
+                        "request": 87335.0,
+                        "transfer": 10926.08
+                    },
+                    {
+                        "size": 256,
+                        "request": 49211.25,
+                        "transfer": 12308.48
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 250246.37,
+                        "transfer": 272.54
+                    },
+                    {
+                        "size": 2,
+                        "request": 246999.92,
+                        "transfer": 510.22
+                    },
+                    {
+                        "size": 4,
+                        "request": 204934.42,
+                        "transfer": 827.3
+                    },
+                    {
+                        "size": 16,
+                        "request": 170683.48,
+                        "transfer": 2693.12
+                    },
+                    {
+                        "size": 128,
+                        "request": 75390.68,
+                        "transfer": 9431.04
+                    },
+                    {
+                        "size": 256,
+                        "request": 49937.19,
+                        "transfer": 12492.8
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 256746.62,
+                        "transfer": 279.62
+                    },
+                    {
+                        "size": 2,
+                        "request": 252290.63,
+                        "transfer": 521.15
+                    },
+                    {
+                        "size": 4,
+                        "request": 202368.04,
+                        "transfer": 816.94
+                    },
+                    {
+                        "size": 16,
+                        "request": 171319.07,
+                        "transfer": 2703.36
+                    },
+                    {
+                        "size": 128,
+                        "request": 76243.77,
+                        "transfer": 9543.68
+                    },
+                    {
+                        "size": 256,
+                        "request": 41785.19,
+                        "transfer": 10455.04
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 250931.18,
+                        "transfer": 273.29
+                    },
+                    {
+                        "size": 2,
+                        "request": 249997.13,
+                        "transfer": 516.41
+                    },
+                    {
+                        "size": 4,
+                        "request": 207723.84,
+                        "transfer": 838.56
+                    },
+                    {
+                        "size": 16,
+                        "request": 173981.12,
+                        "transfer": 2744.32
+                    },
+                    {
+                        "size": 128,
+                        "request": 83019.44,
+                        "transfer": 10383.36
+                    },
+                    {
+                        "size": 256,
+                        "request": 45260.12,
+                        "transfer": 11325.44
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 253039.72,
+                        "transfer": 275.58
+                    },
+                    {
+                        "size": 2,
+                        "request": 245311.05,
+                        "transfer": 506.73
+                    },
+                    {
+                        "size": 4,
+                        "request": 204520.06,
+                        "transfer": 825.63
+                    },
+                    {
+                        "size": 16,
+                        "request": 172505.72,
+                        "transfer": 2713.6
+                    },
+                    {
+                        "size": 128,
+                        "request": 74227.17,
+                        "transfer": 9287.68
+                    },
+                    {
+                        "size": 256,
+                        "request": 50088.66,
+                        "transfer": 12533.76
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 256684.18,
+                        "transfer": 279.55
+                    },
+                    {
+                        "size": 2,
+                        "request": 253326.0,
+                        "transfer": 523.29
+                    },
+                    {
+                        "size": 4,
+                        "request": 201642.29,
+                        "transfer": 814.01
+                    },
+                    {
+                        "size": 16,
+                        "request": 171027.81,
+                        "transfer": 2693.12
+                    },
+                    {
+                        "size": 128,
+                        "request": 84402.32,
+                        "transfer": 10557.44
+                    },
+                    {
+                        "size": 256,
+                        "request": 43568.6,
+                        "transfer": 10895.36
+                    }
+                ]
+            ],
+            "statistics": {
+                "transfer": [
+                    {
+                        "size": 1,
+                        "avg": 276.97400000000005,
+                        "min": 272.54,
+                        "max": 281.03,
+                        "std_dev": 2.6473352639912378,
+                        "sqr_dev": 7.0083839999715565,
+                        "count": 10
+                    },
+                    {
+                        "size": 2,
+                        "avg": 517.4939999999999,
+                        "min": 506.73,
+                        "max": 524.42,
+                        "std_dev": 5.179345904658857,
+                        "sqr_dev": 26.825624000106473,
+                        "count": 10
+                    },
+                    {
+                        "size": 4,
+                        "avg": 826.131,
+                        "min": 814.01,
+                        "max": 841.15,
+                        "std_dev": 9.789453968433158,
+                        "sqr_dev": 95.8334090000717,
+                        "count": 10
+                    },
+                    {
+                        "size": 16,
+                        "avg": 2705.408,
+                        "min": 2682.88,
+                        "max": 2744.32,
+                        "std_dev": 18.20302216668102,
+                        "sqr_dev": 331.3500160006806,
+                        "count": 10
+                    },
+                    {
+                        "size": 128,
+                        "avg": 9985.024000000001,
+                        "min": 8663.04,
+                        "max": 10926.08,
+                        "std_dev": 684.5108742919906,
+                        "sqr_dev": 468555.1370239854,
+                        "count": 10
+                    },
+                    {
+                        "size": 256,
+                        "avg": 11761.663999999999,
+                        "min": 10455.04,
+                        "max": 12533.76,
+                        "std_dev": 671.375508686465,
+                        "sqr_dev": 450745.0736640096,
+                        "count": 10
+                    }
+                ],
+                "request": [
+                    {
+                        "size": 1,
+                        "avg": 254316.804,
+                        "min": 250246.37,
+                        "max": 258042.66,
+                        "std_dev": 2431.3511374698314,
+                        "sqr_dev": 5911468.353675842,
+                        "count": 10
+                    },
+                    {
+                        "size": 2,
+                        "avg": 250521.45099999997,
+                        "min": 245311.05,
+                        "max": 253875.75,
+                        "std_dev": 2507.2778415897105,
+                        "sqr_dev": 6286442.174926758,
+                        "count": 10
+                    },
+                    {
+                        "size": 4,
+                        "avg": 204644.80500000002,
+                        "min": 201642.29,
+                        "max": 208365.04,
+                        "std_dev": 2425.111232498467,
+                        "sqr_dev": 5881164.489990234,
+                        "count": 10
+                    },
+                    {
+                        "size": 16,
+                        "avg": 171689.097,
+                        "min": 170442.24,
+                        "max": 173981.12,
+                        "std_dev": 1100.1816202422765,
+                        "sqr_dev": 1210399.597518921,
+                        "count": 10
+                    },
+                    {
+                        "size": 128,
+                        "avg": 79797.524,
+                        "min": 69228.34,
+                        "max": 87335.0,
+                        "std_dev": 5473.741042747931,
+                        "sqr_dev": 29961841.003063202,
+                        "count": 10
+                    },
+                    {
+                        "size": 256,
+                        "avg": 47024.27,
+                        "min": 41785.19,
+                        "max": 50088.66,
+                        "std_dev": 2685.3769311327524,
+                        "sqr_dev": 7211249.26225996,
+                        "count": 10
+                    }
+                ]
+            }
+        },
+        "no-uprobe": {
+            "details": [
+                [
+                    {
+                        "size": 1,
+                        "request": 197400.91,
+                        "transfer": 214.99
+                    },
+                    {
+                        "size": 2,
+                        "request": 165348.56,
+                        "transfer": 341.55
+                    },
+                    {
+                        "size": 4,
+                        "request": 161794.76,
+                        "transfer": 653.15
+                    },
+                    {
+                        "size": 16,
+                        "request": 134882.99,
+                        "transfer": 2129.92
+                    },
+                    {
+                        "size": 128,
+                        "request": 69627.77,
+                        "transfer": 8714.24
+                    },
+                    {
+                        "size": 256,
+                        "request": 46724.53,
+                        "transfer": 11683.84
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 196714.27,
+                        "transfer": 214.24
+                    },
+                    {
+                        "size": 2,
+                        "request": 196356.62,
+                        "transfer": 405.61
+                    },
+                    {
+                        "size": 4,
+                        "request": 161597.88,
+                        "transfer": 652.36
+                    },
+                    {
+                        "size": 16,
+                        "request": 132973.01,
+                        "transfer": 2099.2
+                    },
+                    {
+                        "size": 128,
+                        "request": 73458.69,
+                        "transfer": 9195.52
+                    },
+                    {
+                        "size": 256,
+                        "request": 39374.08,
+                        "transfer": 9850.88
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 188934.81,
+                        "transfer": 205.77
+                    },
+                    {
+                        "size": 2,
+                        "request": 183311.38,
+                        "transfer": 378.66
+                    },
+                    {
+                        "size": 4,
+                        "request": 162416.02,
+                        "transfer": 655.66
+                    },
+                    {
+                        "size": 16,
+                        "request": 133651.12,
+                        "transfer": 2109.44
+                    },
+                    {
+                        "size": 128,
+                        "request": 69621.2,
+                        "transfer": 8714.24
+                    },
+                    {
+                        "size": 256,
+                        "request": 43930.96,
+                        "transfer": 10987.52
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 198090.0,
+                        "transfer": 215.74
+                    },
+                    {
+                        "size": 2,
+                        "request": 190349.36,
+                        "transfer": 393.2
+                    },
+                    {
+                        "size": 4,
+                        "request": 163726.93,
+                        "transfer": 660.95
+                    },
+                    {
+                        "size": 16,
+                        "request": 134868.41,
+                        "transfer": 2129.92
+                    },
+                    {
+                        "size": 128,
+                        "request": 68028.74,
+                        "transfer": 8509.44
+                    },
+                    {
+                        "size": 256,
+                        "request": 45636.08,
+                        "transfer": 11417.6
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 194383.96,
+                        "transfer": 211.7
+                    },
+                    {
+                        "size": 2,
+                        "request": 174696.85,
+                        "transfer": 360.86
+                    },
+                    {
+                        "size": 4,
+                        "request": 160660.42,
+                        "transfer": 648.57
+                    },
+                    {
+                        "size": 16,
+                        "request": 135793.71,
+                        "transfer": 2140.16
+                    },
+                    {
+                        "size": 128,
+                        "request": 68494.54,
+                        "transfer": 8570.88
+                    },
+                    {
+                        "size": 256,
+                        "request": 42505.98,
+                        "transfer": 10629.12
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 193619.73,
+                        "transfer": 210.87
+                    },
+                    {
+                        "size": 2,
+                        "request": 192823.94,
+                        "transfer": 398.31
+                    },
+                    {
+                        "size": 4,
+                        "request": 163163.35,
+                        "transfer": 658.68
+                    },
+                    {
+                        "size": 16,
+                        "request": 134924.55,
+                        "transfer": 2129.92
+                    },
+                    {
+                        "size": 128,
+                        "request": 75269.95,
+                        "transfer": 9420.8
+                    },
+                    {
+                        "size": 256,
+                        "request": 43748.49,
+                        "transfer": 10946.56
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 174123.37,
+                        "transfer": 189.64
+                    },
+                    {
+                        "size": 2,
+                        "request": 184269.93,
+                        "transfer": 380.64
+                    },
+                    {
+                        "size": 4,
+                        "request": 162482.02,
+                        "transfer": 655.92
+                    },
+                    {
+                        "size": 16,
+                        "request": 133711.17,
+                        "transfer": 2109.44
+                    },
+                    {
+                        "size": 128,
+                        "request": 67463.41,
+                        "transfer": 8437.76
+                    },
+                    {
+                        "size": 256,
+                        "request": 45336.25,
+                        "transfer": 11335.68
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 194032.75,
+                        "transfer": 211.32
+                    },
+                    {
+                        "size": 2,
+                        "request": 181315.5,
+                        "transfer": 374.54
+                    },
+                    {
+                        "size": 4,
+                        "request": 163695.16,
+                        "transfer": 660.82
+                    },
+                    {
+                        "size": 16,
+                        "request": 136329.56,
+                        "transfer": 2150.4
+                    },
+                    {
+                        "size": 128,
+                        "request": 71536.23,
+                        "transfer": 8949.76
+                    },
+                    {
+                        "size": 256,
+                        "request": 45227.55,
+                        "transfer": 11315.2
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 194702.77,
+                        "transfer": 212.05
+                    },
+                    {
+                        "size": 2,
+                        "request": 198195.32,
+                        "transfer": 409.4
+                    },
+                    {
+                        "size": 4,
+                        "request": 165616.99,
+                        "transfer": 668.58
+                    },
+                    {
+                        "size": 16,
+                        "request": 136604.45,
+                        "transfer": 2150.4
+                    },
+                    {
+                        "size": 128,
+                        "request": 74147.97,
+                        "transfer": 9277.44
+                    },
+                    {
+                        "size": 256,
+                        "request": 44652.85,
+                        "transfer": 11171.84
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 184801.63,
+                        "transfer": 201.27
+                    },
+                    {
+                        "size": 2,
+                        "request": 192721.28,
+                        "transfer": 398.1
+                    },
+                    {
+                        "size": 4,
+                        "request": 159078.19,
+                        "transfer": 642.18
+                    },
+                    {
+                        "size": 16,
+                        "request": 128939.77,
+                        "transfer": 2027.52
+                    },
+                    {
+                        "size": 128,
+                        "request": 66925.71,
+                        "transfer": 8376.32
+                    },
+                    {
+                        "size": 256,
+                        "request": 44544.77,
+                        "transfer": 11141.12
+                    }
+                ]
+            ],
+            "statistics": {
+                "transfer": [
+                    {
+                        "size": 1,
+                        "avg": 208.75899999999996,
+                        "min": 189.64,
+                        "max": 215.74,
+                        "std_dev": 7.606915866500614,
+                        "sqr_dev": 57.865169000018795,
+                        "count": 10
+                    },
+                    {
+                        "size": 2,
+                        "avg": 384.087,
+                        "min": 341.55,
+                        "max": 409.4,
+                        "std_dev": 20.166956661827573,
+                        "sqr_dev": 406.7061410000315,
+                        "count": 10
+                    },
+                    {
+                        "size": 4,
+                        "avg": 655.687,
+                        "min": 642.18,
+                        "max": 668.58,
+                        "std_dev": 6.927376198817313,
+                        "sqr_dev": 47.9885409999406,
+                        "count": 10
+                    },
+                    {
+                        "size": 16,
+                        "avg": 2117.6320000000005,
+                        "min": 2027.52,
+                        "max": 2150.4,
+                        "std_dev": 34.20834424519541,
+                        "sqr_dev": 1170.2108159977943,
+                        "count": 10
+                    },
+                    {
+                        "size": 128,
+                        "avg": 8816.64,
+                        "min": 8376.32,
+                        "max": 9420.8,
+                        "std_dev": 353.80644833014577,
+                        "sqr_dev": 125179.00287999213,
+                        "count": 10
+                    },
+                    {
+                        "size": 256,
+                        "avg": 11047.936,
+                        "min": 9850.88,
+                        "max": 11683.84,
+                        "std_dev": 483.89715641239354,
+                        "sqr_dev": 234156.45798400044,
+                        "count": 10
+                    }
+                ],
+                "request": [
+                    {
+                        "size": 1,
+                        "avg": 191680.41999999998,
+                        "min": 174123.37,
+                        "max": 198090.0,
+                        "std_dev": 6985.632441209848,
+                        "sqr_dev": 48799060.60368347,
+                        "count": 10
+                    },
+                    {
+                        "size": 2,
+                        "avg": 185938.874,
+                        "min": 165348.56,
+                        "max": 198195.32,
+                        "std_dev": 9762.255232142765,
+                        "sqr_dev": 95301627.21749878,
+                        "count": 10
+                    },
+                    {
+                        "size": 4,
+                        "avg": 162423.172,
+                        "min": 159078.19,
+                        "max": 165616.99,
+                        "std_dev": 1715.8612194051193,
+                        "sqr_dev": 2944179.724258423,
+                        "count": 10
+                    },
+                    {
+                        "size": 16,
+                        "avg": 134267.874,
+                        "min": 128939.77,
+                        "max": 136604.45,
+                        "std_dev": 2096.764566382965,
+                        "sqr_dev": 4396421.646839142,
+                        "count": 10
+                    },
+                    {
+                        "size": 128,
+                        "avg": 70457.421,
+                        "min": 66925.71,
+                        "max": 75269.95,
+                        "std_dev": 2820.072619353839,
+                        "sqr_dev": 7952809.578429222,
+                        "count": 10
+                    },
+                    {
+                        "size": 256,
+                        "avg": 44168.153999999995,
+                        "min": 39374.08,
+                        "max": 46724.53,
+                        "std_dev": 1937.3112749129764,
+                        "sqr_dev": 3753174.9759049416,
+                        "count": 10
+                    }
+                ]
+            }
+        },
+        "user-uprobe": {
+            "details": [
+                [
+                    {
+                        "size": 1,
+                        "request": 166965.23,
+                        "transfer": 181.84
+                    },
+                    {
+                        "size": 2,
+                        "request": 165340.23,
+                        "transfer": 341.54
+                    },
+                    {
+                        "size": 4,
+                        "request": 133475.65,
+                        "transfer": 538.83
+                    },
+                    {
+                        "size": 16,
+                        "request": 116389.36,
+                        "transfer": 1832.96
+                    },
+                    {
+                        "size": 128,
+                        "request": 67650.79,
+                        "transfer": 8468.48
+                    },
+                    {
+                        "size": 256,
+                        "request": 41216.68,
+                        "transfer": 10311.68
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 160981.48,
+                        "transfer": 175.32
+                    },
+                    {
+                        "size": 2,
+                        "request": 158367.05,
+                        "transfer": 327.13
+                    },
+                    {
+                        "size": 4,
+                        "request": 134111.18,
+                        "transfer": 541.39
+                    },
+                    {
+                        "size": 16,
+                        "request": 117803.8,
+                        "transfer": 1853.44
+                    },
+                    {
+                        "size": 128,
+                        "request": 63495.25,
+                        "transfer": 7946.24
+                    },
+                    {
+                        "size": 256,
+                        "request": 42469.71,
+                        "transfer": 10618.88
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 163632.24,
+                        "transfer": 178.21
+                    },
+                    {
+                        "size": 2,
+                        "request": 164962.26,
+                        "transfer": 340.76
+                    },
+                    {
+                        "size": 4,
+                        "request": 135337.52,
+                        "transfer": 546.34
+                    },
+                    {
+                        "size": 16,
+                        "request": 113394.27,
+                        "transfer": 1781.76
+                    },
+                    {
+                        "size": 128,
+                        "request": 61400.87,
+                        "transfer": 7680.0
+                    },
+                    {
+                        "size": 256,
+                        "request": 41530.98,
+                        "transfer": 10383.36
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 165122.79,
+                        "transfer": 179.83
+                    },
+                    {
+                        "size": 2,
+                        "request": 158661.06,
+                        "transfer": 327.74
+                    },
+                    {
+                        "size": 4,
+                        "request": 133308.49,
+                        "transfer": 538.15
+                    },
+                    {
+                        "size": 16,
+                        "request": 114352.03,
+                        "transfer": 1802.24
+                    },
+                    {
+                        "size": 128,
+                        "request": 62776.13,
+                        "transfer": 7854.08
+                    },
+                    {
+                        "size": 256,
+                        "request": 42955.5,
+                        "transfer": 10741.76
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 161404.53,
+                        "transfer": 175.79
+                    },
+                    {
+                        "size": 2,
+                        "request": 159691.15,
+                        "transfer": 329.87
+                    },
+                    {
+                        "size": 4,
+                        "request": 131864.83,
+                        "transfer": 532.33
+                    },
+                    {
+                        "size": 16,
+                        "request": 114807.59,
+                        "transfer": 1812.48
+                    },
+                    {
+                        "size": 128,
+                        "request": 64730.49,
+                        "transfer": 8099.84
+                    },
+                    {
+                        "size": 256,
+                        "request": 40452.15,
+                        "transfer": 10117.12
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 164261.87,
+                        "transfer": 178.9
+                    },
+                    {
+                        "size": 2,
+                        "request": 160009.52,
+                        "transfer": 330.53
+                    },
+                    {
+                        "size": 4,
+                        "request": 134289.31,
+                        "transfer": 542.11
+                    },
+                    {
+                        "size": 16,
+                        "request": 113079.95,
+                        "transfer": 1781.76
+                    },
+                    {
+                        "size": 128,
+                        "request": 61745.75,
+                        "transfer": 7731.2
+                    },
+                    {
+                        "size": 256,
+                        "request": 44039.17,
+                        "transfer": 11018.24
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 162205.91,
+                        "transfer": 176.66
+                    },
+                    {
+                        "size": 2,
+                        "request": 165844.3,
+                        "transfer": 342.58
+                    },
+                    {
+                        "size": 4,
+                        "request": 133605.44,
+                        "transfer": 539.35
+                    },
+                    {
+                        "size": 16,
+                        "request": 115892.78,
+                        "transfer": 1822.72
+                    },
+                    {
+                        "size": 128,
+                        "request": 64061.79,
+                        "transfer": 8017.92
+                    },
+                    {
+                        "size": 256,
+                        "request": 42876.89,
+                        "transfer": 10721.28
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 159271.02,
+                        "transfer": 173.46
+                    },
+                    {
+                        "size": 2,
+                        "request": 162910.86,
+                        "transfer": 336.52
+                    },
+                    {
+                        "size": 4,
+                        "request": 134728.82,
+                        "transfer": 543.89
+                    },
+                    {
+                        "size": 16,
+                        "request": 115333.55,
+                        "transfer": 1812.48
+                    },
+                    {
+                        "size": 128,
+                        "request": 60973.14,
+                        "transfer": 7628.8
+                    },
+                    {
+                        "size": 256,
+                        "request": 42295.82,
+                        "transfer": 10577.92
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 164144.01,
+                        "transfer": 178.77
+                    },
+                    {
+                        "size": 2,
+                        "request": 161565.2,
+                        "transfer": 333.74
+                    },
+                    {
+                        "size": 4,
+                        "request": 135353.97,
+                        "transfer": 546.41
+                    },
+                    {
+                        "size": 16,
+                        "request": 115618.01,
+                        "transfer": 1822.72
+                    },
+                    {
+                        "size": 128,
+                        "request": 62536.77,
+                        "transfer": 7823.36
+                    },
+                    {
+                        "size": 256,
+                        "request": 35513.06,
+                        "transfer": 8878.08
+                    }
+                ],
+                [
+                    {
+                        "size": 1,
+                        "request": 165511.28,
+                        "transfer": 180.26
+                    },
+                    {
+                        "size": 2,
+                        "request": 163483.5,
+                        "transfer": 337.7
+                    },
+                    {
+                        "size": 4,
+                        "request": 134378.91,
+                        "transfer": 542.48
+                    },
+                    {
+                        "size": 16,
+                        "request": 112893.89,
+                        "transfer": 1781.76
+                    },
+                    {
+                        "size": 128,
+                        "request": 63118.07,
+                        "transfer": 7895.04
+                    },
+                    {
+                        "size": 256,
+                        "request": 40672.98,
+                        "transfer": 10178.56
+                    }
+                ]
+            ],
+            "statistics": {
+                "transfer": [
+                    {
+                        "size": 1,
+                        "avg": 177.90400000000002,
+                        "min": 173.46,
+                        "max": 181.84,
+                        "std_dev": 2.42962219285036,
+                        "sqr_dev": 5.903063999990991,
+                        "count": 10
+                    },
+                    {
+                        "size": 2,
+                        "avg": 334.811,
+                        "min": 327.13,
+                        "max": 342.58,
+                        "std_dev": 5.524298054957116,
+                        "sqr_dev": 30.517869000002975,
+                        "count": 10
+                    },
+                    {
+                        "size": 4,
+                        "avg": 541.128,
+                        "min": 532.33,
+                        "max": 546.41,
+                        "std_dev": 4.00336558410298,
+                        "sqr_dev": 16.026935999980196,
+                        "count": 10
+                    },
+                    {
+                        "size": 16,
+                        "avg": 1810.4319999999996,
+                        "min": 1781.76,
+                        "max": 1853.44,
+                        "std_dev": 22.805562830183593,
+                        "sqr_dev": 520.0936960014515,
+                        "count": 10
+                    },
+                    {
+                        "size": 128,
+                        "avg": 7914.495999999999,
+                        "min": 7628.8,
+                        "max": 8468.48,
+                        "std_dev": 231.40814104957613,
+                        "sqr_dev": 53549.72774402052,
+                        "count": 10
+                    },
+                    {
+                        "size": 256,
+                        "avg": 10354.688,
+                        "min": 8878.08,
+                        "max": 11018.24,
+                        "std_dev": 558.0903338492712,
+                        "sqr_dev": 311464.820735991,
+                        "count": 10
+                    }
+                ],
+                "request": [
+                    {
+                        "size": 1,
+                        "avg": 163350.03600000002,
+                        "min": 159271.02,
+                        "max": 166965.23,
+                        "std_dev": 2230.8559352136863,
+                        "sqr_dev": 4976718.203678131,
+                        "count": 10
+                    },
+                    {
+                        "size": 2,
+                        "avg": 162083.513,
+                        "min": 158367.05,
+                        "max": 165844.3,
+                        "std_dev": 2673.951256986101,
+                        "sqr_dev": 7150015.324737549,
+                        "count": 10
+                    },
+                    {
+                        "size": 4,
+                        "avg": 134045.41199999998,
+                        "min": 131864.83,
+                        "max": 135353.97,
+                        "std_dev": 991.9749083498918,
+                        "sqr_dev": 984014.2187957764,
+                        "count": 10
+                    },
+                    {
+                        "size": 16,
+                        "avg": 114956.523,
+                        "min": 112893.89,
+                        "max": 117803.8,
+                        "std_dev": 1490.6544918861562,
+                        "sqr_dev": 2222050.814180374,
+                        "count": 10
+                    },
+                    {
+                        "size": 128,
+                        "avg": 63248.90499999999,
+                        "min": 60973.14,
+                        "max": 67650.79,
+                        "std_dev": 1841.0523744387501,
+                        "sqr_dev": 3389473.8454265594,
+                        "count": 10
+                    },
+                    {
+                        "size": 256,
+                        "avg": 41402.294,
+                        "min": 35513.06,
+                        "max": 44039.17,
+                        "std_dev": 2228.1500217094263,
+                        "sqr_dev": 4964652.519243717,
+                        "count": 10
+                    }
+                ]
+            }
+        }
+    }
+}
