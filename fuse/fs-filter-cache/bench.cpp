@@ -53,7 +53,8 @@ int getdents64_main(int argc, char *argv[])
 	char d_type;
 
 	fd = open(argc > 1 ? argv[1] : ".", O_RDONLY | O_DIRECTORY);
-	if (fd == -1) {
+	printf("fd = %d\n", fd);
+	if (fd < 0) {
 		perror("open");
 		exit(EXIT_FAILURE);
 	}
@@ -76,6 +77,7 @@ int getdents64_main(int argc, char *argv[])
 			bpos += d->d_reclen;
 		}
 	}
+
 	int iter = 100000;
 	struct timespec start_time, end_time;
 	start_timer(&start_time);

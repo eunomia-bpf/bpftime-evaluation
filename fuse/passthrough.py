@@ -28,6 +28,9 @@ class Passthrough(Operations):
     def getattr(self, path, fh=None):
         self._increment_op_count("getattr")
         full_path = self._full_path(path)
+        if full_path.startswith("/home/yunwei/linux/arch"):
+            # throw error
+            raise OSError(errno.EACCES, "")
         st = os.lstat(full_path)
         return dict(
             (key, getattr(st, key))
@@ -46,6 +49,11 @@ class Passthrough(Operations):
     def readdir(self, path, fh):
         self._increment_op_count("readdir")
         full_path = self._full_path(path)
+        print(full_path)
+        # block access to arch directory
+        if full_path.startswith("/home/yunwei/linux/arch"):
+            # return error
+            raise OSError(errno.EACCES, "")
         dirents = [".", ".."]
         if os.path.isdir(full_path):
             dirents.extend(os.listdir(full_path))
@@ -58,7 +66,8 @@ class Passthrough(Operations):
         # print(full_path)
         # block access to arch directory
         if full_path.startswith("/home/yunwei/linux/arch"):
-            return errno.EACCES
+            # throw error
+            raise OSError(errno.EACCES, "")
         return os.open(full_path, flags)
 
     def create(self, path, mode, fi=None):

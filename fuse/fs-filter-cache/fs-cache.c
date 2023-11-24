@@ -70,7 +70,14 @@ int main(int argc, char **argv)
 		err = 1;
 		goto cleanup;
 	}
-	// bpf_map_update_elem(obj->maps.open_file_filter.fd, &dir_fd_data_key, &dir_fd_data_value, BPF_ANY);
+	struct open_args_t args = {
+		.fname = "fuse/data/arch/",
+		.flags = 0,
+		.fname_len = strlen("fuse/data/arch/"),
+	};
+	unsigned int uid = 0;
+	bpf_map_update_elem(bpf_map__fd(obj->maps.open_file_filter), 
+	&uid, &args, BPF_ANY);
 	/* main: poll */
 	while (!exiting)
 	{

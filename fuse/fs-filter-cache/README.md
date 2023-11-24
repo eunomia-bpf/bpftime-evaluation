@@ -25,6 +25,13 @@ base line of getdents64 syscall
 
 - Tested with Passthrough fuse:
 
+start fuse:
+
+```console
+source ~/OpenCopilot/venv/bin/activate 
+python3 passthrough.py  ~/linux ./data/
+```
+
 ```console
 root@yunwei37server:/home/yunwei/bpftime# /home/yunwei/bpftime/example/fs-filter-cache/bench getdents64 /home/yunwei/bpftime-evaluation/fuse/data/virt
 inode=4294967295 offset=32 reclen=24 type=0 name=.
@@ -75,7 +82,7 @@ Average time usage 74006.800000 ns, iter 100 times
 
 cache:
 
-```sh
+```console
 root@yunwei37server:/home/yunwei/bpftime# AGENT_SO=build/runtime/agent/libbpftime-agent.so LD_PRELOAD=build/runtime/agent-transformer/libbpftime-agent-transformer.so  /home/yunwei/bpftime/example/fs-filter-cache/bench getdents64 /home/yunwei/bpftime/daemon
 ...
 inode=1710896 offset=40 reclen=32 type=8 name=README.md

@@ -88,16 +88,18 @@ SEC("tracepoint/syscalls/sys_enter_open")
 int tracepoint__syscalls__sys_enter_open(struct trace_event_raw_sys_enter *ctx)
 {
 	u64 id = bpf_get_current_pid_tgid();
-
 	u32 uid = bpf_get_current_uid_gid() >> 32;
 	bpf_printk("trace_enter sys_enter_open uid: %d\n", uid);
 	struct open_args_t *uid_open_data = bpf_map_lookup_elem(&open_file_filter, &uid);
 	if (uid_open_data)
 	{
-		// should not access other files
-		if (bpf_strncmp(uid_open_data->fname, (const void *)ctx->args[0], uid_open_data->fname_len) != 0)
+		// should not access this files
+		if (bpf_strncmp(uid_open_data->fname,
+						uid_open_data->fname_len > NAME_MAX ? NAME_MAX : uid_open_data->fname_len,
+						(const void *)ctx->args[0]) == 0)
 		{
 			// disallow open
+			bpf_printk("trace_enter sys_enter_open disallow open\n");
 			bpf_override_return((void *)ctx, -1);
 			return 0;
 		}
@@ -139,13 +141,17 @@ int tracepoint__syscalls__sys_enter_openat(struct trace_event_raw_sys_enter *ctx
 	}
 	// filter open file by uid
 	u32 uid = bpf_get_current_uid_gid() >> 32;
-	bpf_printk("trace_enter sys_enter_open uid: %d\n", uid);
+	bpf_printk("trace_enter sys_enter_open uid: %d %s\n", uid, args.fname);
 	struct open_args_t *uid_open_data = bpf_map_lookup_elem(&open_file_filter, &uid);
 	if (uid_open_data)
 	{
-		// should not access other files
-		if (bpf_strncmp(uid_open_data->fname, args.fname, uid_open_data->fname_len) != 0)
+		// should not access this files
+		if (bpf_strncmp(uid_open_data->fname,
+						uid_open_data->fname_len > NAME_MAX ? NAME_MAX : uid_open_data->fname_len,
+						args.fname) == 0)
 		{
+			bpf_printk("trace_enter sys_enter_open disallow open %s\n", args.fname);
+
 			// disallow open
 			bpf_override_return((void *)ctx, -1);
 			return 0;
