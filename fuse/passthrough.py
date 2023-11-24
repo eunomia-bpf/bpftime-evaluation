@@ -55,6 +55,10 @@ class Passthrough(Operations):
     def open(self, path, flags):
         self._increment_op_count("open")
         full_path = self._full_path(path)
+        # print(full_path)
+        # block access to arch directory
+        if full_path.startswith("/home/yunwei/linux/arch"):
+            return errno.EACCES
         return os.open(full_path, flags)
 
     def create(self, path, mode, fi=None):

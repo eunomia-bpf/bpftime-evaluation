@@ -25,4 +25,12 @@ struct getdents64_buffer {
 	char buf[DENTS_BUF_SIZE];
 };
 
+
+struct open_args_t {
+	char fname[NAME_MAX];
+	int fname_len;
+	int flags;
+};
+
+
 #endif /* __OPENSNOOP_H */

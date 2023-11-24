@@ -21,7 +21,7 @@
 static volatile sig_atomic_t exiting = 0;
 
 static int libbpf_print_fn(enum libbpf_print_level level, const char *format,
-			   va_list args)
+						   va_list args)
 {
 	return vfprintf(stderr, format, args);
 }
@@ -41,7 +41,8 @@ int main(int argc, char **argv)
 	libbpf_set_print(libbpf_print_fn);
 
 	obj = fs_cache_bpf__open_opts(&open_opts);
-	if (!obj) {
+	if (!obj)
+	{
 		fprintf(stderr, "failed to open BPF object\n");
 		return 1;
 	}
@@ -49,27 +50,30 @@ int main(int argc, char **argv)
 	/* initialize global data (filtering options) */
 
 	err = fs_cache_bpf__load(obj);
-	if (err) {
+	if (err)
+	{
 		fprintf(stderr, "failed to load BPF object: %d\n", err);
 		goto cleanup;
 	}
 
 	err = fs_cache_bpf__attach(obj);
-	if (err) {
+	if (err)
+	{
 		fprintf(stderr, "failed to attach BPF programs\n");
 		goto cleanup;
 	}
 
-	if (signal(SIGINT, sig_int) == SIG_ERR) {
+	if (signal(SIGINT, sig_int) == SIG_ERR)
+	{
 		fprintf(stderr, "can't set signal handler: %s\n",
-			strerror(errno));
+				strerror(errno));
 		err = 1;
 		goto cleanup;
 	}
-
+	// bpf_map_update_elem(obj->maps.open_file_filter.fd, &dir_fd_data_key, &dir_fd_data_value, BPF_ANY);
 	/* main: poll */
-	while (!exiting) {
-
+	while (!exiting)
+	{
 	}
 
 cleanup:
