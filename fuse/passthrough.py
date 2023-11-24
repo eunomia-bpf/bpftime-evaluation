@@ -49,7 +49,7 @@ class Passthrough(Operations):
     def readdir(self, path, fh):
         self._increment_op_count("readdir")
         full_path = self._full_path(path)
-        print(full_path)
+        # print(full_path)
         # block access to arch directory
         if full_path.startswith("/home/yunwei/linux/arch"):
             # return error
