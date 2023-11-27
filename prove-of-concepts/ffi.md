@@ -1,9 +1,8 @@
-
-# ffi:
+# ffi
 
 for arm32 and arm64 compatible, this is ok:
 
-```
+```c
 static uint64_t
 gather_bytes(uint64_t a, uint64_t b, uint64_t c, uint64_t d, uint64_t e)
 {
@@ -13,7 +12,7 @@ gather_bytes(uint64_t a, uint64_t b, uint64_t c, uint64_t d, uint64_t e)
 
 this is not ok:
 
-```
+```c
 static uint64_t
 gather_bytes(uint8_t a, uint8_t b, uint8_t c, uint8_t d, uint8_t e)
 {
@@ -25,4 +24,4 @@ all args for helpers should be uint64_t to keep correct.
 
 ## more source code are from
 
-- https://elixir.bootlin.com/linux/v5.7
+- <https://elixir.bootlin.com/linux/v5.7>
