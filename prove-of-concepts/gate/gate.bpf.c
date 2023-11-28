@@ -16,7 +16,7 @@ struct {
   __type(value, u32);
 } dir_map SEC(".maps");
 
-SEC("uprobe/main:foo")
+SEC("uprobe/./main:foo1")
 int BPF_UPROBE(foo, int a, int b) {
   bpf_printk("a = %d, b = %d\n", a, b);
   u64 id = bpf_get_current_pid_tgid();

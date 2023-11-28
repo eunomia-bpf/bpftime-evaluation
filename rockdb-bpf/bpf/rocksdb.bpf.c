@@ -29,11 +29,11 @@ struct {
 //    return 0;
 //}
 
-SEC("uprobe//lib/x86_64-linux-gnu/liburing.so.2:io_uring_wait_cqes")
-int BPF_UPROBE(io_uring_wait_cqe)
+SEC("uprobe//lib/x86_64-linux-gnu/liburing.so.2:io_uring_submit")
+int BPF_UPROBE(io_uring_submit)
 {
     // if it's ready, set the iouring done flag and continue for this fd
-    bpf_printk("io_uring_wait_cqes");
+    bpf_printk("io_uring_submit");
     return 0;
 }
 
@@ -58,13 +58,13 @@ int BPF_UPROBE(io_uring_get_sqe)
 //    return 0;
 //}
 
-SEC("kretprobe/__writeback_single_inode")
-int BPF_KRETPROBE(__writeback_single_inode)
-{
-    u64 pid = bpf_get_current_pid_tgid();
-    bpf_printk("__writeback_single_inode");
+// SEC("kretprobe/__writeback_single_inode")
+// int BPF_KRETPROBE(__writeback_single_inode)
+// {
+//     u64 pid = bpf_get_current_pid_tgid();
+//     bpf_printk("__writeback_single_inode");
 
-    return 0;
-}
+//     return 0;
+// }
 
 char LICENSE[] SEC("license") = "GPL";
