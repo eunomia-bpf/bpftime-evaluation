@@ -29,15 +29,15 @@ struct {
 //    return 0;
 //}
 
-SEC("uprobe/rocksdb:io_uring_wait_cqe")
+SEC("uprobe//lib/x86_64-linux-gnu/liburing.so.2:io_uring_wait_cqes")
 int BPF_UPROBE(io_uring_wait_cqe)
 {
     // if it's ready, set the iouring done flag and continue for this fd
-    bpf_printk("io_uring_wait_cqe");
+    bpf_printk("io_uring_wait_cqes");
     return 0;
 }
 
-SEC("uprobe/rocksdb:io_uring_get_sqe")
+SEC("uprobe//lib/x86_64-linux-gnu/liburing.so.2:io_uring_get_sqe")
 int BPF_UPROBE(io_uring_get_sqe)
 { // get fd submit id pid
     // insert job id pid to map
@@ -58,10 +58,10 @@ int BPF_UPROBE(io_uring_get_sqe)
 //    return 0;
 //}
 
-SEC("kretprobe:__writeback_single_inode")
+SEC("kretprobe/__writeback_single_inode")
 int BPF_KRETPROBE(__writeback_single_inode)
 {
-    u32 pid = bpf_get_current_pid_tgid();
+    u64 pid = bpf_get_current_pid_tgid();
     bpf_printk("__writeback_single_inode");
 
     return 0;
