@@ -5,7 +5,8 @@
  */
 #include <vmlinux.h>
 #include <bpf/bpf_helpers.h>
-#include "fs-cache.h"
+#include <bpf/bpf_tracing.h>
+#include "rocksdb.h"
 
 SEC("tracepoint/syscalls/sys_enter_statfs")
 int tracepoint__syscalls__sys_enter_statfs(struct trace_event_raw_sys_enter *ctx)
