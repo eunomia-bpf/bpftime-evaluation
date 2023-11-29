@@ -48,7 +48,8 @@ unsigned long long successful_writeback_count = 0;
 
 //   return 0;
 // }
-
+// SEC("uprobe//root/zys/bpftime-evaluation/AisLSM/build/"
+//     "librocksdb.so.7:_ZN7rocksdb6Urings14wait_for_queueEPNS_11uring_queueE")
 SEC("uretprobe//lib/x86_64-linux-gnu/libc.so.6:putchar")
 int BPF_UPROBE(_enter_ZN7rocksdb6Urings14wait_for_queueEPNS_11uring_queueE,
                struct uring_queue *uptr) {
