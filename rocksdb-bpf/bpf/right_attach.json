@@ -1,0 +1,24 @@
+{
+    "0": {
+        "attr": {
+            "_module_name": "/root/zys/bpftime-evaluation/AisLSM/build/librocksdb.so.7",
+            "offset": 9869968,
+            "pid": -1,
+            "ref_ctr_off": 0,
+            "tracepoint_id": -1,
+            "type": 7
+        },
+        "type": "bpf_perf_event_handler"
+    },
+    "1": {
+        "attr": {
+            "_module_name": "/root/zys/bpftime-evaluation/AisLSM/build/librocksdb.so.7",
+            "offset": 9869968,
+            "pid": -1,
+            "ref_ctr_off": 0,
+            "tracepoint_id": -1,
+            "type": 6
+        },
+        "type": "bpf_perf_event_handler"
+    }
+}

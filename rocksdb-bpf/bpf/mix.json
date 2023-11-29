@@ -1,0 +1,80 @@
+{
+    "1": {
+        "attr": {
+            "_module_name": "/root/zys/bpftime-evaluation/AisLSM/build/librocksdb.so.7",
+            "offset": 9869968,
+            "pid": -1,
+            "ref_ctr_off": 0,
+            "tracepoint_id": -1,
+            "type": 8
+        },
+        "type": "bpf_perf_event_handler",
+        "enabled": true
+    },
+    "1043": {
+        "attr": {
+            "attach_fds": [
+                1
+            ],
+            "cnt": 42,
+            "insns": "791370000000000055030500000000001821000063030000000000002a000000b70200000d000000850000000600000005001e0000000000bfa100000000000007010000ffffffffb70200000100000085000000700000008500000005000000182100006203000000000000000000007b0100000000000018260000620300000000000008000000796400000000000071a3ffff0000000018210000630300000000000037000000b7020000330000008500000006000000796400000000000015040c000000000071a3ffff000000002d430a00000000001821000063030000000000006a000000b70200002c000000850000000600000018210000620300000000000008000000791200000000000071a3ffff000000001f320000000000007b21000000000000b701000000000000b702000000000000850000003a000000b7000000000000009500000000000000",
+            "type": -15016
+        },
+        "name": "_enter_ZN7rocks",
+        "type": "bpf_prog_handler"
+    },
+    "863": {
+        "attr": {
+            "btf_id": 921,
+            "btf_key_type_id": 6,
+            "btf_value_type_id": 10,
+            "btf_vmlinux_value_type_id": 0,
+            "flags": 0,
+            "ifindex": 0,
+            "kernel_bpf_map_id": 863,
+            "key_size": 4,
+            "map_extra": 0,
+            "map_type": 1001,
+            "max_entries": 10000,
+            "value_size": 12
+        },
+        "name": "bpftime_inode_m",
+        "type": "bpf_map_handler"
+    },
+    "866": {
+        "attr": {
+            "btf_id": 921,
+            "btf_key_type_id": 0,
+            "btf_value_type_id": 1293,
+            "btf_vmlinux_value_type_id": 0,
+            "flags": 1024,
+            "ifindex": 0,
+            "kernel_bpf_map_id": 866,
+            "key_size": 4,
+            "map_extra": 0,
+            "map_type": 1002,
+            "max_entries": 1,
+            "value_size": 16
+        },
+        "name": "rocksdb_.bss",
+        "type": "bpf_map_handler"
+    },
+    "867": {
+        "attr": {
+            "btf_id": 921,
+            "btf_key_type_id": 0,
+            "btf_value_type_id": 1296,
+            "btf_vmlinux_value_type_id": 0,
+            "flags": 128,
+            "ifindex": 0,
+            "kernel_bpf_map_id": 867,
+            "key_size": 4,
+            "map_extra": 0,
+            "map_type": 1002,
+            "max_entries": 1,
+            "value_size": 295
+        },
+        "name": "rocksdb_.rodata",
+        "type": "bpf_map_handler"
+    }
+}

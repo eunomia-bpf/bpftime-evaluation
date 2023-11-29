@@ -1,0 +1,45 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) 启动",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/AisLSM/build/db_bench",
+            "args": [
+                "--benchmarks=\"fillrandom,stats\"",
+                "--num=10000000",
+                "--value_size=8192",
+                "--db=your_running_db_folder",
+                "--level0_file_num_compaction_trigger=2",
+                "--level0_slowdown_writes_trigger=40",
+                "--level0_stop_writes_trigger=60"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [
+                {
+                    "name": "LD_PRELOAD",
+                    "value": "/root/zys/bpftime/build/runtime/agent/libbpftime-agent.so"
+                },
+            ],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}
