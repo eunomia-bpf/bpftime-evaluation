@@ -14,6 +14,11 @@ struct uring_check_id{
     u32 hashed_inode;
 };
 
+struct uring_queue {
+    // make it easy to access for count
+    u8 sync_count;
+};
+
 struct {
     __uint(type, BPF_MAP_TYPE_HASH);
     __type(key, u64); // pid
@@ -23,19 +28,32 @@ struct {
 } bpftime_uring_map SEC(".maps");
 
 SEC("uretprobe//root/zys/bpftime-evaluation/rocksdb/build/librocksdb.so.7:_ZN7rocksdb6Urings14wait_for_queueEPNS_11uring_queueE")
-int BPF_UPROBE(_ZN7rocksdb6Urings14wait_for_queueEPNS_11uring_queueE)
+int BPF_UPROBE(_ZN7rocksdb6Urings14wait_for_queueEPNS_11uring_queueE, struct uring_queue* uptr)
 {
-   bpf_printk("_ZN7rocksdb6Urings14wait_for_queueEPNS_11uring_queueE");
+    if (!uptr) {
+        bpf_printk("uptr is null");
+        return 0;
+    }
+    u8 count;
+    bpf_probe_read_user(&count, sizeof(uptr->sync_count), &(uptr->sync_count));
+   bpf_printk("wait for queue count: %d", count);
    return 0;
 }
 
-SEC("uprobe//root/zys/bpftime-evaluation/rocksdb/build/librocksdb.so.7:io_uring_submit")
-int BPF_UPROBE(io_uring_submit)
+SEC("uretprobe//root/zys/bpftime-evaluation/rocksdb/build/librocksdb.so.7:bpftime_hook_function_for_submit_fd")
+int BPF_UPROBE(bpftime_hook_function_for_submit_fd, int fd)
 {
-    // if it's ready, set the iouring done flag and continue for this fd
-    bpf_printk("io_uring_submit");
-    return 0;
+   bpf_printk("fsync fd: %d", fd);
+   return 0;
 }
+
+// SEC("uprobe//root/zys/bpftime-evaluation/rocksdb/build/librocksdb.so.7:io_uring_submit")
+// int BPF_UPROBE(io_uring_submit)
+// {
+//     // if it's ready, set the iouring done flag and continue for this fd
+//     bpf_printk("io_uring_submit");
+//     return 0;
+// }
 
 // 找到一个kernel
 // trace点可以把 fd 的 inodemap拿到
