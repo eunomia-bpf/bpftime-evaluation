@@ -22,26 +22,18 @@ struct {
     __uint(map_flags, BPF_F_NO_PREALLOC);
 } bpftime_uring_map SEC(".maps");
 
-//SEC("uretprobe/rocksdb:_ZN7rocksdb6Urings14wait_for_queueEPNS_11uring_queueE")
-//int wait_f(_ZN7rocksdb6Urings14wait_for_queueEPNS_11uring_queueE, int a, int b)
-//{
-//    bpf_printk("uprobed_sub ENTRY: a = %d, b = %d", a, b);
-//    return 0;
-//}
+SEC("uretprobe//root/zys/bpftime-evaluation/rocksdb/build/librocksdb.so.7:_ZN7rocksdb6Urings14wait_for_queueEPNS_11uring_queueE")
+int BPF_UPROBE(_ZN7rocksdb6Urings14wait_for_queueEPNS_11uring_queueE)
+{
+   bpf_printk("_ZN7rocksdb6Urings14wait_for_queueEPNS_11uring_queueE");
+   return 0;
+}
 
-SEC("uprobe//lib/x86_64-linux-gnu/liburing.so.2:io_uring_submit")
+SEC("uprobe//root/zys/bpftime-evaluation/rocksdb/build/librocksdb.so.7:io_uring_submit")
 int BPF_UPROBE(io_uring_submit)
 {
     // if it's ready, set the iouring done flag and continue for this fd
     bpf_printk("io_uring_submit");
-    return 0;
-}
-
-SEC("uprobe//lib/x86_64-linux-gnu/liburing.so.2:io_uring_get_sqe")
-int BPF_UPROBE(io_uring_get_sqe)
-{ // get fd submit id pid
-    // insert job id pid to map
-    bpf_printk("io_uring_get_sqe");
     return 0;
 }
 

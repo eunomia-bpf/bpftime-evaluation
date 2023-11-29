@@ -3,6 +3,7 @@
  * Copyright (c) 2022, eunomia-bpf org
  * All rights reserved.
  */
+ 
 #define BPF_NO_GLOBAL_DATA
 #include <vmlinux.h>
 #include <bpf/bpf_helpers.h>
@@ -15,6 +16,8 @@ struct {
   __type(key, u64);
   __type(value, u32);
 } dir_map SEC(".maps");
+
+char buffer[123];
 
 SEC("uprobe/./main:foo1")
 int BPF_UPROBE(foo, int a, int b) {

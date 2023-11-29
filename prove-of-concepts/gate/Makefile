@@ -66,7 +66,7 @@ $(call allow-override,CC,$(CROSS_COMPILE)cc)
 $(call allow-override,LD,$(CROSS_COMPILE)ld)
 
 .PHONY: all
-all: $(APPS)
+all: $(APPS) bench
 
 .PHONY: clean
 clean:
@@ -139,4 +139,4 @@ $(APPS): %: $(OUTPUT)/%.o $(LIBBPF_OBJ) | $(OUTPUT)
 
 
 bench: main.c
-	musl-clang -I .output ${INCLUDES} main.c  -o main
+	gcc-13 -z force-ibt -I .output ${INCLUDES} main.c  -o main

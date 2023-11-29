@@ -1,0 +1,41 @@
+execve("./mpk", ["./mpk"], 0x7fffffffd570 /* 40 vars */) = 0
+brk(NULL)                               = 0x555555559000
+arch_prctl(0x3001 /* ARCH_??? */, 0x7fffffffd410) = -1 EINVAL (Invalid argument)
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fc0000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=64143, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 64143, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ffff7fb0000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P<\2\0\0\0\0\0"..., 832) = 832
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=2072888, ...}, AT_EMPTY_PATH) = 0
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+mmap(NULL, 2117488, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ffff7c00000
+mmap(0x7ffff7c22000, 1540096, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x22000) = 0x7ffff7c22000
+mmap(0x7ffff7d9a000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x19a000) = 0x7ffff7d9a000
+mmap(0x7ffff7df2000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1f1000) = 0x7ffff7df2000
+mmap(0x7ffff7df8000, 53104, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7df8000
+close(3)                                = 0
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fad000
+arch_prctl(ARCH_SET_FS, 0x7ffff7fad740) = 0
+set_tid_address(0x7ffff7fada10)         = 562749
+set_robust_list(0x7ffff7fada20, 24)     = 0
+rseq(0x7ffff7fae060, 0x20, 0, 0x53053053) = 0
+mprotect(0x7ffff7df2000, 16384, PROT_READ) = 0
+mprotect(0x555555557000, 4096, PROT_READ) = 0
+mprotect(0x7ffff7ffb000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0x7ffff7fb0000, 64143)           = 0
+pkey_alloc(0, PKEY_DISABLE_ACCESS)      = 1
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fbf000
+pkey_mprotect(0x7ffff7fbf000, 4096, PROT_READ|PROT_WRITE, 1) = 0
+newfstatat(1, "", {st_mode=S_IFREG|0644, st_size=2389, ...}, AT_EMPTY_PATH) = 0
+getrandom("\xb2\xa5\xba\x5e\x6c\x03\x8e\x7f", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0x555555559000
+brk(0x55555557a000)                     = 0x55555557a000
+write(1, "Attempting to access protected m"..., 39Attempting to access protected memory:
+) = 39
+--- SIGSEGV {si_signo=SIGSEGV, si_code=SEGV_PKUERR, si_addr=0x7ffff7fbf000, si_pkey=1} ---
++++ killed by SIGSEGV (core dumped) +++
