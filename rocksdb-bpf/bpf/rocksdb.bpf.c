@@ -36,21 +36,20 @@ struct {
   __uint(map_flags, 0);
 } start_map SEC(".maps");
 
-unsigned long long last_ns = 0;
+// unsigned long long last_ns = 0;
 unsigned long long successful_writeback_count = 0;
 
-SEC("uretprobe//root/zys/bpftime-evaluation/AisLSM/build/"
-    "librocksdb.so.7:_ZN7rocksdb6Urings14wait_for_queueEPNS_11uring_queueE")
-int BPF_UPROBE(_return_ZN7rocksdb6Urings14wait_for_queueEPNS_11uring_queueE,
-               struct uring_queue *uptr) {
-  u64 ns = bpf_ktime_get_ns();
-  bpf_printk("wait for queue count return latency: %lld", ns - last_ns);
+// SEC("uretprobe//lib/x86_64-linux-gnu/libc.so.6:putchar")
+// int
+// BPF_URETPROBE(_return_ZN7rocksdb6Urings14wait_for_queueEPNS_11uring_queueE,
+//                int ret) {
+//   u64 ns = bpf_ktime_get_ns();
+//   bpf_printk("wait for queue count return latency: %lld", ns - last_ns);
 
-  return 0;
-}
+//   return 0;
+// }
 
-SEC("uprobe//root/zys/bpftime-evaluation/AisLSM/build/"
-    "librocksdb.so.7:_ZN7rocksdb6Urings14wait_for_queueEPNS_11uring_queueE")
+SEC("uretprobe//lib/x86_64-linux-gnu/libc.so.6:putchar")
 int BPF_UPROBE(_enter_ZN7rocksdb6Urings14wait_for_queueEPNS_11uring_queueE,
                struct uring_queue *uptr) {
   if (!uptr) {
@@ -59,18 +58,21 @@ int BPF_UPROBE(_enter_ZN7rocksdb6Urings14wait_for_queueEPNS_11uring_queueE,
   }
   u8 count;
   bpf_probe_read_user(&count, sizeof(uptr->sync_count), &(uptr->sync_count));
-  u64 ns = bpf_ktime_get_ns();
-  last_ns = ns;
-  bpf_printk("wait for queue count enter: %d, writeback_count %d", count, successful_writeback_count);
-  if (successful_writeback_count > 0 && successful_writeback_count >= count) {
-    bpf_printk("count: %d, successful_writeback_count: %llu", count,
-               successful_writeback_count);
-    successful_writeback_count -= count;
+  // u64 ns = bpf_ktime_get_ns();
+  // last_ns = ns;
+  // bpf_printk("wait for queue count enter: %d, writeback_count %d", count,
+  // successful_writeback_count);
+  if (successful_writeback_count <= 0 || successful_writeback_count < count) {
+    return 0;
   }
+  // bpf_printk("count: %d, successful_writeback_count: %llu", count,
+  //            successful_writeback_count);
+  successful_writeback_count -= count;
+  bpf_override_return(0, 0);
   return 0;
 }
 
-SEC("uretprobe//root/zys/bpftime-evaluation/AisLSM/build/"
+SEC("uretprobe/AisLSM/build/"
     "librocksdb.so.7:bpftime_hook_function_for_submit_fd")
 int BPF_UPROBE(bpftime_hook_function_for_submit_fd, int fd) {
   bpf_printk("fsync fd: %d", fd);
@@ -144,7 +146,8 @@ int BPF_KPROBE(__writeback_single_inode, struct inode *inode,
     // bpf_printk("data is null");
     return 0;
   }
-  bpf_printk("__writeback_single_inode, %lu", i_ino);
+  bpf_printk("__writeback_single_inode, %lu successful_writeback_count: %llu",
+             i_ino, successful_writeback_count);
   bpf_printk("data: %d, %d, %lu", data->pid, data->fd, data->i_ino);
   successful_writeback_count++;
   return 0;
