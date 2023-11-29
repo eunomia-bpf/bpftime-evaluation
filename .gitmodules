@@ -7,3 +7,6 @@
 [submodule "third_party/libbpf"]
 	path = third_party/libbpf
 	url = https://github.com/libbpf/libbpf
+[submodule "prove-of-concepts/nginx-module-with-embedded-bpftime/bpftime"]
+	path = prove-of-concepts/nginx-module-with-embedded-bpftime/bpftime
+	url = https://github.com/eunomia-bpf/bpftime

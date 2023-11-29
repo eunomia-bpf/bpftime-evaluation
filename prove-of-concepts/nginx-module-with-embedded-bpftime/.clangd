@@ -1,0 +1,9 @@
+CompileFlags: # Tweak the parse settings
+  Add: 
+    - "-I./nginx-prefix/src/nginx/src/core"
+    - "-I./nginx-prefix/src/nginx/src/http"
+    - "-I./nginx-prefix/src/nginx/src/http/modules"
+    - "-I./nginx-prefix/src/nginx/src/event"
+    - "-I./nginx-prefix/src/nginx/objs"
+    - "-I./nginx-prefix/src/nginx/src/os/unix"
+
