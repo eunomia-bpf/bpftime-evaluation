@@ -1,12 +1,12 @@
 #include <ngx_config.h>
 #include <ngx_core.h>
 #include <ngx_http.h>
-
-#define bpftime "hello world\r\n"
-
+#include <ngx_log.h>
+#include <stdio.h>
 static char *ngx_http_bpftime(ngx_conf_t *cf, ngx_command_t *cmd, void *conf);
 static ngx_int_t ngx_http_bpftime_handler(ngx_http_request_t *r);
-
+int module_init();
+int module_run_at_handler(void *mem, uint64_t mem_size, uint64_t *ret);
 /**
  * This module provided directive: hello world.
  *
@@ -23,9 +23,6 @@ static ngx_command_t ngx_http_bpftime_commands[] = {
 
     ngx_null_command /* command termination */
 };
-
-/* The hello world string. */
-static u_char ngx_bpftime[] = bpftime;
 
 /* The module context. */
 static ngx_http_module_t ngx_http_bpftime_module_ctx = {
@@ -57,6 +54,8 @@ ngx_module_t ngx_http_bpftime_module = {
     NULL,                         /* exit master */
     NGX_MODULE_V1_PADDING};
 
+int plus(int a, int b);
+
 /**
  * Content handler.
  *
@@ -75,21 +74,22 @@ static ngx_int_t ngx_http_bpftime_handler(ngx_http_request_t *r) {
 
   /* Allocate a new buffer for sending out the reply. */
   b = ngx_pcalloc(r->pool, sizeof(ngx_buf_t));
-
+//
   /* Insertion in the buffer chain. */
   out.buf = b;
   out.next = NULL; /* just one buffer */
-
-  b->pos = ngx_bpftime; /* first position in memory of the data */
-  b->last = ngx_bpftime + sizeof(ngx_bpftime) -
-            1;     /* last position in memory of the data */
-  b->memory = 1;   /* content is in read-only memory */
+  unsigned char hello_world[128];
+  sprintf((char *)hello_world, "heeellooo,world! from %d\n", plus(1, 2));
+  int len = strlen((char *)hello_world);
+  b->pos = hello_world;            /* first position in memory of the data */
+  b->last = hello_world + len - 1; /* last position in memory of the data */
+  b->memory = 1;                   /* content is in read-only memory */
   b->last_buf = 1; /* there will be no more buffers in the request */
 
   /* Sending the headers for the reply. */
   r->headers_out.status = NGX_HTTP_OK; /* 200 status code */
   /* Get the content length of the body. */
-  r->headers_out.content_length_n = sizeof(ngx_bpftime) - 1;
+  r->headers_out.content_length_n = len - 1;
   ngx_http_send_header(r); /* Send the headers */
 
   /* Send the body, and return the status code of the output filter chain. */
@@ -114,6 +114,8 @@ static char *ngx_http_bpftime(ngx_conf_t *cf, ngx_command_t *cmd, void *conf) {
   /* Install the hello world handler. */
   clcf = ngx_http_conf_get_module_loc_conf(cf, ngx_http_core_module);
   clcf->handler = ngx_http_bpftime_handler;
-
+  int err = module_init();
+//s
+  ngx_log_error(NGX_LOG_ERR, cf->log, 0, "Module init: %d", err);
   return NGX_CONF_OK;
 } /* ngx_http_bpftime */

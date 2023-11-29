@@ -14,7 +14,11 @@ set(CMAKE_C_STANDARD 99)
 set(CMAKE_CXX_STANDARD 17)
 
 add_subdirectory(bpftime)
-
+set(CMAKE_CXX_VISIBILITY_PRESET default)
+add_library(nginx-module-aux SHARED module_aux.cpp)
+add_dependencies(nginx-module-aux runtime copy_headers)
+target_include_directories(nginx-module-aux PRIVATE ${BPFTIME_RUNTIME_INCLUDE})
+target_link_libraries(nginx-module-aux runtime)
 include(ExternalProject)
 
 ExternalProject_Add(
@@ -23,6 +27,8 @@ ExternalProject_Add(
     CONFIGURE_COMMAND cd ${CMAKE_CURRENT_BINARY_DIR}/nginx-prefix/src/nginx && ./configure --add-dynamic-module=${CMAKE_BINARY_DIR}/../module --with-compat
     BUILD_COMMAND make -C ${CMAKE_CURRENT_BINARY_DIR}/nginx-prefix/src/nginx modules -j32
     INSTALL_COMMAND ""
+    BUILD_ALWAYS TRUE
+    DEPENDS nginx-module-aux
 )
 
 add_custom_command(
@@ -32,7 +38,4 @@ add_custom_command(
     COMMENT "Copy nginx module to ${CMAKE_SOURCE_DIR}/module-output/"
 )
 
-add_library(nginx-module-aux STATIC module_aux.cpp)
-add_dependencies(nginx-module-aux runtime)
-target_include_directories(nginx-module-aux PRIVATE ${BPFTIME_RUNTIME_INCLUDE})
-target_link_libraries(nginx-module-aux PRIVATE runtime)
+add_dependencies(nginx runtime vm-bpf)

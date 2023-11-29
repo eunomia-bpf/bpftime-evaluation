@@ -1,3 +1,6 @@
 /build
 /.cache
 /module-output
+/nginx.pid
+/error-log.txt
+/access-log.txt
