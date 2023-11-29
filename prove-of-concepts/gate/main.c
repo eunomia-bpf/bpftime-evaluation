@@ -14,24 +14,25 @@ int main() {
   int b = 2;
   int c = foo1(a, b);
   printf("%d\n", c);
-  // while (1) {
-  //   foo1(foo1(0,1),foo1(3, 4));
-  //   sleep(1);
-  // }
-  // int (*func_ptr)(int a, int b) = foo1;
-  // func_ptr(a, b);
+  while (1) {
+    foo1(foo1(0,1),foo1(3, 4));
+    sleep(1);
+  }
+  int (*func_ptr)(int a, int b) = foo1;
+  func_ptr(a, b);
 
-  // func_ptr =
-  //     (int (*)(int a, int b))((char *)func_ptr + 4); // go to ebpf adddress
-  // printf("func_ptr = %p, original ptr = %p\n", func_ptr, foo1);
-  // func_ptr(a, b);
+  func_ptr =
+      (int (*)(int a, int b))((char *)func_ptr + 4); // go to ebpf adddress
+  printf("func_ptr = %p, original ptr = %p\n", func_ptr, foo1);
+  func_ptr(a, b);
 
   // access the map
-  // void *ptr= ((void *)0x5555555a4c80);
-  // printf("Attempting to access protected memory:\n");
-  // fflush(stdout);
-  // int val =
-  //     *((int *)ptr); // This will trigger a segmentation fault protected by mpk
+  void *ptr= ((void *)0x5555555a4c80);
+  printf("Attempting to access protected memory:\n");
+  fflush(stdout);
+  
+  int val =
+      *((int *)ptr); // This will trigger a segmentation fault protected by mpk
 
   return 0;
 }

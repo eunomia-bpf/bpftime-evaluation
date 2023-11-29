@@ -139,4 +139,4 @@ $(APPS): %: $(OUTPUT)/%.o $(LIBBPF_OBJ) | $(OUTPUT)
 
 
 bench: main.c
-	gcc-13 -z force-ibt -I .output ${INCLUDES} main.c  -o main
+	gcc-13 -fcf-protection=full -z force-ibt -I .output ${INCLUDES} main.c  -o main
