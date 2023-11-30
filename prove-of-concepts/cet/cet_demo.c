@@ -21,7 +21,7 @@ int main() {
     void (*func_ptr)() = safe_function;
 
     // printf("func_ptr = %p, original ptr = %p\n", func_ptr, unsafe_function);
-    func_ptr = (void (*)())((char*)unsafe_function);
+    func_ptr = (void (*)())((char*)unsafe_function+4);
     func_ptr(); // 这里的调用在CET环境下应该会失败
 
     return 0;

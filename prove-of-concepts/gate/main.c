@@ -14,9 +14,11 @@ int main() {
   int b = 2;
   int c = foo1(a, b);
   printf("%d\n", c);
-  while (1) {
+  
+  while (a<10) {
     foo1(foo1(0,1),foo1(3, 4));
     sleep(1);
+    a++;
   }
   int (*func_ptr)(int a, int b) = foo1;
   func_ptr(a, b);
@@ -27,7 +29,7 @@ int main() {
   func_ptr(a, b);
 
   // access the map
-  void *ptr= ((void *)0x5555555a4c80);
+  void *ptr= ((void *)0x55eeb49cbc80);
   printf("Attempting to access protected memory:\n");
   fflush(stdout);
   

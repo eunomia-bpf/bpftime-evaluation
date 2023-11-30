@@ -10,3 +10,9 @@
 [submodule "prove-of-concepts/nginx-module-with-embedded-bpftime/bpftime"]
 	path = prove-of-concepts/nginx-module-with-embedded-bpftime/bpftime
 	url = https://github.com/eunomia-bpf/bpftime
+[submodule "prove-of-concepts/cet/cet-smoke-test"]
+	path = prove-of-concepts/cet/cet-smoke-test
+	url = https://github.com/hjl-tools/cet-smoke-test
+[submodule "prove-of-concepts/cet/fineibt"]
+	path = prove-of-concepts/cet/fineibt
+	url = https://gitlab.com/brown-ssl/fineibt
