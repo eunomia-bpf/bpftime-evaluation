@@ -12,7 +12,7 @@
 int successful_writeback_count = 0;
 int current_pid = 0;
 
-SEC("kprobe/file_write_and_wait_range")
+SEC("kretprobe/file_write_and_wait_range")
 int BPF_KPROBE(file_write_and_wait_range) {
   int pid = (bpf_get_current_pid_tgid() >> 32);
   if (pid != current_pid) {
