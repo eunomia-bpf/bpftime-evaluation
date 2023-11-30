@@ -16,3 +16,6 @@
 [submodule "prove-of-concepts/cet/fineibt"]
 	path = prove-of-concepts/cet/fineibt
 	url = https://gitlab.com/brown-ssl/fineibt
+[submodule "redis"]
+	path = redis
+	url = https://github.com/eunomia-bpf/redis
