@@ -4,6 +4,7 @@
 #include "bpftime_shm_internal.hpp"
 #include "handler/prog_handler.hpp"
 #include <bpftime_shm.hpp>
+#include <cassert>
 #include <cstddef>
 #include <cstdint>
 #include <variant>
@@ -47,5 +48,6 @@ extern "C" int module_init() {
 
 extern "C" int module_run_at_handler(void *mem, uint64_t mem_size,
                                      uint64_t *ret) {
+  assert(prog != nullptr);
   return prog->bpftime_prog_exec(mem, mem_size, ret);
 }
