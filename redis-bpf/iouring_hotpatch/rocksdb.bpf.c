@@ -13,22 +13,22 @@
 #define EXTENDED_HELPER_IOURING_SUBMIT_WRITE 1007
 #define EXTENDED_HELPER_IOURING_SUBMIT_FSYNC 1008
 #define EXTENDED_HELPER_IOURING_WAIT_AND_SEEN 1009
+#define EXTENDED_HELPER_IOURING_SUBMIT 1010
 
 static long (*io_uring_init_global)(void) = (void *) EXTENDED_HELPER_IOURING_INIT;
-
 static long (*io_uring_submit_write)(int fd, char *buf, unsigned long long size) = (void *) EXTENDED_HELPER_IOURING_SUBMIT_WRITE;
-
 static long (*io_uring_submit_fsync)(int fd) = (void *) EXTENDED_HELPER_IOURING_SUBMIT_FSYNC;
-
 static long (*io_uring_wait_and_seen)(void) = (void *) EXTENDED_HELPER_IOURING_WAIT_AND_SEEN;
+static long (*io_uring_submit)(void) = (void *) EXTENDED_HELPER_IOURING_SUBMIT;
 
 SEC("uprobe//lib/x86_64-linux-gnu/libc.so.6:write")
 int BPF_UPROBE(write, int __fd, const void *__buf, unsigned long long __n) {
   if (__n == 5) {
-    bpf_printk("write called");
-    // io_uring_submit_write(__fd, __buf, __n);
+    // bpf_printk("write called");
+    io_uring_submit_write(__fd, __buf, __n);
     // bpf_printk("io_uring_submit_write called");
-    // io_uring_wait_and_seen();
+    io_uring_submit();
+    io_uring_wait_and_seen();
     // bpf_printk("io_uring_wait_and_seen called");
     bpf_override_return(0, 5);
   }
@@ -39,11 +39,12 @@ int BPF_UPROBE(write, int __fd, const void *__buf, unsigned long long __n) {
 
 SEC("uprobe//lib/x86_64-linux-gnu/libc.so.6:fsync")
 int BPF_UPROBE(fsync, int __fd) {
-  bpf_printk("fsync called");
+  // bpf_printk("fsync called");
   io_uring_submit_fsync(__fd);
-  bpf_printk("io_uring_submit_fsync called");
+  io_uring_submit();
+  // bpf_printk("io_uring_submit_fsync called");
   io_uring_wait_and_seen();
-  bpf_printk("io_uring_wait_and_seen called");
+  // bpf_printk("io_uring_wait_and_seen called");
   bpf_override_return(0, 0);
   return 0;
 }
