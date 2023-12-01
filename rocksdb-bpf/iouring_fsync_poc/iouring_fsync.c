@@ -7,12 +7,6 @@
 #include <unistd.h>
 
 #include "liburing.h"
-// SPDX-License-Identifier: (LGPL-2.1 OR BSD-2-Clause)
-// Copyright (c) 2019 Facebook
-// Copyright (c) 2020 Netflix
-//
-// Based on rocksdb(8) from BCC by Brendan Gregg and others.
-// 14-Feb-2020   Brendan Gregg   Created this.
 #include "iouring_fsync.skel.h"
 #include <argp.h>
 #include <bpf/bpf.h>

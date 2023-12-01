@@ -134,8 +134,6 @@ Summary:
   latency summary (msec):
           avg       min       p50       p95       p99       max
         0.046     0.008     0.047     0.079     0.111     1.623
-
-
 ```
 
 ## test with AOF always on
@@ -210,5 +208,4 @@ Summary:
   latency summary (msec):
           avg       min       p50       p95       p99       max
         0.379     0.072     0.263     0.951     1.183     8.375
-
 ```
