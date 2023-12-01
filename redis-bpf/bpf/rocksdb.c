@@ -56,7 +56,8 @@ int main(int argc, char **argv) {
   // }
   err = bpf_prog_attach_uprobe_with_override(
       bpf_program__fd(obj->progs.start),
-      "/root/zys/bpftime-evaluation/redis-bpf/fsync_write", "start");
+      "/root/zys/bpftime-evaluation/redis/src/redis-server",
+      "initServerConfig");
   if (err) {
     fprintf(stderr, "Failed to attach BPF program start\n");
     goto cleanup;
@@ -64,15 +65,15 @@ int main(int argc, char **argv) {
 
   err = bpf_prog_attach_uprobe_with_override(bpf_program__fd(obj->progs.fsync),
                                              "/lib/x86_64-linux-gnu/libc.so.6",
-                                             "fsync");
+                                             "fdatasync");
   if (err) {
     fprintf(stderr, "Failed to attach BPF program fsync\n");
     goto cleanup;
   }
 
-  err = bpf_prog_attach_uprobe_with_override(bpf_program__fd(obj->progs.write),
-                                             "/lib/x86_64-linux-gnu/libc.so.6",
-                                             "write");
+  err = bpf_prog_attach_uprobe_with_override(
+      bpf_program__fd(obj->progs.write),
+      "/root/zys/bpftime-evaluation/redis/src/redis-server", "aofWrite");
   if (err) {
     fprintf(stderr, "Failed to attach BPF program write\n");
     goto cleanup;

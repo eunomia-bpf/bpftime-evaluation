@@ -24,12 +24,12 @@ static long (*io_uring_submit)(void) = (void *) EXTENDED_HELPER_IOURING_SUBMIT;
 int patch_size = 48;
 int current_count = 0;
 
-SEC("uprobe//lib/x86_64-linux-gnu/libc.so.6:write")
+SEC("uprobe//root/zys/bpftime-evaluation/redis/src/redis-server:aofWrite")
 int BPF_UPROBE(write, int __fd, const void *__buf, unsigned long long __n) {
-  if (__n == 5) {
     if (current_count < patch_size) {
       io_uring_submit_write(__fd, __buf, __n);
       current_count++;
+      
     } else {
       io_uring_submit_write(__fd, __buf, __n);
       current_count++;
@@ -39,14 +39,13 @@ int BPF_UPROBE(write, int __fd, const void *__buf, unsigned long long __n) {
       }
       current_count = 0;
     }
-    bpf_override_return(0, 5);
-  }
+    bpf_override_return(0, __n);
   // bpf_printk("write called");
   // bpf_override_return(0, 5);
   return 0;
 }
 
-SEC("uprobe//lib/x86_64-linux-gnu/libc.so.6:fsync")
+SEC("uprobe//lib/x86_64-linux-gnu/libc.so.6:fdatasync")
 int BPF_UPROBE(fsync, int __fd) {
   if (current_count < patch_size) {
       io_uring_submit_fsync(__fd);
@@ -64,7 +63,7 @@ int BPF_UPROBE(fsync, int __fd) {
   return 0;
 }
 
-SEC("uprobe//root/zys/bpftime-evaluation/redis-bpf/fsync_write:start")
+SEC("uprobe//root/zys/bpftime-evaluation/redis/src/redis-server:initServerConfig")
 int BPF_UPROBE(start, int __fd) {
   bpf_printk("start called and init io_uring\n");
   io_uring_init_global();
