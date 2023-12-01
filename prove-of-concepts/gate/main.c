@@ -18,6 +18,25 @@ int foo1(int a, int b) {
   printf("%d, %d\n", a, b);
   return a + b;
 }
+// __asm__(".global foo1\n"
+//     "foo1:\n"
+//     "push   %rbp\n"
+//     "mov    %rsp,%rbp\n"
+//     "sub    $0x10,%rsp\n"
+//     "mov    %edi,-0x4(%rbp)\n"
+//     "mov    %esi,-0x8(%rbp)\n"
+//     "mov    -0x8(%rbp),%edx\n"
+//     "mov    -0x4(%rbp),%eax\n"
+//     "mov    %eax,%esi\n"
+//     "lea    0xc9e(%rip),%rax       \n"
+//     "mov    %rax,%rdi\n"
+//     "mov    $0x0,%eax\n"
+//     "call   printf\n"
+//     "mov    -0x4(%rbp),%edx\n"
+//     "mov    -0x8(%rbp),%eax\n"
+//     "add    %edx,%eax\n"
+//     "leave\n"
+//     "ret");
 
 int roundup(int x, int y) { return (((x) + (y - 1)) / y) * y; }
 
@@ -33,16 +52,17 @@ size_t bpf_map_mmap_sz(unsigned int value_sz, unsigned int max_entries) {
 int main() {
   int a = 1;
   int b = 2;
+  // can not directly call the function
   int c = foo1(a, b);
   printf("%d\n", c);
 
-  while (a < 1) {
-    foo1(foo1(0, 1), foo1(3, 4));
-    sleep(1);
-    a++;
-  }
-  int (*func_ptr)(int a, int b) = foo1;
-  func_ptr(a, b);
+  // while (a < 1) {
+  //   foo1(foo1(0, 1), foo1(3, 4));
+  //   sleep(1);
+  //   a++;
+  // }
+  // int (*func_ptr)(int a, int b) = foo1;
+  // func_ptr(a, b);
 
   // indirect call is not allowed
   // func_ptr =
@@ -114,12 +134,13 @@ int main() {
 
   func1_ptr = (int (*)(struct fake_pt_regs *, int size))(
       (char *)func1_ptr); // jmp to ebpf adddress
-  printf("func_ptr = %p, original ptr = %p\n", func1_ptr, foo1);
+  // printf("func_ptr = %p, original ptr = %p\n", func1_ptr, foo1);
   func1_ptr(&regs, 2);
 
   printf("Attempting to access protected memory:%p\n", ptr);
-  int val =
-      *((int *)mmap_ptr); // This will trigger a segmentation fault protected by mpk
+  int val = *(
+      (int *)
+          mmap_ptr); // This will trigger a segmentation fault protected by mpk
   printf("val = %d\n", val);
   fflush(stdout);
 

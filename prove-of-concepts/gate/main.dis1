@@ -248,7 +248,10 @@ Disassembly of section .text:
     1324:	e9 77 ff ff ff       	jmp    12a0 <register_tm_clones>
 
 0000000000001329 <foo1>:
-    1329:	f3 0f 1e fa          	endbr64
+    1329:	90                   	nop
+    132a:	90                   	nop
+    132b:	90                   	nop
+    132c:	90                   	nop
     132d:	55                   	push   %rbp
     132e:	48 89 e5             	mov    %rsp,%rbp
     1331:	48 83 ec 10          	sub    $0x10,%rsp

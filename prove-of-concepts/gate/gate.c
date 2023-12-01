@@ -54,6 +54,11 @@ int main(int argc, char **argv) {
     fprintf(stderr, "Failed to attach BPF skeleton\n");
     goto cleanup;
   }
+
+  // bpf_program__attach_uprobe_opts(
+  //     skel->progs.foo, -1,
+  //     "/home/victoryang00/bpftime-evaluation/prove-of-concepts/gate/main", 0x1329, NULL);
+
   printf("map loc: %p\n", skel->progs.foo);
   printf("map loc: %p\n", skel->bss->buffer);
   printf("function ptr loc: %p\n", skel->progs.foo);
@@ -64,7 +69,6 @@ int main(int argc, char **argv) {
   //     perror("mmap");
   //     return 1;
   //   }
-
 
   while (!exiting) {
     sleep(1);

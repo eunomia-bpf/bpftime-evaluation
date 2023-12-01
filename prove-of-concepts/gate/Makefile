@@ -139,4 +139,5 @@ $(APPS): %: $(OUTPUT)/%.o $(LIBBPF_OBJ) | $(OUTPUT)
 
 
 bench: main.c
-	gcc-13 -fcf-protection=full ${INCLUDES} main.c -g -o main -lbpf -lm -lelf -lz -lpthread -lrt -ldl
+	gcc-13 -fcf-protection=full -rdynamic ${INCLUDES} main.c -g -o main -lbpf -lm -lelf -lz -lpthread -lrt -ldl
+	# gcc-13 ${INCLUDES} main.c -g -o main -lbpf -lm -lelf -lz -lpthread -lrt -ldl
