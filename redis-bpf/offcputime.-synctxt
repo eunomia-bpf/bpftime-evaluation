@@ -1,0 +1,882 @@
+# ./offcputime -p 332452
+^C    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    sysvec_apic_timer_interrupt
+    asm_sysvec_apic_timer_interrupt
+    fdatasync
+    [unknown]
+    -                redis-server (332452)
+        146
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    __cond_resched
+    mempool_alloc
+    bio_alloc_bioset
+    ext4_bio_write_folio
+    mpage_submit_folio
+    mpage_process_page_bufs
+    mpage_prepare_extent_to_map
+    ext4_do_writepages
+    ext4_writepages
+    do_writepages
+    filemap_fdatawrite_wbc
+    __filemap_fdatawrite_range
+    file_write_and_wait_range
+    ext4_sync_file
+    __x64_sys_fdatasync
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    fdatasync
+    [unknown]
+    -                redis-server (332452)
+        13
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    jbd2_log_wait_commit
+    jbd2_complete_transaction
+    ext4_fc_commit
+    ext4_sync_file
+    __x64_sys_fdatasync
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    fdatasync
+    [unknown]
+    -                redis-server (332452)
+        32491454
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    sysvec_apic_timer_interrupt
+    asm_sysvec_apic_timer_interrupt
+    prepareClientToWrite
+    -                redis-server (332452)
+        17
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    io_schedule
+    bit_wait_io
+    __wait_on_bit
+    out_of_line_wait_on_bit
+    __wait_on_buffer
+    jbd2_log_do_checkpoint
+    __jbd2_log_wait_for_space
+    add_transaction_credits
+    start_this_handle
+    jbd2__journal_start
+    __ext4_journal_start_sb
+    ext4_da_write_end
+    generic_perform_write
+    ext4_buffered_write_iter
+    ext4_file_write_iter
+    vfs_write
+    ksys_write
+    __x64_sys_write
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    write
+    [unknown]
+    -                redis-server (332452)
+        66
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    io_schedule
+    bit_wait_io
+    __wait_on_bit
+    out_of_line_wait_on_bit
+    __wait_on_buffer
+    jbd2_write_superblock
+    jbd2_journal_update_sb_log_tail
+    __jbd2_update_log_tail
+    jbd2_cleanup_journal_tail
+    jbd2_log_do_checkpoint
+    __jbd2_log_wait_for_space
+    add_transaction_credits
+    start_this_handle
+    jbd2__journal_start
+    __ext4_journal_start_sb
+    ext4_da_write_end
+    generic_perform_write
+    ext4_buffered_write_iter
+    ext4_file_write_iter
+    vfs_write
+    ksys_write
+    __x64_sys_write
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    write
+    [unknown]
+    -                redis-server (332452)
+        41
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    __cond_resched
+    dput
+    __fsnotify_parent
+    vfs_write
+    ksys_write
+    __x64_sys_write
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    write
+    [unknown]
+    -                redis-server (332452)
+        45
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    futex_wait_queue
+    __futex_wait
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    __nptl_death_event
+    -                jemalloc_bg_thd (332456)
+        69758481
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    sysvec_apic_timer_interrupt
+    asm_sysvec_apic_timer_interrupt
+    write
+    writeToClient.constprop.0
+    -                redis-server (332452)
+        8
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    __cond_resched
+    do_get_write_access
+    jbd2_journal_get_write_access
+    __ext4_journal_get_write_access
+    ext4_reserve_inode_write
+    __ext4_mark_inode_dirty
+    ext4_da_write_end
+    generic_perform_write
+    ext4_buffered_write_iter
+    ext4_file_write_iter
+    vfs_write
+    ksys_write
+    __x64_sys_write
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    write
+    [unknown]
+    -                redis-server (332452)
+        25
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    __cond_resched
+    __ext4_mark_inode_dirty
+    ext4_da_write_end
+    generic_perform_write
+    ext4_buffered_write_iter
+    ext4_file_write_iter
+    vfs_write
+    ksys_write
+    __x64_sys_write
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    write
+    [unknown]
+    -                redis-server (332452)
+        16
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    sysvec_apic_timer_interrupt
+    asm_sysvec_apic_timer_interrupt
+    __nss_database_lookup
+    [unknown]
+    -                redis-server (332452)
+        23
+
+    [Missed Kernel Stack]
+    write
+    [unknown]
+    -                redis-server (332452)
+        119
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    exit_to_user_mode_prepare
+    syscall_exit_to_user_mode
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    read
+    [unknown]
+    -                redis-server (332452)
+        91
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    __cond_resched
+    __skb_datagram_iter
+    skb_copy_datagram_iter
+    tcp_recvmsg_locked
+    tcp_recvmsg
+    inet_recvmsg
+    sock_recvmsg
+    sock_read_iter
+    vfs_read
+    ksys_read
+    __x64_sys_read
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    read
+    [unknown]
+    -                redis-server (332452)
+        17
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    __cond_resched
+    kmem_cache_alloc
+    alloc_buffer_head
+    folio_alloc_buffers
+    create_empty_buffers
+    ext4_block_write_begin
+    ext4_da_write_begin
+    generic_perform_write
+    ext4_buffered_write_iter
+    ext4_file_write_iter
+    vfs_write
+    ksys_write
+    __x64_sys_write
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    write
+    [unknown]
+    -                redis-server (332452)
+        8
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    sysvec_apic_timer_interrupt
+    asm_sysvec_apic_timer_interrupt
+    siphash
+    -                redis-server (332452)
+        37
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    __cond_resched
+    aa_sk_perm
+    apparmor_socket_sendmsg
+    security_socket_sendmsg
+    sock_write_iter
+    vfs_write
+    ksys_write
+    __x64_sys_write
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    write
+    writeToClient.constprop.0
+    -                redis-server (332452)
+        18
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    __cond_resched
+    __filemap_fdatawait_range
+    file_write_and_wait_range
+    ext4_sync_file
+    __x64_sys_fdatasync
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    fdatasync
+    [unknown]
+    -                redis-server (332452)
+        13
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    __cond_resched
+    __release_sock
+    release_sock
+    tcp_sendmsg
+    inet_sendmsg
+    sock_write_iter
+    vfs_write
+    ksys_write
+    __x64_sys_write
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    write
+    writeToClient.constprop.0
+    -                redis-server (332452)
+        55
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    sysvec_apic_timer_interrupt
+    asm_sysvec_apic_timer_interrupt
+    sdscatlen
+    -                redis-server (332452)
+        35
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    io_schedule
+    bit_wait_io
+    __wait_on_bit_lock
+    out_of_line_wait_on_bit_lock
+    __lock_buffer
+    do_get_write_access
+    jbd2_journal_get_write_access
+    __ext4_journal_get_write_access
+    ext4_mb_mark_context
+    ext4_mb_mark_diskspace_used
+    ext4_mb_new_blocks
+    ext4_ext_map_blocks
+    ext4_map_blocks
+    ext4_do_writepages
+    ext4_writepages
+    do_writepages
+    filemap_fdatawrite_wbc
+    __filemap_fdatawrite_range
+    file_write_and_wait_range
+    ext4_sync_file
+    __x64_sys_fdatasync
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    fdatasync
+    [unknown]
+    -                redis-server (332452)
+        88
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    jbd2_log_wait_commit
+    jbd2_complete_transaction
+    ext4_fc_commit
+    ext4_sync_file
+    __x64_sys_fdatasync
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    fdatasync
+    [unknown]
+    -                redis-server (332452)
+        551
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    schedule_hrtimeout_range_clock
+    schedule_hrtimeout_range
+    do_epoll_wait
+    __x64_sys_epoll_wait
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    epoll_wait
+    [unknown]
+    -                redis-server (332452)
+        22872237
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    __cond_resched
+    stop_one_cpu
+    migrate_task_to
+    task_numa_migrate.isra.0
+    task_numa_fault
+    __handle_mm_fault
+    handle_mm_fault
+    do_user_addr_fault
+    exc_page_fault
+    asm_exc_page_fault
+    __get_user_8
+    exit_to_user_mode_prepare
+    syscall_exit_to_user_mode
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    write
+    -                redis-server (332452)
+        107
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    sysvec_apic_timer_interrupt
+    asm_sysvec_apic_timer_interrupt
+    write
+    [unknown]
+    -                redis-server (332452)
+        10
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    io_schedule
+    folio_wait_bit_common
+    folio_wait_bit
+    folio_wait_writeback
+    __filemap_fdatawait_range
+    file_write_and_wait_range
+    ext4_sync_file
+    __x64_sys_fdatasync
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    fdatasync
+    [unknown]
+    -                redis-server (332452)
+        162
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    sysvec_apic_timer_interrupt
+    asm_sysvec_apic_timer_interrupt
+    sdscatlen
+    [unknown]
+    [unknown]
+    -                redis-server (332452)
+        24
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    __cond_resched
+    __kmem_cache_alloc_node
+    __kmalloc
+    inotify_handle_inode_event
+    fsnotify_handle_inode_event.isra.0
+    fsnotify
+    __fsnotify_parent
+    vfs_write
+    ksys_write
+    __x64_sys_write
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    write
+    [unknown]
+    -                redis-server (332452)
+        174
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    sysvec_apic_timer_interrupt
+    asm_sysvec_apic_timer_interrupt
+    readQueryFromClient
+    [unknown]
+    -                redis-server (332452)
+        37
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    __cond_resched
+    submit_bio_noacct
+    submit_bio
+    ext4_io_submit
+    ext4_do_writepages
+    ext4_writepages
+    do_writepages
+    filemap_fdatawrite_wbc
+    __filemap_fdatawrite_range
+    file_write_and_wait_range
+    ext4_sync_file
+    __x64_sys_fdatasync
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    fdatasync
+    [unknown]
+    -                redis-server (332452)
+        73
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    exit_to_user_mode_prepare
+    syscall_exit_to_user_mode
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    write
+    writeToClient.constprop.0
+    -                redis-server (332452)
+        3871
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    __cond_resched
+    __ext4_handle_dirty_metadata
+    ext4_mark_iloc_dirty
+    __ext4_mark_inode_dirty
+    ext4_da_write_end
+    generic_perform_write
+    ext4_buffered_write_iter
+    ext4_file_write_iter
+    vfs_write
+    ksys_write
+    __x64_sys_write
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    write
+    [unknown]
+    -                redis-server (332452)
+        26
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    io_schedule
+    bit_wait_io
+    __wait_on_bit
+    out_of_line_wait_on_bit
+    __wait_on_buffer
+    jbd2_write_superblock
+    jbd2_journal_update_sb_log_tail
+    __jbd2_update_log_tail
+    jbd2_cleanup_journal_tail
+    jbd2_log_do_checkpoint
+    __jbd2_log_wait_for_space
+    add_transaction_credits
+    start_this_handle
+    jbd2__journal_start
+    __ext4_journal_start_sb
+    ext4_da_write_end
+    generic_perform_write
+    ext4_buffered_write_iter
+    ext4_file_write_iter
+    vfs_write
+    ksys_write
+    __x64_sys_write
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    write
+    [unknown]
+    -                redis-server (332452)
+        46
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    sysvec_apic_timer_interrupt
+    asm_sysvec_apic_timer_interrupt
+    _sdsMakeRoomFor
+    [unknown]
+    -                redis-server (332452)
+        22
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    sysvec_apic_timer_interrupt
+    asm_sysvec_apic_timer_interrupt
+    fdatasync
+    [unknown]
+    -                redis-server (332452)
+        22
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    __cond_resched
+    lock_sock_nested
+    tcp_sendmsg
+    inet_sendmsg
+    sock_write_iter
+    vfs_write
+    ksys_write
+    __x64_sys_write
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    write
+    writeToClient.constprop.0
+    -                redis-server (332452)
+        25
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    sysvec_apic_timer_interrupt
+    asm_sysvec_apic_timer_interrupt
+    [Missed User Stack]
+    -                redis-server (332452)
+        26
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    __cond_resched
+    aa_sk_perm
+    apparmor_socket_recvmsg
+    security_socket_recvmsg
+    sock_recvmsg
+    sock_read_iter
+    vfs_read
+    ksys_read
+    __x64_sys_read
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    read
+    [unknown]
+    -                redis-server (332452)
+        110
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    sysvec_apic_timer_interrupt
+    asm_sysvec_apic_timer_interrupt
+    dictInsertAtPosition
+    [unknown]
+    -                redis-server (332452)
+        24
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    __cond_resched
+    stop_one_cpu
+    migrate_task_to
+    task_numa_migrate.isra.0
+    task_numa_fault
+    __handle_mm_fault
+    handle_mm_fault
+    do_user_addr_fault
+    exc_page_fault
+    asm_exc_page_fault
+    write
+    writeToClient.constprop.0
+    -                redis-server (332452)
+        29
+
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_prog_55dd6ac891370fc9_sched_switch
+    bpf_trace_run4
+    __bpf_trace_sched_switch
+    __traceiter_sched_switch
+    __schedule
+    schedule
+    io_schedule
+    folio_wait_bit_common
+    folio_wait_bit
+    folio_wait_writeback
+    __filemap_fdatawait_range
+    file_write_and_wait_range
+    ext4_sync_file
+    __x64_sys_fdatasync
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    fdatasync
+    [unknown]
+    -                redis-server (332452)
+        5790476
+
+root@banana:~/zys/bcc/libbpf-tools#
