@@ -1,0 +1,10 @@
+.cache
+.vscode
+build
+bpf-prog/.output
+bpf-prog/nginx_test
+module-output
+access-log.txt
+error-log.txt
+nginx-pid
+.git
