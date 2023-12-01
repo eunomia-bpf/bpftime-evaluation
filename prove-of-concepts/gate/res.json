@@ -1,0 +1,80 @@
+{
+    "4": {
+        "attr": {
+            "btf_id": 1,
+            "btf_key_type_id": 8,
+            "btf_value_type_id": 12,
+            "btf_vmlinux_value_type_id": 0,
+            "flags": 0,
+            "ifindex": 0,
+            "kernel_bpf_map_id": 0,
+            "key_size": 8,
+            "map_extra": 0,
+            "map_type": 1,
+            "max_entries": 10240,
+            "value_size": 4
+        },
+        "name": "dir_map",
+        "type": "bpf_map_handler"
+    },
+    "5": {
+        "attr": {
+            "btf_id": 2,
+            "btf_key_type_id": 12,
+            "btf_value_type_id": 20,
+            "btf_vmlinux_value_type_id": 0,
+            "flags": 0,
+            "ifindex": 0,
+            "kernel_bpf_map_id": 0,
+            "key_size": 4,
+            "map_extra": 0,
+            "map_type": 2,
+            "max_entries": 256,
+            "value_size": 8
+        },
+        "name": "dir1_map",
+        "type": "bpf_map_handler"
+    },
+    "6": {
+        "attr": {
+            "btf_id": 2,
+            "btf_key_type_id": 0,
+            "btf_value_type_id": 37,
+            "btf_vmlinux_value_type_id": 0,
+            "flags": 1024,
+            "ifindex": 0,
+            "kernel_bpf_map_id": 0,
+            "key_size": 4,
+            "map_extra": 0,
+            "map_type": 2,
+            "max_entries": 1,
+            "value_size": 123
+        },
+        "name": "gate_bpf.bss",
+        "type": "bpf_map_handler"
+    },
+    "7": {
+        "attr": {
+            "attach_fds": [
+                8
+            ],
+            "cnt": 26,
+            "insns": "7911700000000000631afcff00000000850000000e0000007b0af0ff00000000bfa200000000000007020000f0ffffff1811000004000000000000000000000085000000010000001500060000000000bfa200000000000007020000f0ffffff1811000004000000000000000000000085000000030000000500080000000000bfa200000000000007020000f0ffffffbfa300000000000007030000fcffffff18110000040000000000000000000000b7040000000000008500000002000000b7000000000000009500000000000000",
+            "type": 0
+        },
+        "name": "foo",
+        "type": "bpf_prog_handler"
+    },
+    "8": {
+        "attr": {
+            "_module_name": "./main",
+            "offset": 4905,
+            "pid": -1,
+            "ref_ctr_off": 0,
+            "tracepoint_id": -1,
+            "type": 6
+        },
+        "enabled": true,
+        "type": "bpf_perf_event_handler"
+    }
+}

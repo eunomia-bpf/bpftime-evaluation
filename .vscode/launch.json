@@ -8,15 +8,9 @@
             "name": "(gdb) 启动",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/AisLSM/build/db_bench",
+            "program": "${workspaceFolder}/redis-bpf/fsync_write",
             "args": [
-                "--benchmarks=\"fillrandom,stats\"",
-                "--num=10000000",
-                "--value_size=8192",
-                "--db=your_running_db_folder",
-                "--level0_file_num_compaction_trigger=2",
-                "--level0_slowdown_writes_trigger=40",
-                "--level0_stop_writes_trigger=60"
+                "${workspaceFolder}/redis/redis.conf",
             ],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",

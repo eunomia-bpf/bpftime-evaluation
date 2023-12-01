@@ -1,14 +1,15 @@
-
+#include "ngx_conf_file.h"
+#include "ngx_log.h"
+#include "ngx_string.h"
 #include <ngx_config.h>
 #include <ngx_core.h>
 #include <ngx_http.h>
-#include <ngx_log.h>
+
 typedef struct {
   ngx_flag_t enable;
 } ngx_http_bpftime_loc_conf_t;
 
-static ngx_int_t ngx_http_bpftime_request_body_filter(ngx_http_request_t *r,
-                                                      ngx_chain_t *in);
+static ngx_int_t ngx_http_bpftime_handler(ngx_http_request_t *r);
 static void *ngx_http_bpftime_create_loc_conf(ngx_conf_t *cf);
 static char *ngx_http_bpftime_merge_loc_conf(ngx_conf_t *cf, void *parent,
                                              void *child);
@@ -51,50 +52,48 @@ ngx_module_t ngx_http_bpftime_module = {
     NULL,                         /* exit master */
     NGX_MODULE_V1_PADDING};
 
-static ngx_http_request_body_filter_pt ngx_http_next_request_body_filter;
+static ngx_int_t ngx_http_bpftime_handler(ngx_http_request_t *r) {
+  ngx_http_bpftime_loc_conf_t *ulcf;
 
-static ngx_int_t ngx_http_bpftime_request_body_filter(ngx_http_request_t *r,
-                                                      ngx_chain_t *in) {
-  u_char *p;
-  ngx_chain_t *cl;
-  ngx_http_bpftime_loc_conf_t *conf;
-  ngx_log_error(NGX_LOG_DEBUG, r->connection->log, 0,
-                "catch request body filter");
-  conf = ngx_http_get_module_loc_conf(r, ngx_http_bpftime_module);
+  ngx_log_error(NGX_LOG_DEBUG, r->connection->log, 0, "http ua access handler");
 
-  if (!conf->enable) {
-    return ngx_http_next_request_body_filter(r, in);
-  }
-  ngx_log_error(NGX_LOG_DEBUG, r->connection->log, 0,
-                "Enabled. handling body..");
-  for (cl = in; cl; cl = cl->next) {
+  ulcf = ngx_http_get_module_loc_conf(r, ngx_http_bpftime_module);
+  if (ulcf->enable) {
+    char buf[128];
+    ngx_str_t *host = &r->headers_in.host->value;
+    if (r->args.len) {
+      snprintf(buf, sizeof(buf), "%s://%*s%*s?%*s",
+               r->connection->ssl ? "https" : "http", (int)host->len,
+               host->data, (int)r->uri.len, r->uri.data, (int)r->args.len,
+               r->args.data);
+    } else {
+      snprintf(buf, sizeof(buf), "%s://%*s%*s",
+               r->connection->ssl ? "https" : "http", (int)host->len,
+               host->data, (int)r->uri.len, r->uri.data);
+    }
 
-    p = cl->buf->pos;
+    ngx_log_error(NGX_LOG_DEBUG, r->connection->log, 0, "Accessed uri: %s",
+                  buf);
+    int module_run_at_handler(void *mem, uint64_t mem_size, uint64_t *ret);
+    int len = strlen(buf);
+    uint64_t ret = 0;
+    int err = module_run_at_handler(buf, len + 1, &ret);
 
-    for (p = cl->buf->pos; p < cl->buf->last; p++) {
-
+    if (err < 0) {
+      ngx_log_error(NGX_LOG_ERR, r->connection->log, 0,
+                    "Failed to run ebpf program, err=%d", err);
+      return NGX_HTTP_INTERNAL_SERVER_ERROR;
+    }
+    ngx_log_error(NGX_LOG_DEBUG, r->connection->log, 0, "Ebpf ret: %d",
+                  (int)ret);
+    if (ret) {
       ngx_log_error(NGX_LOG_DEBUG, r->connection->log, 0,
-                    "catch body in:%02Xd:%c", *p, *p);
-
-      if (*p == 'X') {
-        ngx_log_error(NGX_LOG_DEBUG, r->connection->log, 0,
-                      "catch body: found");
-
-        /*
-         + As we return NGX_HTTP_FORBIDDEN, the r->keepalive flag
-         + won't be reset by ngx_http_special_response_handler().
-         + Make sure to reset it to prevent processing of unread
-         + parts of the request body.
-         */
-
-        r->keepalive = 0;
-
-        return NGX_HTTP_FORBIDDEN;
-      }
+                    "Rejected access by ebpf");
+      return NGX_HTTP_FORBIDDEN;
     }
   }
 
-  return ngx_http_next_request_body_filter(r, in);
+  return NGX_DECLINED;
 }
 
 static void *ngx_http_bpftime_create_loc_conf(ngx_conf_t *cf) {
@@ -121,14 +120,20 @@ static char *ngx_http_bpftime_merge_loc_conf(ngx_conf_t *cf, void *parent,
 }
 
 static ngx_int_t ngx_http_bpftime_init(ngx_conf_t *cf) {
+  ngx_http_handler_pt *h;
+  ngx_http_core_main_conf_t *cmcf;
+
+  cmcf = ngx_http_conf_get_module_main_conf(cf, ngx_http_core_module);
+
+  h = ngx_array_push(&cmcf->phases[NGX_HTTP_ACCESS_PHASE].handlers);
+  if (h == NULL) {
+    return NGX_ERROR;
+  }
+
+  *h = ngx_http_bpftime_handler;
   int module_init();
   int err = module_init();
   ngx_log_error(NGX_LOG_ERR, cf->log, 0, "Module init: %d", err);
-  /* install handler in body filter chain */
-
-  ngx_http_next_request_body_filter = ngx_http_top_request_body_filter;
-  ngx_http_top_request_body_filter = ngx_http_bpftime_request_body_filter;
-
   return NGX_OK;
 }
 

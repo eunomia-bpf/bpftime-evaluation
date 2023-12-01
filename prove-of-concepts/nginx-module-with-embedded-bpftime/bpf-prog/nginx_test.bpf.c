@@ -5,10 +5,13 @@
 
 
 SEC("uprobe/dummy")
-int nginx(void* ctx)
-{
-	bpf_printk("Triggered!");
-	return 0;
+int nginx(const char *str) {
+  while (*str) {
+    if (*str == 'X')
+      return 1;
+    str++;
+  }
+  return 0;
 }
 
 char LICENSE[] SEC("license") = "GPL";

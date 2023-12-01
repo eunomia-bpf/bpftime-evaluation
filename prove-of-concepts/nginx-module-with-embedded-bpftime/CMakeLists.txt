@@ -21,6 +21,8 @@ target_include_directories(nginx-module-aux PRIVATE ${BPFTIME_RUNTIME_INCLUDE})
 target_link_libraries(nginx-module-aux runtime)
 include(ExternalProject)
 
+# We need to download the source of nginx, since it requires them to build modules
+
 ExternalProject_Add(
     nginx
     DOWNLOAD_COMMAND URL https://nginx.org/download/nginx-1.22.1.tar.gz

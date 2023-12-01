@@ -21,7 +21,7 @@ INCLUDES := -I$(OUTPUT) -I../../third_party/libbpf/include/uapi -I$(dir $(VMLINU
 CFLAGS := -g -Wall
 ALL_LDFLAGS := $(LDFLAGS) $(EXTRA_LDFLAGS)
 
-APPS = iouring_fsync # minimal minimal_legacy uprobe kprobe fentry usdt sockfilter tc ksyscall
+APPS = rocksdb # minimal minimal_legacy uprobe kprobe fentry usdt sockfilter tc ksyscall
 
 CARGO ?= $(shell which cargo)
 ifeq ($(strip $(CARGO)),)
@@ -129,7 +129,7 @@ $(BZS_APPS): $(LIBBLAZESYM_OBJ)
 # Build application binary
 $(APPS): %: $(OUTPUT)/%.o $(LIBBPF_OBJ) | $(OUTPUT)
 	$(call msg,BINARY,$@)
-	$(Q)$(CC) $(CFLAGS) $^ $(ALL_LDFLAGS) -lelf -lz -luring -o $@
+	$(Q)$(CC) $(CFLAGS) $^ $(ALL_LDFLAGS) -lelf -lz -o $@
 
 # delete failed targets
 .DELETE_ON_ERROR:
