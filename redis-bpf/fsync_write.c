@@ -57,6 +57,14 @@
 
 // struct io_uring ring;
 
+// int reverse_count(int a) {
+//     if (a <= 0) {
+//       return 0;
+//     } else {
+//       return a + reverse_count(a - 1);
+//     }
+//   }
+
 int test() {
   printf("test for fsync\n");
   int fd = open("temp.txt", O_WRONLY | O_CREAT, 0644);
@@ -74,18 +82,24 @@ int test() {
         perror("Failed to write");
         break;
     }
+    // int vb = reverse_count(20);
     if (fsync(fd) < 0) {
         perror("Failed to fsync");
         break;
     }
-    // struct io_uring_cqe *cqe = 0;
-    // submit_io_uring_write(&ring, fd, data, 5);
-    // io_uring_submit(&ring);
-    // io_uring_wait_and_seen(&ring, cqe);
-    // submit_io_uring_fsync(&ring, fd);
-    // io_uring_submit(&ring);
-    // io_uring_wait_and_seen(&ring, cqe);
     count++;
+    // int batch_size = 240;
+    // struct io_uring_cqe *cqe = 0;
+    // for (int i = 0; i < batch_size; i++) {
+    //   submit_io_uring_write(&ring, fd, data, 5);
+    //   submit_io_uring_fsync(&ring, fd);
+    // }
+    // int vb = reverse_count(20);
+    // io_uring_submit(&ring);
+    // for (int i = 0; i < batch_size * 2; i++) {
+    //   io_uring_wait_and_seen(&ring, cqe);
+    // }
+    // count += batch_size;
   }
 
   close(fd);

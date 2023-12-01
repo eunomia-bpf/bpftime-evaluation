@@ -69,6 +69,7 @@ int main(int argc, char **argv) {
     fprintf(stderr, "Failed to attach BPF program fsync\n");
     goto cleanup;
   }
+
   err = bpf_prog_attach_uprobe_with_override(bpf_program__fd(obj->progs.write),
                                              "/lib/x86_64-linux-gnu/libc.so.6",
                                              "write");
