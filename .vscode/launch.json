@@ -8,17 +8,17 @@
             "name": "(gdb) 启动",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/redis/src/redis-server",
+            "program": "${workspaceFolder}/redis-bpf/fsync_write",
             "args": [
                 "${workspaceFolder}/redis/redis.conf",
             ],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [
-                // {
-                //     "name": "LD_PRELOAD",
-                //     "value": "/root/zys/bpftime/build/runtime/agent/libbpftime-agent.so"
-                // },
+                {
+                    "name": "LD_PRELOAD",
+                    "value": "/root/zys/bpftime/build/runtime/agent/libbpftime-agent.so"
+                },
             ],
             "externalConsole": false,
             "MIMode": "gdb",

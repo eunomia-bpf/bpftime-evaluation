@@ -21,7 +21,7 @@
 
 static unsigned long runtime_ms = 3000;
 static unsigned long batch_size = 5;
-bool wait_kernel = true;
+bool wait_kernel = false;
 
 static volatile sig_atomic_t exiting = 0;
 
