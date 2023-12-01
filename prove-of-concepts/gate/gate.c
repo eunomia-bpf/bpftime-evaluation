@@ -35,14 +35,6 @@ int main(int argc, char **argv) {
   signal(SIGINT, sig_handler);
   signal(SIGTERM, sig_handler);
 
-  int pkey = pkey_alloc(0, PKEY_DISABLE_ACCESS);
-  if (pkey == -1) {
-    perror("pkey_alloc");
-    return 1;
-  }
-
-  size_t pagesize = sysconf(_SC_PAGESIZE);
-
   /* Load and verify BPF application */
   skel = gate_bpf__open();
   if (!skel) {
@@ -62,7 +54,8 @@ int main(int argc, char **argv) {
     fprintf(stderr, "Failed to attach BPF skeleton\n");
     goto cleanup;
   }
-  printf("map loc: %p\n", skel->maps.dir_map);
+  printf("map loc: %p\n", skel->progs.foo);
+  printf("map loc: %p\n", skel->bss->buffer);
   printf("function ptr loc: %p\n", skel->progs.foo);
 
   //   void *ptr = mmap(NULL, pagesize, PROT_READ | PROT_WRITE,
@@ -71,27 +64,14 @@ int main(int argc, char **argv) {
   //     perror("mmap");
   //     return 1;
   //   }
-  if (pkey_mprotect(skel->bss->buffer, sizeof(skel->bss->buffer),
-                    PROT_READ | PROT_WRITE, pkey) == -1) {
-    perror("pkey_mprotect");
-    printf("%d\n", errno);
-    return 1;
-  }
 
-  pkey_set(pkey, PKEY_DISABLE_ACCESS); // Disable access
-  // Attempt to access the protected memory
 
   while (!exiting) {
     sleep(1);
-
-    printf("loaded ebpf program...\n");
   }
 cleanup:
   /* Clean up */
   gate_bpf__destroy(skel);
-  pkey_set(pkey, 0); // Enable access
-
-  pkey_free(pkey);
 
   return err < 0 ? -err : 0;
 }

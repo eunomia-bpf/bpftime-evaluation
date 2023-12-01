@@ -17,11 +17,18 @@ struct {
   __type(value, u32);
 } dir_map SEC(".maps");
 
+struct {
+        __uint(type, BPF_MAP_TYPE_ARRAY);
+        __type(key, u32);
+        __type(value, long);
+        __uint(max_entries, 256);
+} dir1_map SEC(".maps");
+
 char buffer[123];
 
 SEC("uprobe/./main:foo1")
 int BPF_UPROBE(foo, int a, int b) {
-  bpf_printk("a = %d, b = %d\n", a, b);
+  bpf_printk("foo1: %d, %d\n", a, b);
   u64 id = bpf_get_current_pid_tgid();
   if (bpf_map_lookup_elem(&dir_map, &id)) {
     bpf_printk("found\n");
