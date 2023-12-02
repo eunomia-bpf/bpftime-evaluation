@@ -9,4 +9,5 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-wasmtime = "15.0.0"
+wasmtime = "15.0.1"
+

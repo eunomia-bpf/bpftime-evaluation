@@ -8,7 +8,7 @@ RUN echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib 
     && echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware" >> /etc/apt/sources.list \
     && echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware" >> /etc/apt/sources.list
 
-RUN apt-get update && apt-get install llvm-15-dev clang-15 cmake make libelf-dev zlib1g-dev ninja-build nginx libboost-all-dev cargo rustc curl libcrypt1 libpcre3-dev libnginx-mod-http-lua libnginx-mod-http-ndk -y
+RUN apt-get update && apt-get install llvm-15-dev clang-15 cmake make libelf-dev zlib1g-dev ninja-build nginx libboost-all-dev curl libcrypt1 libpcre3-dev libnginx-mod-http-lua libnginx-mod-http-ndk -y
 RUN ln -s /usr/bin/clang-15 /usr/bin/clang && ln -s /usr/bin/clang++-15 /usr/bin/clang++ && ln -s /usr/bin/llvm-strip-15 /usr/bin/llvm-strip
 ENV CC=clang-15
 ENV CXX=clang++-15
@@ -30,8 +30,9 @@ RUN cmake -Bbuild  -DBPFTIME_ENABLE_UNIT_TESTING=0 \
     -DENABLE_LTO=1 \
     # -DFRIDA_DOWNLOAD_URL_PREFIX=https://ghproxy.com/ \
     -G Ninja
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 RUN cmake --build build --config Release --target nginx
-RUN cd bpftime/tools/cli-rs && cargo -Z sparse-registry install --path .
+RUN cd bpftime/tools/cli-rs && cargo install --path .
 RUN cd bpf-prog && make -j 32
-RUN cd simple-wasmtime-aux && cargo -Z sparse-registry build --release
+RUN cd simple-wasmtime-aux && cargo build --release
 ENV PATH=$PATH:/root/.bpftime:/root/.cargo/bin
