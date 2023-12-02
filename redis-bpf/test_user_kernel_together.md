@@ -49,7 +49,73 @@ instead of wait and check cqe, we use kernel to check the previous fsync is fini
 ## result: no attach
 
 ```console
+====== SET ======                                                   
+  1000000 requests completed in 65.35 seconds
+  5 parallel clients
+  3 bytes payload
+  keep alive: 1
+  host configuration "save": 3600 1 300 100 60 10000
+  host configuration "appendonly": yes
+  multi-thread: no
 
+Latency by percentile distribution:
+0.000% <= 0.079 milliseconds (cumulative count 12)
+50.000% <= 0.231 milliseconds (cumulative count 508445)
+75.000% <= 0.335 milliseconds (cumulative count 750472)
+87.500% <= 0.551 milliseconds (cumulative count 878886)
+93.750% <= 0.703 milliseconds (cumulative count 938195)
+96.875% <= 0.903 milliseconds (cumulative count 968978)
+98.438% <= 0.999 milliseconds (cumulative count 984743)
+99.219% <= 1.111 milliseconds (cumulative count 992322)
+99.609% <= 1.223 milliseconds (cumulative count 996108)
+99.805% <= 1.319 milliseconds (cumulative count 998089)
+99.902% <= 1.423 milliseconds (cumulative count 999032)
+99.951% <= 1.655 milliseconds (cumulative count 999514)
+99.976% <= 1.935 milliseconds (cumulative count 999762)
+99.988% <= 2.167 milliseconds (cumulative count 999878)
+99.994% <= 2.415 milliseconds (cumulative count 999939)
+99.997% <= 3.247 milliseconds (cumulative count 999970)
+99.998% <= 6.535 milliseconds (cumulative count 999985)
+99.999% <= 7.575 milliseconds (cumulative count 999993)
+100.000% <= 8.783 milliseconds (cumulative count 999997)
+100.000% <= 8.903 milliseconds (cumulative count 999999)
+100.000% <= 8.927 milliseconds (cumulative count 1000000)
+100.000% <= 8.927 milliseconds (cumulative count 1000000)
+
+Cumulative distribution of latencies:
+0.068% <= 0.103 milliseconds (cumulative count 678)
+35.467% <= 0.207 milliseconds (cumulative count 354669)
+72.716% <= 0.303 milliseconds (cumulative count 727162)
+80.391% <= 0.407 milliseconds (cumulative count 803906)
+85.282% <= 0.503 milliseconds (cumulative count 852822)
+90.508% <= 0.607 milliseconds (cumulative count 905076)
+93.820% <= 0.703 milliseconds (cumulative count 938195)
+95.591% <= 0.807 milliseconds (cumulative count 955912)
+96.898% <= 0.903 milliseconds (cumulative count 968978)
+98.573% <= 1.007 milliseconds (cumulative count 985729)
+99.199% <= 1.103 milliseconds (cumulative count 991990)
+99.562% <= 1.207 milliseconds (cumulative count 995622)
+99.787% <= 1.303 milliseconds (cumulative count 997868)
+99.896% <= 1.407 milliseconds (cumulative count 998961)
+99.930% <= 1.503 milliseconds (cumulative count 999297)
+99.946% <= 1.607 milliseconds (cumulative count 999461)
+99.958% <= 1.703 milliseconds (cumulative count 999582)
+99.970% <= 1.807 milliseconds (cumulative count 999698)
+99.974% <= 1.903 milliseconds (cumulative count 999744)
+99.980% <= 2.007 milliseconds (cumulative count 999800)
+99.984% <= 2.103 milliseconds (cumulative count 999841)
+99.996% <= 3.103 milliseconds (cumulative count 999965)
+99.997% <= 4.103 milliseconds (cumulative count 999970)
+99.998% <= 5.103 milliseconds (cumulative count 999980)
+99.999% <= 7.103 milliseconds (cumulative count 999990)
+99.999% <= 8.103 milliseconds (cumulative count 999995)
+100.000% <= 9.103 milliseconds (cumulative count 1000000)
+
+Summary:
+  throughput summary: 15303.39 requests per second
+  latency summary (msec):
+          avg       min       p50       p95       p99       max
+        0.309     0.072     0.231     0.767     1.063     8.927
 ```
 
 ## result: use iouring wait cqe
