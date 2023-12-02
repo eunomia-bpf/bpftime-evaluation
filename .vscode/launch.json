@@ -8,7 +8,7 @@
             "name": "(gdb) 启动",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/redis-bpf/fsync_write",
+            "program": "${workspaceFolder}/redis/src/redis-server",
             "args": [
                 "${workspaceFolder}/redis/redis.conf",
             ],
