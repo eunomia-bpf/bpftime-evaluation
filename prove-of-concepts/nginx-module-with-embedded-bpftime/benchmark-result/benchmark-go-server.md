@@ -86,3 +86,32 @@ Running 10s test @ http://127.0.0.1:9023/X
 Requests/sec: 165055.49
 Transfer/sec:     48.48MB
 ```
+
+## With wasm module, enabled, url that passes the check
+```console
+wrk -c 100 -t 10 http://127.0.0.1:9023
+Running 10s test @ http://127.0.0.1:9023
+  10 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     7.98ms    7.56ms  96.74ms   93.47%
+    Req/Sec     1.47k   514.01    10.31k    83.72%
+  146337 requests in 10.10s, 24.42MB read
+Requests/sec:  14488.57
+Transfer/sec:      2.42MB
+```
+
+
+## With wasm module, enabled, url that doesn't pass the check
+```console
+wrk -c 100 -t 10 http://127.0.0.1:9023/X
+Running 10s test @ http://127.0.0.1:9023/X
+  10 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   672.40us  223.58us   2.85ms   92.14%
+    Req/Sec    15.12k     2.83k   22.55k    89.30%
+  1518057 requests in 10.10s, 445.89MB read
+  Non-2xx or 3xx responses: 1518057
+Requests/sec: 150304.83
+Transfer/sec:     44.15MB
+```
+

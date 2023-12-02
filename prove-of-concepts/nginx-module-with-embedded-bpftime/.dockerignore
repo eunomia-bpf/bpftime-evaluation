@@ -8,3 +8,4 @@ access-log.txt
 error-log.txt
 nginx-pid
 .git
+simple-wasmtime-aux/target

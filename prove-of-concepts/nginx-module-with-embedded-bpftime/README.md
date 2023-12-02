@@ -10,7 +10,17 @@ A simple nginx module that could run ebpf program through bpftime when handling 
 ## How to use
 - Run syscall server through `bpftime load ./nginx_test` in folder `bpf-prog`
 - Run nginx using `LD_LIBRARY_PATH=./build nginx -p . -c nginx.conf` in the project root
-- Send requests to the server. Such as `curl http://127.0.0.1:9023` or `curl http://127.0.0.1:9023?X=y`, see if the request was forbidden
+- Send requests to the server. Such as `curl http://127.0.0.1:9023` or `curl http://127.0.0.1:9023/X`, see if the request was forbidden
+
+## How to use wasm module
+
+- Build the rust project in folder `simple-wasmtime-aux` with `cargo build --release`
+- Modify `module/config`, comment out line 6 and uncomment line 7
+- Use `LD_LIBRARY_PATH=./simple-wasmtime-aux/target/release/libsimple_wasmtime_aux.so nginx -p . -c nginx.conf` to run the nginx server
+
+## How to test with lua module
+- Modify `nginx.conf`, comment out lines with `[bpftime module]`, and uncomment lines with `[lua module]`
+
 
 ## With docker contaner
 - Run `docker build .`
