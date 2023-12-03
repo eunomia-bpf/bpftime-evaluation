@@ -22,7 +22,6 @@ RUN cd bpftime && cmake -Bbuild  -DBPFTIME_ENABLE_UNIT_TESTING=0 \
     -DBPFTIME_LLVM_JIT=1 \
     # -DFRIDA_DOWNLOAD_URL_PREFIX=https://ghproxy.com/ \
     -G Ninja && cmake --build build --config Release --target install
-RUN rm -rf bpftime/build
 RUN cmake -Bbuild  -DBPFTIME_ENABLE_UNIT_TESTING=0 \
     -DCMAKE_BUILD_TYPE:STRING=Release \
     -DBPFTIME_ENABLE_LTO=1 \
@@ -31,8 +30,9 @@ RUN cmake -Bbuild  -DBPFTIME_ENABLE_UNIT_TESTING=0 \
     # -DFRIDA_DOWNLOAD_URL_PREFIX=https://ghproxy.com/ \
     -G Ninja
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+ENV PATH=$PATH:/root/.bpftime:/root/.cargo/bin
 RUN cmake --build build --config Release --target nginx
 RUN cd bpftime/tools/cli-rs && cargo install --path .
 RUN cd bpf-prog && make -j 32
 RUN cd simple-wasmtime-aux && cargo build --release
-ENV PATH=$PATH:/root/.bpftime:/root/.cargo/bin
+RUN rm -rf bpftime/build
