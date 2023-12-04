@@ -8,7 +8,7 @@ RUN echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib 
     && echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware" >> /etc/apt/sources.list \
     && echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware" >> /etc/apt/sources.list
 
-RUN apt-get update && apt-get install llvm-15-dev clang-15 cmake make libelf-dev zlib1g-dev ninja-build nginx libboost-all-dev curl libcrypt1 libpcre3-dev libnginx-mod-http-lua libnginx-mod-http-ndk -y
+RUN apt-get update && apt-get install llvm-15-dev clang-15 cmake make libelf-dev zlib1g-dev ninja-build nginx libboost-all-dev curl libcrypt1 libpcre3-dev libnginx-mod-http-lua libnginx-mod-http-ndk wrk screen vim pkg-config -y
 RUN ln -s /usr/bin/clang-15 /usr/bin/clang && ln -s /usr/bin/clang++-15 /usr/bin/clang++ && ln -s /usr/bin/llvm-strip-15 /usr/bin/llvm-strip
 ENV CC=clang-15
 ENV CXX=clang++-15

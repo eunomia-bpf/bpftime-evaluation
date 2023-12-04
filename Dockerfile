@@ -13,7 +13,8 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y gcc g++ cmake make zlib1g-dev libelf-dev nginx wget llvm-15-dev llvm-15 wrk
 RUN mkdir /root/.bpftime
 COPY /assets/* /root/.bpftime/
-COPY /sslsniff /root/sslsniff
+# COPY /sslsniff /root/sslsniff
+RUN ln -s /root/.bpftime /root/assets
 COPY /deepflow-runtime.casgstatus /root/deepflow-runtime.casgstatus
 ENV PATH="$PATH:/root/.bpftime"
 WORKDIR /root
