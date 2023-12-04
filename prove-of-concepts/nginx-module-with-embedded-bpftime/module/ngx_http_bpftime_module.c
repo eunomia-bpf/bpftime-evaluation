@@ -60,18 +60,7 @@ static ngx_int_t ngx_http_bpftime_handler(ngx_http_request_t *r) {
   ulcf = ngx_http_get_module_loc_conf(r, ngx_http_bpftime_module);
   if (ulcf->enable) {
     char buf[128];
-    ngx_str_t *host = &r->headers_in.host->value;
-    if (r->args.len) {
-      snprintf(buf, sizeof(buf), "%s://%*s%*s?%*s",
-               r->connection->ssl ? "https" : "http", (int)host->len,
-               host->data, (int)r->uri.len, r->uri.data, (int)r->args.len,
-               r->args.data);
-    } else {
-      snprintf(buf, sizeof(buf), "%s://%*s%*s",
-               r->connection->ssl ? "https" : "http", (int)host->len,
-               host->data, (int)r->uri.len, r->uri.data);
-    }
-
+    snprintf(buf, sizeof(buf), "%*s", (int)r->uri.len, r->uri.data);
     ngx_log_error(NGX_LOG_DEBUG, r->connection->log, 0, "Accessed uri: %s",
                   buf);
     int module_run_at_handler(void *mem, uint64_t mem_size, uint64_t *ret);
