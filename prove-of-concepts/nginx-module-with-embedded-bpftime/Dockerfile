@@ -15,7 +15,7 @@ ENV CXX=clang++-15
 ADD . /nginx-bpftime/
 WORKDIR /nginx-bpftime
 RUN mkdir /root/.cargo
-ADD /Cargo-with-mirror.toml /root/.cargo/config
+# ADD /Cargo-with-mirror.toml /root/.cargo/config
 RUN cd bpftime && cmake -Bbuild  -DBPFTIME_ENABLE_UNIT_TESTING=0 \
     -DCMAKE_BUILD_TYPE:STRING=Release \
     -DBPFTIME_ENABLE_LTO=1 \
