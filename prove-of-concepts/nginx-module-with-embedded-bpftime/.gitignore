@@ -4,3 +4,4 @@
 /nginx.pid
 /error-log.txt
 /access-log.txt
+/test*
