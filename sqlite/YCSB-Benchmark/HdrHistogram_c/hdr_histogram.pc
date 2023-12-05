@@ -1,0 +1,12 @@
+prefix=/usr/local
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: hdr_histogram
+Description: C port of the HdrHistogram
+URL: http://hdrhistogram.github.io/HdrHistogram/
+Version: 0.11.6
+Requires.private: zlib
+Cflags: -I${includedir}
+Libs: -L${libdir} -lhdr_histogram
+Libs.private: -pthread -lm -lrt -L${libdir}
