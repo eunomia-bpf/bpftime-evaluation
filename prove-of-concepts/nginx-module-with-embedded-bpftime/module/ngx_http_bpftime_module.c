@@ -59,12 +59,19 @@ static ngx_int_t ngx_http_bpftime_handler(ngx_http_request_t *r) {
 
   ulcf = ngx_http_get_module_loc_conf(r, ngx_http_bpftime_module);
   if (ulcf->enable) {
-    char buf[128];
+    char buf[512];
     snprintf(buf, sizeof(buf), "%*s", (int)r->uri.len, r->uri.data);
-    ngx_log_error(NGX_LOG_DEBUG, r->connection->log, 0, "Accessed uri: %s",
-                  buf);
+
     int module_run_at_handler(void *mem, uint64_t mem_size, uint64_t *ret);
     int len = strlen(buf);
+    for (int i = len - 1; i >= 0; i--)
+      if (buf[i] == ' ') {
+        buf[i] = '\0';
+        break;
+      }
+    len = strlen(buf);
+    ngx_log_error(NGX_LOG_DEBUG, r->connection->log, 0, "Accessed uri: %s",
+                  buf);
     uint64_t ret = 0;
     int err = module_run_at_handler(buf, len + 1, &ret);
 

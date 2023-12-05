@@ -21,17 +21,17 @@ void __always_inline strcpy_range(char *dest, const char *src_begin,
 
 #define LENGTH_OF(a) (sizeof(a) / sizeof(a[0]))
 
-static const char entries[][4][16] = {{"yunwei", "aaaa", "bbbb", ""},
+static const char entries[][4][32] = {{"yunwei", "aaaa", "bbbb", ""},
                                       {"yyw", "abab", "1234", ""},
                                       {"mnfe", "notfound", "fe", ""},
-                                      {"mikunot", "foundexception", "", ""}};
+                                      {"mikunot", "foundexception", "foundexception", ""}};
 
 int __always_inline try_match_url(const char *str) {
 
   // str should be a path like /x/y/z
   const char *last = NULL, *curr = str;
-  char sec1[32];
-  char sec2[32];
+  char sec1[64];
+  char sec2[64];
   int sec1_used = 0, sec2_used = 0;
   while (1) {
     char p = *curr;
@@ -64,4 +64,5 @@ int __always_inline try_match_url(const char *str) {
   }
   return 0;
 }
+
 int test_url(const char *str) { return !try_match_url(str); }
