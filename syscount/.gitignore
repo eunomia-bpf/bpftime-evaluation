@@ -3,3 +3,8 @@ nginx.pid
 nginx-error.txt
 wrk
 test-log-*.txt
+/syscount
+/test*
+/*_temp
+/logs
+/nginx-new
