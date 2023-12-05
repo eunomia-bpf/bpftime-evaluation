@@ -209,3 +209,57 @@ Summary:
           avg       min       p50       p95       p99       max
         0.379     0.072     0.263     0.951     1.183     8.375
 ```
+
+## summary
+
+The additional tests you conducted compare Redis performance with and without AOF (Append Only File) enabled. Here's a comprehensive summary of all the results, including these new tests:
+
+### Tests with Various Configurations of IO_uring Hotpatching
+
+1. **Batch Size = 48**:
+   - Throughput: 52,562.42 requests/sec
+   - Average Latency: 0.083 ms
+   - Max Latency: 2.143 ms
+
+2. **Batch Size = 24**:
+   - Throughput: 50,309.40 requests/sec
+   - Average Latency: 0.087 ms
+   - Max Latency: 5.495 ms
+
+3. **Batch Size = 12**:
+   - Throughput: 48,081.55 requests/sec
+   - Average Latency: 0.090 ms
+   - Max Latency: 6.575 ms
+
+4. **Batch Size = 3**:
+   - Throughput: 43,200.27 requests/sec
+   - Average Latency: 0.104 ms
+   - Max Latency: 3.159 ms
+
+5. **Batch Size = 1 (Sync)**:
+   - Throughput: 22,324.42 requests/sec
+   - Average Latency: 0.212 ms
+   - Max Latency: 3.119 ms
+
+### Tests Without IO_uring Hotpatching
+
+1. **Without Hotpatch, No AOF**:
+   - Throughput: 87,435.52 requests/sec
+   - Average Latency: 0.046 ms
+   - Max Latency: 1.623 ms
+
+2. **Without Hotpatch, AOF Always On**:
+   - Throughput: 12,584.47 requests/sec
+   - Average Latency: 0.379 ms
+   - Max Latency: 8.375 ms
+
+### Comparative Analysis
+
+- **IO_uring Hotpatching**: Implementing IO_uring hotpatching substantially improves throughput and reduces latency across various batch sizes. The best performance is observed with a batch size of 48.
+- **AOF Impact**: The presence of AOF (Append Only File), a persistence mode in Redis, significantly impacts performance. When AOF is turned off, the throughput nearly quadruples, and average latency decreases significantly compared to when AOF is always on.
+- **Optimal Settings**: The optimal configuration for maximum throughput and minimal latency appears to be using IO_uring hotpatching with a larger batch size, and disabling AOF yields even better performance.
+- **Trade-offs**: There are trade-offs to consider between data durability (offered by AOF) and performance. Disabling AOF improves performance but at the cost of potentially losing recent data in case of a crash.
+
+### Conclusion
+
+Your testing reveals that both the implementation of IO_uring hotpatching and the configuration of AOF in Redis significantly influence its performance. While hotpatching and larger batch sizes enhance throughput and reduce latency, disabling AOF leads to the highest performance gains, demonstrating the impact of persistence mechanisms on Redis's performance. These insights are valuable for optimizing Redis configurations based on specific requirements for data persistence and system responsiveness.

@@ -46,11 +46,13 @@ def process_globs(patterns):
                     results[data_size]['transfer_sec'].append(transfer_sec)
 
     # Calculate averages and prepare the Markdown table
-    markdown_table = "| Data Size | Requests/sec | Transfer/sec |\n|-----------|--------------|--------------|\n"
+    markdown_table = "| Data Size | Requests/sec  |\n|-----------|--------------|\n"
     for size in sorted(results.keys(), key=lambda s: int(s[:-1])):
         avg_req_sec = average(results[size]['req_sec'])
-        avg_transfer_sec = average(results[size]['transfer_sec'])
-        markdown_table += f"| {size.ljust(9)} | {avg_req_sec:13.2f} | {avg_transfer_sec:12.2f}MB |\n"
+        # avg_transfer_sec = average(results[size]['transfer_sec'])
+        markdown_table += f"| {size.ljust(9)} | {avg_req_sec:13.2f}  |\n"
+        # markdown_table += f"| {size.ljust(9)} | {avg_req_sec:13.2f} | {avg_transfer_sec:12.2f}MB |\n"
+
 
     print(markdown_table)
 

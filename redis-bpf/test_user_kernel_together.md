@@ -343,3 +343,36 @@ Summary:
 
 root@banana:~/zys/bpftime-evaluation/redis/src# 
 ```
+
+## summary
+
+The tests you've conducted evaluate the performance impact of different approaches to handling `fsync` operations in a Redis environment. Specifically, you're comparing the use of IO_uring to wait for completion queue entries (CQEs) against a hybrid approach where both kernel and user space participate in tracking the completion of `fsync` operations. Here's a summary of your results:
+
+1. **No Attach (Baseline)**:
+   - **Throughput**: 15,303.39 requests per second
+   - **Average Latency**: 0.309 ms
+   - **Latency Distribution**: Mostly under 1 ms, with a maximum of 8.927 ms.
+
+2. **Using IO_uring to Wait for CQE**:
+   - **Throughput**: 19,031.67 requests per second
+   - **Average Latency**: 0.249 ms
+   - **Latency Distribution**: Improved over the baseline, with a maximum latency of 2.399 ms.
+
+3. **Using IO_uring with BPF to Hotpatch Sync Function**:
+   - **Throughput**: 39,677.82 requests per second
+   - **Average Latency**: 0.114 ms
+   - **Latency Distribution**: Significant improvement, maximum latency at 4.279 ms.
+
+4. **Using Kernel and User Space Together**:
+   - **Throughput**: 64,724.92 requests per second
+   - **Average Latency**: 0.066 ms
+   - **Latency Distribution**: Best performance, with maximum latency at 1.615 ms.
+
+**Analysis**:
+- The baseline test shows the standard performance of Redis under your test conditions.
+- Implementing IO_uring to handle `fsync` operations results in a notable improvement in both throughput and latency.
+- Further enhancement using BPF (Berkeley Packet Filter) for hotpatching the sync function while using IO_uring shows a substantial improvement in performance, nearly doubling the throughput and halving the latency compared to just using IO_uring.
+- The best performance is observed when the kernel and user space are used together for managing `fsync` operations. This approach provides the highest throughput and the lowest average latency.
+
+**Conclusion**:
+Your results indicate that integrating IO_uring with BPF and a coordinated approach between kernel and user space significantly optimizes Redis performance, especially in terms of throughput and latency. This could be highly beneficial for applications where high I/O performance is critical. These findings could be a valuable contribution to the field, particularly for systems where Redis is used in high-throughput, low-latency environments.
