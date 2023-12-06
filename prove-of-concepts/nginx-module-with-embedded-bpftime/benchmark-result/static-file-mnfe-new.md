@@ -21,8 +21,21 @@ Requests/sec: 147498.81
 Transfer/sec:     43.75MB
 ```
 
+## With bpftime module, enabled, url that could pass check, with metrics
+```console
+wrk -c 250 -t 20  http:
+//127.0.0.1:9023/mikunot/foundexception
+Running 10s test @ http://127.0.0.1:9023/mikunot/foundexception
+  20 threads and 250 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.71ms  643.50us  19.12ms   79.74%
+    Req/Sec     4.44k   322.08     5.94k    75.11%
+  891195 requests in 10.10s, 264.32MB read
+Requests/sec:  88239.50
+Transfer/sec:     26.17MB
+```
 
-## With bpftime module, enabled, url that could pass check
+## With bpftime module, enabled, url that could pass check, without metrics
 ```console
 wrk -t 20 -c 250 http://127.0.0.1:9023/mikunot/foundexception
 Running 10s test @ http://127.0.0.1:9023/mikunot/foundexception
