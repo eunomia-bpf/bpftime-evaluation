@@ -1,0 +1,97 @@
+[
+    {'kernel-uprobe': {
+            1: {'average_request': 77018.49, 'average_transfer': 83.88199999999999
+            },
+            2: {'average_request': 79867.056, 'average_transfer': 164.98
+            },
+            4: {'average_request': 63282.426, 'average_transfer': 255.469
+            },
+            16: {'average_request': 53154.632000000005, 'average_transfer': 836.9010000000001
+            },
+            128: {'average_request': 32851.689999999995, 'average_transfer': 4110.336
+            },
+            256: {'average_request': 24658.739999999998, 'average_transfer': 6166.528
+            }
+        }, 'no-probe': {
+            1: {'average_request': 318219.16099999996, 'average_transfer': 346.571
+            },
+            2: {'average_request': 332558.961, 'average_transfer': 686.952
+            },
+            4: {'average_request': 294194.515, 'average_transfer': 1187.84
+            },
+            16: {'average_request': 245454.25, 'average_transfer': 3866.624
+            },
+            128: {'average_request': 104412.02699999999, 'average_transfer': 13067.264
+            },
+            256: {'average_request': 64645.704999999994, 'average_transfer': 16171.008000000002
+            }
+        }, 'no-uprobe': {
+            1: {'average_request': 280069.674, 'average_transfer': 305.023
+            },
+            2: {'average_request': 285801.47299999994, 'average_transfer': 590.3689999999999
+            },
+            4: {'average_request': 243093.03100000005, 'average_transfer': 982.016
+            },
+            16: {'average_request': 196245.724, 'average_transfer': 3090.432
+            },
+            128: {'average_request': 82809.51299999999, 'average_transfer': 10360.832
+            },
+            256: {'average_request': 52339.113999999994, 'average_transfer': 13091.84
+            }
+        }, 'user-uprobe': {}
+    },
+    {'kernel-uprobe': {
+            1: {'average_request': 136890.03499999997, 'average_transfer': 149.088
+            },
+            2: {'average_request': 132844.674, 'average_transfer': 274.40999999999997
+            },
+            4: {'average_request': 118401.33300000001, 'average_transfer': 477.977
+            },
+            16: {'average_request': 101531.50599999998, 'average_transfer': 1598.4640000000002
+            },
+            128: {'average_request': 83519.595, 'average_transfer': 10451.968
+            },
+            256: {'average_request': 66369.18, 'average_transfer': 16601.087999999996
+            }
+        }, 'no-probe': {
+            1: {'average_request': 478322.737, 'average_transfer': 520.9390000000001
+            },
+            2: {'average_request': 476278.52100000007, 'average_transfer': 984.064
+            },
+            4: {'average_request': 424663.363, 'average_transfer': 1714.1760000000002
+            },
+            16: {'average_request': 370091.245, 'average_transfer': 5831.68
+            },
+            128: {'average_request': 195424.30299999999, 'average_transfer': 24453.12
+            },
+            256: {'average_request': 125212.275, 'average_transfer': 31320.064000000002
+            }
+        }, 'no-uprobe': {
+            1: {'average_request': 306961.126, 'average_transfer': 334.30800000000005
+            },
+            2: {'average_request': 315478.08800000005, 'average_transfer': 651.6709999999999
+            },
+            4: {'average_request': 285838.505, 'average_transfer': 1155.0720000000001
+            },
+            16: {'average_request': 241669.03999999998, 'average_transfer': 3808.256
+            },
+            128: {'average_request': 125109.075, 'average_transfer': 15654.912
+            },
+            256: {'average_request': 81732.49999999999, 'average_transfer': 20444.159999999996
+            }
+        }, 'user-uprobe': {
+            1: {'average_request': 231772.71300000005, 'average_transfer': 252.42199999999997
+            },
+            2: {'average_request': 229986.425, 'average_transfer': 475.07399999999996
+            },
+            4: {'average_request': 200326.73899999997, 'average_transfer': 808.701
+            },
+            16: {'average_request': 172293.301, 'average_transfer': 2715.648
+            },
+            128: {'average_request': 113591.13600000001, 'average_transfer': 14213.12
+            },
+            256: {'average_request': 73946.439, 'average_transfer': 18495.488
+            }
+        }
+    }
+]

@@ -7,7 +7,7 @@ structure_data = ""
 with open("test-data-multi-without-smatrt-ptr.json", "r") as f:
     structure_data = json.load(f)
     
-print(structure_data)
+# print(structure_data)
 
 https_structure = structure_data["https"]
 http_structure = structure_data["http"]
@@ -48,6 +48,8 @@ def calculate_averages(data):
 https_averages = calculate_averages(https_structure)
 http_averages = calculate_averages(http_structure)
 
+print(https_averages)
+print(http_averages)
 
 def calculate_performance_drop(averages, baseline_key):
     performance_drop = {}
@@ -87,6 +89,11 @@ def calculate_performance_drop(averages, baseline_key):
 # Calculating performance drop for HTTPS and HTTP
 https_performance_drop = calculate_performance_drop(https_averages, "no-probe")
 http_performance_drop = calculate_performance_drop(http_averages, "no-probe")
+
+print("\n# performance drop\n")
+
+print(https_performance_drop)
+print(http_performance_drop)
 
 # Helper function to plot the performance drop
 def plot_performance_drop(performance_drop, title):
