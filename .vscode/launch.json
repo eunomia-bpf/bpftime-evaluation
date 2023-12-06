@@ -8,15 +8,28 @@
             "name": "(gdb) 启动",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/redis/src/redis-server",
+            "program": "${workspaceFolder}/fuse/filebench/filebench",
             "args": [
-                "${workspaceFolder}/redis/redis.conf",
+                "-f",
+                "${workspaceFolder}/fuse/bench/filemicro_statfile.f",
             ],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [
+                // {
+                //     "name": "LD_PRELOAD",
+                //     "value": "/root/zys/bpftime/build/runtime/agent/libbpftime-agent.so"
+                // },
                 {
                     "name": "LD_PRELOAD",
+                    "value": "/root/zys/bpftime/build/runtime/agent-transformer/libbpftime-agent-transformer.so"
+                },
+                // {
+                //     "name": "LD_PRELOAD",
+                //     "value": "/root/zys/bpftime/build/runtime/syscall-server/libbpftime-syscall-server.so"
+                // },
+                {
+                    "name": "AGENT_SO",
                     "value": "/root/zys/bpftime/build/runtime/agent/libbpftime-agent.so"
                 },
             ],

@@ -1,0 +1,51 @@
+root@banana:~/bpftime-evaluation/fuse# time AGENT_SO=/root/zys/bpftime/build/runtime/agent/libbpftime-agent.so LD_PRELOAD=/root/zys/bpftime/build/runtime/agent-transformer/libbpftime-agent-transformer.so find /root/bpftime-evaluation/fuse/data 2>/dev/null 1>res.txt
+
+real    0m1.551s
+user    0m0.631s
+sys     0m0.164s
+root@banana:~/bpftime-evaluation/fuse# time AGENT_SO=/root/zys/bpftime/build/runtime/agent/libbpftime-agent.so LD_PRELOAD=/root/zys/bpftime/build/runtime/agent-transformer/libbpftime-agent-transformer.so find /root/bpftime-evaluation/fuse/data 2>/dev/null 1>res.txt
+
+real    0m1.573s
+user    0m0.633s
+sys     0m0.152s
+root@banana:~/bpftime-evaluation/fuse# time AGENT_SO=/root/zys/bpftime/build/runtime/agent/libbpftime-agent.so LD_PRELOAD=/root/zys/bpftime/build/runtime/agent-transformer/libbpftime-agent-transformer.so find /root/bpftime-evaluation/fuse/data 2>/dev/null 1>res.txt
+
+real    0m1.554s
+user    0m0.662s
+sys     0m0.124s
+root@banana:~/bpftime-evaluation/fuse# time AGENT_SO=/root/zys/bpftime/build/runtime/agent/libbpftime-agent.so LD_PRELOAD=/root/zys/bpftime/build/runtime/agent-transformer/libbpftime-agent-transformer.so find /root/bpftime-evaluation/fuse/data 2>/dev/null 1>res.txt
+
+real    0m1.650s
+user    0m0.654s
+sys     0m0.176s
+root@banana:~/bpftime-evaluation/fuse# time AGENT_SO=/root/zys/bpftime/build/runtime/agent/libbpftime-agent.so LD_PRELOAD=/root/zys/bpftime/build/runtime/agent-transformer/libbpftime-agent-transformer.so find /root/bpftime-evaluation/fuse/data 2>/dev/null 1>res.txt
+
+real    0m1.466s
+user    0m0.624s
+sys     0m0.159s
+root@banana:~/bpftime-evaluation/fuse# time AGENT_SO=/root/zys/bpftime/build/runtime/agent/libbpftime-agent.so LD_PRELOAD=/root/zys/bpftime/build/runtime/agent-transformer/libbpftime-agent-transformer.so find /root/bpftime-evaluation/fuse/data 2>/dev/null 1>res.txt
+
+real    0m1.470s
+user    0m0.645s
+sys     0m0.137s
+root@banana:~/bpftime-evaluation/fuse# time AGENT_SO=/root/zys/bpftime/build/runtime/agent/libbpftime-agent.so LD_PRELOAD=/root/zys/bpftime/build/runtime/agent-transformer/libbpftime-agent-transformer.so find /root/bpftime-evaluation/fuse/data 2>/dev/null 1>res.txt
+
+real    0m1.577s
+user    0m0.584s
+sys     0m0.201s
+root@banana:~/bpftime-evaluation/fuse# time AGENT_SO=/root/zys/bpftime/build/runtime/agent/libbpftime-agent.so LD_PRELOAD=/root/zys/bpftime/build/runtime/agent-transformer/libbpftime-agent-transformer.so find /root/bpftime-evaluation/fuse/data 2>/dev/null 1>res.txt
+
+real    0m1.530s
+user    0m0.647s
+sys     0m0.115s
+root@banana:~/bpftime-evaluation/fuse# time AGENT_SO=/root/zys/bpftime/build/runtime/agent/libbpftime-agent.so LD_PRELOAD=/root/zys/bpftime/build/runtime/agent-transformer/libbpftime-agent-transformer.so find /root/bpftime-evaluation/fuse/data 2>/dev/null 1>res.txt
+
+real    0m1.598s
+user    0m0.609s
+sys     0m0.153s
+root@banana:~/bpftime-evaluation/fuse# time AGENT_SO=/root/zys/bpftime/build/runtime/agent/libbpftime-agent.so LD_PRELOAD=/root/zys/bpftime/build/runtime/agent-transformer/libbpftime-agent-transformer.so find /root/bpftime-evaluation/fuse/data 2>/dev/null 1>res.txt
+
+real    0m1.611s
+user    0m0.600s
+sys     0m0.172s
+root@banana:~/bpftime-evaluation/fuse# 

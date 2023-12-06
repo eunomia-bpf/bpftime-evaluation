@@ -89,7 +89,7 @@ int tracepoint__syscalls__sys_enter_open(struct trace_event_raw_sys_enter *ctx)
 {
 	u64 id = bpf_get_current_pid_tgid();
 	u32 uid = bpf_get_current_uid_gid() >> 32;
-	// bpf_printk("trace_enter sys_enter_open uid: %d\n", uid);
+	bpf_printk("trace_enter sys_enter_open uid: %d\n", uid);
 	struct open_args_t *uid_open_data = bpf_map_lookup_elem(&open_file_filter, &uid);
 	if (uid_open_data)
 	{
@@ -128,20 +128,24 @@ int tracepoint__syscalls__sys_enter_openat(struct trace_event_raw_sys_enter *ctx
 	int fd = (int)ctx->args[0];
 	bpf_probe_read_str(args.fname, sizeof(args.fname),
 					   (const void *)ctx->args[1]);
+	bpf_printk("sys_enter_openat %d %s\n", fd, args.fname);
 	args.flags = (int)ctx->args[2];
 	if (fd != AT_FDCWD)
 	{
 		struct dir_fd_data *dir_data = get_dir_fd_data(fd);
 		if (dir_data == NULL)
 		{
+			// bpf_printk("get_dir_fd_data %d failed\n", fd);
+			// bpftime_path_join(dir_data->dir_path, args.fname, args.fname,
+			// 			  sizeof(args.fname));
+			bpf_map_update_elem(&open_args_start, &id, &args, 0);
 			return 0;
 		}
-		bpftime_path_join(dir_data->dir_path, args.fname, args.fname,
-						  sizeof(args.fname));
+		// bpf_printk("get_dir_fd_data %d %s\n", fd, dir_data->dir_path);
 	}
 	// filter open file by uid
 	u32 uid = bpf_get_current_uid_gid() >> 32;
-	// bpf_printk("trace_enter sys_enter_open uid: %d %s\n", uid, args.fname);
+	bpf_printk("trace_enter sys_enter_open uid: %d %s\n", uid, args.fname);
 	struct open_args_t *uid_open_data = bpf_map_lookup_elem(&open_file_filter, &uid);
 	if (uid_open_data)
 	{
@@ -157,9 +161,7 @@ int tracepoint__syscalls__sys_enter_openat(struct trace_event_raw_sys_enter *ctx
 			return 0;
 		}
 	}
-
 	bpf_map_update_elem(&open_args_start, &id, &args, 0);
-	// bpf_printk("sys_enter_openat %d %s\n", fd, args.fname);
 	return 0;
 }
 
@@ -180,6 +182,7 @@ static __always_inline int trace_exit(struct trace_event_raw_sys_exit *ctx)
 	}
 	struct dir_fd_data data = {};
 	bpftime_get_abs_path(ap->fname, data.dir_path, sizeof(data.dir_path));
+	bpf_printk("trace_exit open: %d %s\n", ret, data.dir_path);
 	set_dir_fd_data(ret, &data);
 	return 0;
 }
@@ -242,7 +245,7 @@ int tracepoint__syscalls__sys_enter_getdents64(
 		return 0;
 	}
 	// bpf_printk("trace_enter sys_enter_getdents64 fd: %d, path %s\n", fd,
-	// 	   dir_data->dir_path);
+		//    dir_data->dir_path);
 	struct getdents_args_t args = {};
 	args.fd = fd;
 	args.dirp = (void *)ctx->args[1];
@@ -358,6 +361,68 @@ SEC("tracepoint/syscalls/sys_enter_statfs")
 int tracepoint__syscalls__sys_enter_statfs(struct trace_event_raw_sys_enter *ctx)
 {
 	// bpf_printk("trace_enter sys_enter_statfs\n");
+	return 0;
+}
+
+
+struct fcntl_args_t
+{
+	int fd;
+	int cmd;
+};
+
+struct
+{
+	__uint(type, BPF_MAP_TYPE_HASH);
+	__uint(max_entries, 10240);
+	__type(key, u64);
+	__type(value, struct fcntl_args_t);
+} fcntl_args_start SEC(".maps");
+
+#define F_DUPFD 0
+
+SEC("tracepoint/syscalls/sys_enter_fcntl")
+int tracepoint__syscalls__sys_enter_fcntl(
+	struct trace_event_raw_sys_enter *ctx)
+{
+	int fd = (int)ctx->args[0];
+	int cmd = (int)ctx->args[1];
+	if (cmd != F_DUPFD)
+	{
+		return 0;
+	}
+	// bpf_printk("trace_enter sys_enter_fcntl fd: %d\n", fd);
+	struct fcntl_args_t args = {};
+	args.fd = fd;
+	args.cmd = cmd;
+	u64 id = bpf_get_current_pid_tgid();
+	bpf_map_update_elem(&fcntl_args_start, &id, &args, 0);
+	return 0;
+}
+
+SEC("tracepoint/syscalls/sys_exit_fcntl")
+int tracepoint__syscalls__sys_exit_fcntl(
+	struct trace_event_raw_sys_exit *ctx)
+{
+	int ret = ctx->ret;
+	if (ret < 0)
+	{
+		return 0;
+	}
+	u64 id = bpf_get_current_pid_tgid();
+	struct fcntl_args_t *args =
+		bpf_map_lookup_elem(&getdents64_args_start, &id);
+	if (!args)
+	{
+		return 0;
+	}
+	// bpf_printk("trace_exit sys_exit_fcntl fd: %d\n", args->fd);
+	struct dir_fd_data *dir_data = get_dir_fd_data(args->fd);
+	if (dir_data == NULL)
+	{
+		return 0;
+	}
+	set_dir_fd_data(ret, dir_data);
 	return 0;
 }
 

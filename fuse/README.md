@@ -113,7 +113,7 @@ python3 passthrough.py ~/linux/ ./data/
 use find:
 
 ```console
-$ time find bpftime-evaluation/fuse/data > /dev/null
+$ time find ./data > /dev/null
 
 real    0m12.971s
 user    0m0.000s

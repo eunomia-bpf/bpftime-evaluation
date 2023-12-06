@@ -4,7 +4,7 @@ import typing
 from io import StringIO
 import argparse
 
-WRK_PATH = "wrk"
+WRK_PATH = "../../assets/wrk"
 DEEPFLOW = "../../assets/rust_sample"
 BPFTIME_DAEMON = "../../assets/bpftime_daemon"
 BPFTIME_CLI = "../../assets/bpftime"
@@ -137,7 +137,7 @@ async def start_deepflow(
         )
     )
     # Wait until deepflow starts..
-    await asyncio.wait_for(deepflow_start_cb.wait(), 60)
+    await asyncio.wait_for(deepflow_start_cb.wait(), 100)
     # shut that thing up
     if shutup_after_start:
         shut_up_deepflow.set()

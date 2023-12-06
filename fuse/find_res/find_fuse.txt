@@ -1,0 +1,41 @@
+# bash test.sh 
+
+real    0m5.673s
+user    0m0.192s
+sys     0m1.143s
+
+real    0m5.228s
+user    0m0.172s
+sys     0m1.065s
+
+real    0m5.017s
+user    0m0.152s
+sys     0m1.035s
+
+real    0m4.918s
+user    0m0.121s
+sys     0m1.090s
+
+real    0m5.147s
+user    0m0.183s
+sys     0m1.041s
+
+real    0m4.993s
+user    0m0.181s
+sys     0m0.998s
+
+real    0m5.058s
+user    0m0.151s
+sys     0m1.046s
+
+real    0m4.965s
+user    0m0.185s
+sys     0m1.001s
+
+real    0m5.030s
+user    0m0.210s
+sys     0m0.998s
+
+real    0m5.047s
+user    0m0.163s
+sys     0m1.040s

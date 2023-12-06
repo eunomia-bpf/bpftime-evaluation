@@ -10,13 +10,13 @@
 run agent
 
 ```console
-# AGENT_SO=build/runtime/agent/libbpftime-agent.so LD_PRELOAD=build/runtime/agent-transformer/libbpftime-agent-transformer.so find ./example
+# AGENT_SO=/root/zys/bpftime/build/runtime/agent/libbpftime-agent.so LD_PRELOAD=/root/zys/bpftime/build/runtime/agent-transformer/libbpftime-agent-transformer.so find ./example
 ```
 
 run server:
 
 ```console
-sudo LD_PRELOAD=build/runtime/syscall-server/libbpftime-syscall-server.so example/fs-filter-cache/fs-cache
+LD_PRELOAD=/root/zys/bpftime/build/runtime/syscall-server/libbpftime-syscall-server.so ./fs-filter-cache/fs-cache
 ```
 
 ## cache for getdents64
@@ -61,7 +61,7 @@ INFO [414216]: Global shm destructed
 Test with loggerFS:
 
 ```sh
-sudo loggedfs -l ~/log.txt /home/yunwei/bpftime/daemon
+sudo loggedfs -l ./log.txt /home/yunwei/bpftime/daemon
 ```
 
 No cache:
@@ -161,4 +161,42 @@ root@yunwei37server:/home/yunwei/bpftime-evaluation# AGENT_SO=../bpftime/build/r
 Average time usage 740.980190 ns, iter 100000 times
 
 INFO [439292]: Global shm destructed
+```
+
+## filebench with LoggerFS
+
+
+Test with loggerFS:
+
+```sh
+./lologgedfs -l ./log.txt /root/bpftime-evaluation/fuse/tmp
+```
+
+Test with filebench:
+
+```sh
+filebench -f bench/filemicro_statfile.f
+```
+
+Baseline:
+
+```console
+root@banana:~/bpftime-evaluation/fuse# filebench -f bench/filemicro_statfile.f
+Filebench Version 1.5-alpha3
+0.000: Allocated 177MB of shared memory
+0.002: Stat File Version 1.0 personality successfully loaded
+0.002: Populating and pre-allocating filesets
+0.006: bigfileset populated: 10000 files, avg. dir. width = 20, avg. dir. depth = 3.1, 0 leafdirs, 1250.000MB total size
+0.006: Removing bigfileset tree (if exists)
+0.010: Pre-allocating directories in bigfileset tree
+0.021: Pre-allocating files in bigfileset tree
+0.987: Waiting for pre-allocation to finish (in case of a parallel pre-allocation)
+0.987: Population and pre-allocation of filesets completed
+0.987: Starting 1 examinefiles instances
+1.994: Running...
+62.000: Run took 60 seconds...
+62.000: Per-Operation Breakdown
+statfile1            18168487ops   302781ops/s   0.0mb/s    0.002ms/op [0.001ms - 0.472ms]
+62.000: IO Summary: 18168487 ops 302781.028 ops/s 0/0 rd/wr   0.0mb/s 0.002ms/op
+62.000: Shutting down processes
 ```

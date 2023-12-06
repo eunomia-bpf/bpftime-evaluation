@@ -7,6 +7,7 @@
 #include <argp.h>
 #include <signal.h>
 #include <stdio.h>
+#include <fcntl.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/time.h>
@@ -46,7 +47,6 @@ int main(int argc, char **argv)
 		fprintf(stderr, "failed to open BPF object\n");
 		return 1;
 	}
-
 	/* initialize global data (filtering options) */
 
 	err = fs_cache_bpf__load(obj);
