@@ -18,6 +18,7 @@ A simple nginx module that could run ebpf program through bpftime when handling 
 
 - Build the rust project in folder `simple-wasmtime-aux` with `cargo build --release`
 - Modify `module/config`, comment out line 6 and uncomment line 7
+- Remove directory `build` and rebuild target `nginx`
 - Use `LD_LIBRARY_PATH=./simple-wasmtime-aux/target/release/ nginx -p . -c nginx.conf` to run the nginx server
 
 ## How to test with lua module

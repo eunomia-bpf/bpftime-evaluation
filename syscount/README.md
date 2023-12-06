@@ -26,6 +26,8 @@ make
 ```
 
 ```
+
+
 ## userspace syscount:
 
 
@@ -64,45 +66,45 @@ Min: 2.01
 Max: 3.95
 
 
-## kernel syscount globally:
-
-
-len:  20
-Requests/sec statistics:
-Mean: 11263.99
-Median: 11748.56
-Stdev: 1970.16
-Min: 7014.46
-Max: 14410.41
-
-Transfer/sec statistics:
-Mean: 2.86
-Median: 2.98
-Stdev: 0.50
-Min: 1.78
-Max: 3.66
-
-
 ## kernel target filter nginx:
 
 
-len:  20
+len:  10
 Requests/sec statistics:
-Mean: 10280.56
-Median: 10724.91
-Stdev: 1486.97
-Min: 6967.83
-Max: 13004.95
+Mean: 9668.96
+Median: 9698.80
+Stdev: 910.97
+Min: 8072.23
+Max: 11575.63
 
 Transfer/sec statistics:
-Mean: 2.61
-Median: 2.72
-Stdev: 0.38
-Min: 1.77
-Max: 3.30
+Mean: 2.45
+Median: 2.46
+Stdev: 0.23
+Min: 2.05
+Max: 2.94
 
 
 ## kernel target filter other process:
+
+
+len:  10
+Requests/sec statistics:
+Mean: 10413.39
+Median: 10899.91
+Stdev: 1631.72
+Min: 6812.87
+Max: 11909.52
+
+Transfer/sec statistics:
+Mean: 2.64
+Median: 2.76
+Stdev: 0.41
+Min: 1.73
+Max: 3.02
+
+
+## userspace target filter other process:
 
 
 len:  20
@@ -119,6 +121,102 @@ Median: 3.23
 Stdev: 0.41
 Min: 2.20
 Max: 3.69
+root@mnfe-pve:~/bpftime-evaluation/syscount# 
+
+## userspace syscount:
+
+
+len:  20
+Requests/sec statistics:
+Mean: 8593.33
+Median: 8311.02
+Stdev: 1081.26
+Min: 7094.49
+Max: 11368.49
+
+Transfer/sec statistics:
+Mean: 2.18
+Median: 2.10
+Stdev: 0.27
+Min: 1.80
+Max: 2.88
+
+
+## no syscount:
+
+
+len:  20
+Requests/sec statistics:
+Mean: 12292.24
+Median: 12796.33
+Stdev: 2367.95
+Min: 7911.74
+Max: 15582.43
+
+Transfer/sec statistics:
+Mean: 3.12
+Median: 3.25
+Stdev: 0.60
+Min: 2.01
+Max: 3.95
+
+
+## kernel target filter nginx:
+
+
+len:  10
+Requests/sec statistics:
+Mean: 9668.96
+Median: 9698.80
+Stdev: 910.97
+Min: 8072.23
+Max: 11575.63
+
+Transfer/sec statistics:
+Mean: 2.45
+Median: 2.46
+Stdev: 0.23
+Min: 2.05
+Max: 2.94
+
+
+## kernel target filter other process:
+
+
+len:  10
+Requests/sec statistics:
+Mean: 10413.39
+Median: 10899.91
+Stdev: 1631.72
+Min: 6812.87
+Max: 11909.52
+
+Transfer/sec statistics:
+Mean: 2.64
+Median: 2.76
+Stdev: 0.41
+Min: 1.73
+Max: 3.02
+
+
+## userspace target filter other process:
+
+
+len:  20
+Requests/sec statistics:
+Mean: 12302.01
+Median: 12706.75
+Stdev: 1628.12
+Min: 8677.74
+Max: 14526.87
+
+Transfer/sec statistics:
+Mean: 3.12
+Median: 3.23
+Stdev: 0.41
+Min: 2.20
+Max: 3.69
+root@mnfe-pve:~/bpftime-evaluation/syscount# 
 ```
 
 ## Test nginx with syscount for 20 times
