@@ -4,6 +4,13 @@
 #include <bpf/bpf_helpers.h>
 #include <bpf/bpf_tracing.h>
 
+struct {
+  __uint(type, BPF_MAP_TYPE_PERCPU_HASH);
+  __uint(max_entries, 1024);
+  __type(key, struct metric_key);
+  __type(value, u64);
+} metrics SEC(".maps");
+
 int __always_inline strcmp_my(const char *a, const char *b) {
   while (*a && *b) {
     if (*a != *b)
@@ -35,6 +42,19 @@ void __always_inline empty(void *src, int sz) {
   for (int i = 0; i < sz; i++) {
     ((char *)src)[i] = 0;
   }
+}
+
+void __always_inline add_metric(char *sec1, char *sec2) {
+  struct metric_key key;
+  empty(&key, sizeof(key));
+  strcpy_my(key.sec1, sec1);
+  strcpy_my(key.sec2, sec2);
+  u64 raw_val = 0;
+  u64 *count = bpf_map_lookup_elem(&metrics, &key);
+  if (count)
+    raw_val = *count;
+  raw_val++;
+  bpf_map_update_elem(&metrics, &key, &raw_val, 0);
 }
 
 #define LENGTH_OF(a) (sizeof(a) / sizeof(a[0]))
@@ -77,6 +97,7 @@ int __always_inline try_match_url(const char *str) {
     if (strcmp_my(entries[i][0], sec1) == 0) {
       for (int j = 1; j < 4; j++) {
         if (strcmp_my(entries[i][j], sec2) == 0) {
+          add_metric(sec1, sec2);
           return 1;
         }
       }
