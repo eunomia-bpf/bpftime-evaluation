@@ -67,9 +67,9 @@ wrk -t 20 -c 250 http://127.0.0.1:9023/mikunot/foundexception/
 Running 10s test @ http://127.0.0.1:9023/mikunot/foundexception/
   20 threads and 250 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     2.07ms    0.88ms  18.85ms   74.74%
-    Req/Sec     5.80k     1.72k    9.66k    61.33%
-  1164374 requests in 10.10s, 345.34MB read
-Requests/sec: 115289.21
-Transfer/sec:     34.19MB
+    Latency     1.87ms    0.91ms  20.83ms   78.61%
+    Req/Sec     6.52k     1.98k   12.12k    57.71%
+  1308897 requests in 10.10s, 388.20MB read
+Requests/sec: 129598.61
+Transfer/sec:     38.44MB
 ```
