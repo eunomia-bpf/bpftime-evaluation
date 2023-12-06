@@ -1,7 +1,9 @@
 import re
 import statistics
+import matplotlib.pyplot as plt
+import numpy as np
 
-def get_avg_data_from(log_file_path):
+def get_stats_and_plot(log_file_path, label, color):
     # Regular expressions to extract the numerical values for requests per second and transfer per second
     req_sec_pattern = re.compile(r"Requests/sec:\s+(\d+\.\d+)")
     transfer_sec_pattern = re.compile(r"Transfer/sec:\s+(\d+\.\d+)MB")
@@ -30,28 +32,52 @@ def get_avg_data_from(log_file_path):
     req_sec_stats = calculate_statistics(req_sec_values)
     transfer_sec_stats = calculate_statistics(transfer_sec_values)
 
-    print("len: ", len(req_sec_values))
+    # Return the means for graphing
+    return req_sec_stats['mean'], transfer_sec_stats['mean']
 
-    # Print the statistics
-    print("Requests/sec statistics:")
-    for stat, value in req_sec_stats.items():
-        print(f"{stat.capitalize()}: {value:.2f}")
+# Labels and colors for each scenario
+scenarios = ['Userspace', 'No Syscount', 'Kernel Filter', 'kernel-untarget', 'Userspace Filter']
+colors = ['blue', 'green', 'red', 'orange', "yellow"]
 
-    print("\nTransfer/sec statistics:")
-    for stat, value in transfer_sec_stats.items():
-        print(f"{stat.capitalize()}: {value:.2f}")
+# File paths
+file_paths = [
+    "result/userspace.txt",
+    "result/no-syscount.txt",
+    "result/kernel_targeted-filter.txt",
+    "result/kernel_untargeted-filter.txt",
+    "result/userspace-untargeted.txt"
+]
 
-print("\n\n## userspace syscount:\n\n")
-get_avg_data_from("result/userspace.txt")
-print("\n\n## no syscount:\n\n")
-get_avg_data_from("result/no-syscount.txt")
-# print("\n\n## kernel syscount globally:\n\n")
-# get_avg_data_from("result/kernel_no-filter.txt")
-print("\n\n## kernel target filter nginx:\n\n")
-get_avg_data_from("result/kernel_targeted-filter.txt")
-print("\n\n## kernel target filter other process:\n\n")
-get_avg_data_from("result/kernel_untargeted-filter.txt")
+# Gather data
+req_sec_means = []
+transfer_sec_means = []
+for file_path, label in zip(file_paths, scenarios):
+    req_sec_mean, transfer_sec_mean = get_stats_and_plot(file_path, label, colors[scenarios.index(label)])
+    req_sec_means.append(req_sec_mean)
+    transfer_sec_means.append(transfer_sec_mean)
 
-print("\n\n## userspace target filter other process:\n\n")
-get_avg_data_from("result/userspace-untargeted.txt")
-# get_avg_data_from("test-log.txt")
+x = np.arange(len(scenarios))  # the label locations
+
+# Plotting the bar graph for Requests/sec
+plt.figure(figsize=(10, 8))
+plt.bar(x - 0.2, req_sec_means, 0.4, label='Requests/sec', color=colors)
+plt.xlabel('Scenario', fontsize=16)
+plt.ylabel('Requests per Second (RPS)', fontsize=16)
+plt.xticks(x, scenarios, fontsize=12)
+plt.legend()
+plt.title('Average Requests per Second by Scenario')
+plt.tight_layout()
+plt.savefig('average_rps_by_scenario.png')
+plt.show()
+
+# Plotting the bar graph for Transfer/sec
+plt.figure(figsize=(10, 8))
+plt.bar(x + 0.2, transfer_sec_means, 0.4, label='Transfer/sec', color=colors)
+plt.xlabel('Scenario', fontsize=16)
+plt.ylabel('Transfer per Second (MB/sec)', fontsize=16)
+plt.xticks(x, scenarios, fontsize=12)
+plt.legend()
+plt.title('Average Transfer per Second by Scenario')
+plt.tight_layout()
+plt.savefig('average_transfer_by_scenario.png')
+plt.show()
