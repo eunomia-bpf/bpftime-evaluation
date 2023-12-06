@@ -47,7 +47,14 @@ async def main():
     for i in range(1, args.COUNT + 1):
         print(f"Time: {i}")
         wrk = await asyncio.create_subprocess_exec(
-            "wrk", "-c", str(args.connection), "-t", str(args.thread), args.URL
+            "wrk",
+            "-c",
+            str(args.connection),
+            "-t",
+            str(args.thread),
+            args.URL,
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.STDOUT,
         )
         stdout, _ = await wrk.communicate()
         await wrk.wait()
