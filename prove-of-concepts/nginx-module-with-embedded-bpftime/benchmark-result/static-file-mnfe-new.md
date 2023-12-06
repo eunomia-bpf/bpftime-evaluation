@@ -48,7 +48,7 @@ Requests/sec: 114598.83
 Transfer/sec:     33.99MB
 ```
 
-## With wasm module, enabled, url that passes the check
+## With wasm module, enabled, url that passes the check (without optimization)
 ```console
 wrk -t 20 -c 250 http://127.0.0.1:9023/mikunot/foundexception/
 Running 10s test @ http://127.0.0.1:9023/mikunot/foundexception/
@@ -59,4 +59,17 @@ Running 10s test @ http://127.0.0.1:9023/mikunot/foundexception/
   1073360 requests in 10.10s, 318.35MB read
 Requests/sec: 106281.29
 Transfer/sec:     31.52MB
+```
+
+## With wasm module, enabled, url that passes the check (with optimization)
+```console
+wrk -t 20 -c 250 http://127.0.0.1:9023/mikunot/foundexception/
+Running 10s test @ http://127.0.0.1:9023/mikunot/foundexception/
+  20 threads and 250 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.07ms    0.88ms  18.85ms   74.74%
+    Req/Sec     5.80k     1.72k    9.66k    61.33%
+  1164374 requests in 10.10s, 345.34MB read
+Requests/sec: 115289.21
+Transfer/sec:     34.19MB
 ```
