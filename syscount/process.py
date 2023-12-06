@@ -1,44 +1,56 @@
 import re
 import statistics
 
-# Define the path to the log file
-log_file_path = 'bpftime-evaluation/syscount/test-log.txt'
+def get_avg_data_from(log_file_path):
+    # Regular expressions to extract the numerical values for requests per second and transfer per second
+    req_sec_pattern = re.compile(r"Requests/sec:\s+(\d+\.\d+)")
+    transfer_sec_pattern = re.compile(r"Transfer/sec:\s+(\d+\.\d+)MB")
 
-# Regular expressions to extract the numerical values for requests per second and transfer per second
-req_sec_pattern = re.compile(r"Requests/sec:\s+(\d+\.\d+)")
-transfer_sec_pattern = re.compile(r"Transfer/sec:\s+(\d+\.\d+)MB")
+    # Lists to store the values extracted from the log file
+    req_sec_values = []
+    transfer_sec_values = []
 
-# Lists to store the values extracted from the log file
-req_sec_values = []
-transfer_sec_values = []
+    # Open the log file and extract the values
+    with open(log_file_path, 'r') as file:
+        log_contents = file.read()
+        req_sec_values = [float(match) for match in req_sec_pattern.findall(log_contents)]
+        transfer_sec_values = [float(match) for match in transfer_sec_pattern.findall(log_contents)]
 
-# Open the log file and extract the values
-with open(log_file_path, 'r') as file:
-    log_contents = file.read()
-    req_sec_values = [float(match) for match in req_sec_pattern.findall(log_contents)]
-    transfer_sec_values = [float(match) for match in transfer_sec_pattern.findall(log_contents)]
+    # Function to calculate various statistics
+    def calculate_statistics(values):
+        return {
+            'mean': statistics.mean(values),
+            'median': statistics.median(values),
+            'stdev': statistics.stdev(values) if len(values) > 1 else 0,
+            'min': min(values),
+            'max': max(values)
+        }
 
-# Function to calculate various statistics
-def calculate_statistics(values):
-    return {
-        'mean': statistics.mean(values),
-        'median': statistics.median(values),
-        'stdev': statistics.stdev(values) if len(values) > 1 else 0,
-        'min': min(values),
-        'max': max(values)
-    }
+    # Calculate statistics for Requests/sec and Transfer/sec
+    req_sec_stats = calculate_statistics(req_sec_values)
+    transfer_sec_stats = calculate_statistics(transfer_sec_values)
 
-# Calculate statistics for Requests/sec and Transfer/sec
-req_sec_stats = calculate_statistics(req_sec_values)
-transfer_sec_stats = calculate_statistics(transfer_sec_values)
+    print("len: ", len(req_sec_values))
 
-print("len: ", len(req_sec_values))
+    # Print the statistics
+    print("Requests/sec statistics:")
+    for stat, value in req_sec_stats.items():
+        print(f"{stat.capitalize()}: {value:.2f}")
 
-# Print the statistics
-print("Requests/sec statistics:")
-for stat, value in req_sec_stats.items():
-    print(f"{stat.capitalize()}: {value:.2f}")
+    print("\nTransfer/sec statistics:")
+    for stat, value in transfer_sec_stats.items():
+        print(f"{stat.capitalize()}: {value:.2f}")
 
-print("\nTransfer/sec statistics:")
-for stat, value in transfer_sec_stats.items():
-    print(f"{stat.capitalize()}: {value:.2f}")
+print("\n\n## userspace syscount:\n\n")
+get_avg_data_from("result/userspace.txt")
+print("\n\n## no syscount:\n\n")
+get_avg_data_from("result/no-syscount.txt")
+print("\n\n## kernel syscount globally:\n\n")
+get_avg_data_from("result/kernel_no-filter.txt")
+print("\n\n## kernel target filter nginx:\n\n")
+get_avg_data_from("result/kernel_targeted-filter.txt")
+print("\n\n## kernel target filter other process:\n\n")
+get_avg_data_from("result/kernel_untargeted-filter.txt")
+
+
+# get_avg_data_from("test-log.txt")
