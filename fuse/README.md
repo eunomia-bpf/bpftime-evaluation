@@ -113,9 +113,12 @@ python3 passthrough.py ~/linux/ ./data/
 use find:
 
 ```console
-$ time find ./data > /dev/null
-
-real    0m12.971s
-user    0m0.000s
-sys     0m2.824s
+root@banana:~/bpftime-evaluation/fu
+se/find_res# python3 draw.py 
+Average real time for find no cache:
+Average Real Time: 5.108 seconds
+Average real time for find with cache:
+Average Real Time: 1.558 seconds
+(myenv) root@banana:~/bpftime-evaluation/fu
+se/find_res# 
 ```

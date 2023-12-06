@@ -1,35 +1,39 @@
-def extract_time_values(line):
-    """Extract time values from a line of text."""
-    parts = line.split()
-    real_time = float(parts[1].replace('m', '').replace('s', ''))
-    user_time = float(parts[3].replace('m', '').replace('s', ''))
-    sys_time = float(parts[5].replace('m', '').replace('s', ''))
-    return real_time, user_time, sys_time
+def extract_real_time(line):
+    """Extract the real time value from a line of text."""
+    if 'real' in line:
+        parts = line.split()
+        real_time_str = parts[1]  # real time is the second part
+        minutes, seconds = real_time_str.split('m')
+        real_time = float(minutes) * 60 + float(seconds.rstrip('s'))  # convert to seconds
+        return real_time
+    return None
 
-def calculate_averages(filename):
-    """Calculate and print average times from a file."""
-    total_real, total_user, total_sys = 0, 0, 0
+def calculate_average_real_time(filename):
+    """Calculate and print the average real time from a file."""
+    total_real_time = 0
     count = 0
 
     with open(filename, 'r') as file:
         for line in file:
-            if line.strip().startswith('real'):
-                real, user, sys = extract_time_values(line)
-                total_real += real
-                total_user += user
-                total_sys += sys
+            real_time = extract_real_time(line)
+            if real_time is not None:
+                total_real_time += real_time
                 count += 1
 
     if count > 0:
-        avg_real = total_real / count
-        avg_user = total_user / count
-        avg_sys = total_sys / count
-        print(f"Average Real Time: {avg_real} seconds")
-        print(f"Average User Time: {avg_user} seconds")
-        print(f"Average Sys Time: {avg_sys} seconds")
+        avg_real_time = total_real_time / count
+        print(f"Average Real Time: {avg_real_time:.3f} seconds")
     else:
-        print("No data found in the file.")
+        print("No valid real time data found in the file.")
+
+# Usage example
+# filename = 'path_to_your_file.txt'
+# calculate_average_real_time(filename)
 
 # Usage
+print("Average real time for find no cache:")
 filename = 'find_fuse.txt'
-calculate_averages(filename)
+calculate_average_real_time(filename)
+print("Average real time for find with cache:")
+filename = 'find_cache.txt'
+calculate_average_real_time(filename)
