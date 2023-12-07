@@ -32,18 +32,18 @@ fig, ax = plt.subplots(figsize=(12, 10))
 
 
 # Plotting the 'Native' category bar
-native_bar = ax.bar(ind[0], native_data, width, label='Native', color='teal')
+native_bar = ax.bar(ind[0], native_data, width, label='Native', color='#8ecfc9')
 
 # Plotting the 'Untargeted' and 'Targeted' category bars for Kernel and Userspace
-untargeted_bar = ax.bar(ind[1:] - width/2, untargeted_data, width, label='Untargeted', color='orange')
-targeted_bar = ax.bar(ind[1:] + width/2, targeted_data, width, label='Targeted', color='red')
+untargeted_bar = ax.bar(ind[1:] - width/2, untargeted_data, width, label='Untargeted', color='#ffbe7a')
+targeted_bar = ax.bar(ind[1:] + width/2, targeted_data, width, label='Targeted', color='#fa7f6f')
 
 # Add some text for labels, title and custom x-axis tick labels, etc.
 ax.set_ylabel('Requests per Second (Rps)')
 # ax.set_title('syscount test with nginx')
 ax.set_xticks(ind)
 ax.set_xticklabels(categories)
-ax.legend()
+ax.legend(loc='upper center', bbox_to_anchor=(0.48, 1.15), ncol=3)
 
 # Function to attach a label above each bar in rects, displaying its height.
 def autolabel(rects):
@@ -60,6 +60,6 @@ autolabel(native_bar)
 autolabel(untargeted_bar)
 autolabel(targeted_bar)
 
-plt.savefig('syscount.png')
+plt.savefig('syscount.pdf')
 # Show the plotplt.savefig('average_transfer_by_scenario.png')
 plt.show()
