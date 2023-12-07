@@ -36,9 +36,9 @@ fsync_positions = np.arange(len(fsync_configs)) + len(default_configs) + len(bat
 bar_width = 0.8
 
 # Plotting the clusters
-ax.bar(default_positions, default_throughput, width=bar_width, label="Default Configs")
-ax.bar(batching_positions, batching_throughput, width=bar_width, label="Batching Configs")
-ax.bar(fsync_positions, fsync_throughput, width=bar_width, label="Delayed-fsync")
+ax.bar(default_positions, default_throughput, width=bar_width, label="Default Configs", color='#8ecfc9')
+ax.bar(batching_positions, batching_throughput, width=bar_width, label="Batching Configs", color='#ffbe7a')
+ax.bar(fsync_positions, fsync_throughput, width=bar_width, label="Delayed-fsync", color='#fa7f6f')
 
 # Labels and ticks
 ax.set_ylabel('Throughput (req/sec)')
@@ -57,4 +57,4 @@ ax.grid(True)
 plt.legend()
 plt.tight_layout()
 plt.show()
-plt.savefig("redis_cluster.png")
+plt.savefig("redis_cluster.pdf")
