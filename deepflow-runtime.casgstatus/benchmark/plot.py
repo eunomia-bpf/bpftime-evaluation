@@ -7,7 +7,7 @@ structure_data = ""
 with open("test-data-multi-without-smatrt-ptr.json", "r") as f:
     structure_data = json.load(f)
     
-# print(structure_data)
+print(structure_data)
 
 https_structure = structure_data["https"]
 http_structure = structure_data["http"]
@@ -48,8 +48,6 @@ def calculate_averages(data):
 https_averages = calculate_averages(https_structure)
 http_averages = calculate_averages(http_structure)
 
-print(https_averages)
-print(http_averages)
 
 def calculate_performance_drop(averages, baseline_key):
     performance_drop = {}
@@ -90,54 +88,38 @@ def calculate_performance_drop(averages, baseline_key):
 https_performance_drop = calculate_performance_drop(https_averages, "no-probe")
 http_performance_drop = calculate_performance_drop(http_averages, "no-probe")
 
-print("\n# performance drop\n")
-
-print(https_performance_drop)
-print(http_performance_drop)
-
 # Helper function to plot the performance drop
-def plot_performance_drop(performance_drop, title):
+def plot_request_performance_drop(performance_drop, title, filename):
     sizes = sorted(list(performance_drop[next(iter(performance_drop))].keys()))
-    sub_keys = list(performance_drop.keys())
-    request_drops = {
-        sub_key: [performance_drop[sub_key][size]["request_drop"] for size in sizes]
-        for sub_key in sub_keys
-    }
-    transfer_drops = {
-        sub_key: [performance_drop[sub_key][size]["transfer_drop"] for size in sizes]
-        for sub_key in sub_keys
-    }
+    # Assuming 'probe' and 'uprobes' are the only keys besides 'no-probe'
+    legend_labels = ['Deepflow', 'Deepflow-Ubi']
 
-    # Plotting
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))
-    fig.suptitle(title, fontsize=16)
+    # Plotting Request Drops
+    plt.figure(figsize=(6, 6))
+    i = 0  # Index for legend labels
+    for sub_key in performance_drop:
+        if i != 1:  # Exclude 'no-probe' from the plot
+            if i!=2:
+                plt.plot(sizes, [performance_drop[sub_key][size]["request_drop"] for size in sizes],
+                        label=legend_labels[0])
+            else:
+                plt.plot(sizes, [performance_drop[sub_key][size]["request_drop"] for size in sizes],
+                        label=legend_labels[1])
+        i += 1  # Move to the next legend label
 
-    # Plot for Request Drops
-    for sub_key in sub_keys:
-        ax1.plot(sizes, request_drops[sub_key], label=sub_key)
-    ax1.set_xlabel("Size", fontsize=14)
-    ax1.set_ylabel("Request Drop (%)", fontsize=14)
-    ax1.legend(fontsize=12)
-    ax1.tick_params(axis="both", which="major", labelsize=12)
-    ax1.set_title("Request Performance Drop", fontsize=14)
+    
+    plt.xlabel("Size", fontsize=22)
+    plt.ylabel("Request Drop (%)", fontsize=22)
+    plt.legend(fontsize=22)
+    plt.tick_params(axis="both", which="major", labelsize=22)
+    # plt.title(title, fontsize=22)
 
-    # Plot for Transfer Drops
-    for sub_key in sub_keys:
-        ax2.plot(sizes, transfer_drops[sub_key], label=sub_key)
-    ax2.set_xlabel("Size", fontsize=14)
-    ax2.set_ylabel("Transfer Drop (%)", fontsize=14)
-    ax2.legend(fontsize=12)
-    ax2.tick_params(axis="both", which="major", labelsize=12)
-    ax2.set_title("Transfer Performance Drop", fontsize=14)
-
+    # Show and save the plot
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
-    return plt
+    plt.savefig(filename, format='pdf') 
+    plt.show()
+    plt.close()
 
-
-# Plotting for HTTPS
-plt_https = plot_performance_drop(https_performance_drop, "HTTPS Performance Drop")
-plt_https.savefig("https-performance-drop.png")
-
-# Plotting for HTTP
-plt_http = plot_performance_drop(http_performance_drop, "HTTP Performance Drop")
-plt_http.savefig("http-performance-drop.png")
+# Call the function to plot for HTTPS and HTTP
+plot_request_performance_drop(https_performance_drop, "HTTPS Request Performance Drop", "https-request-performance-drop.pdf")
+plot_request_performance_drop(http_performance_drop, "HTTP Request Performance Drop", "http-request-performance-drop.pdf")
