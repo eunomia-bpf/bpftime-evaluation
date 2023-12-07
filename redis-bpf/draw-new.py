@@ -56,5 +56,5 @@ ax.grid(True)
 
 plt.legend()
 plt.tight_layout()
-plt.show()
 plt.savefig("redis_cluster.pdf")
+plt.show()
