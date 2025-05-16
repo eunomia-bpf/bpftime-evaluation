@@ -90,7 +90,7 @@ http_performance_drop = calculate_performance_drop(http_averages, "no-probe")
 def plot_request_performance_drop(performance_drop, title, filename):
     sizes = sorted(list(performance_drop[next(iter(performance_drop))].keys()))
     # Assuming 'probe' and 'uprobes' are the only keys besides 'no-probe'
-    legend_labels = ['Deepflow', 'Deepflow-kernel', 'Deepflow-UserBPF']
+    legend_labels = ['Deepflow', 'Deepflow-kernel', 'Deepflow-bpftime']
     linewidth = 3  # Thicker line width
 
     # Plotting Request Drops

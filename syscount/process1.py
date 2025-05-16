@@ -69,32 +69,32 @@ for file_path, label in zip(file_paths, scenarios):
 
 print(req_sec_means)
 
-# Update the groups to rename "Userspace" to "userBPF"
+# Update the groups to rename "Userspace" to "bpftime"
 # The order of scenarios is:
 # Index: scenario
 # 0: Userspace
 # 1: No Syscount (Native)
 # 2: Kernel Filter (targeted)
 # 3: kernel-untarget (untargeted)
-# 4: Userspace Filter (also userBPF untargeted)
+# 4: Userspace Filter (also bpftime untargeted)
 
-groups = ["Native", "Kernel", "userBPF"]
+groups = ["Native", "Kernel", "bpftime"]
 
 # Assign the corresponding means to groups. Using the same indices as before:
 # Native: no-syscount (index 1)
 # Kernel: kernel_untargeted (index 3), kernel_targeted (index 2)
-# userBPF: userspace-untargeted (index 4), userspace (index 0)
+# bpftime: userspace-untargeted (index 4), userspace (index 0)
 group_data = {
     "Native": [req_sec_means[1]],  # No Syscount
     "Kernel": [req_sec_means[3], req_sec_means[2]],  # untargeted, targeted
-    "userBPF": [req_sec_means[4], req_sec_means[0]]  # untargeted, targeted
+    "bpftime": [req_sec_means[4], req_sec_means[0]]  # untargeted, targeted
 }
 
 # Update colors to reflect the new naming. 
 colors = {
     "Native": "#8ECFC9",
     "Kernel": ["#FFBE7A", "#FA7F6F"],
-    "userBPF": ["#FFBE7A", "#FA7F6F"],  # Reusing same colors for untargeted & targeted
+    "bpftime": ["#FFBE7A", "#FA7F6F"],  # Reusing same colors for untargeted & targeted
 }
 
 legends = {
@@ -164,5 +164,68 @@ plt.tight_layout()
 plt.savefig("syscount.pdf")
 plt.savefig("syscount-req.png")
 plt.savefig("syscount-req-vertical.pdf")
+
+# Create a horizontal version of the bar chart
+plt.figure(figsize=(12, 4))  # Adjust figure size for horizontal layout
+
+# Number of groups
+num_groups = len(groups)
+y = np.arange(num_groups)
+bar_height = 0.4
+
+# Track which legend labels have already been added
+added_legend_labels = set()
+
+# For each group, we may have one or two bars.
+# If one bar, it will be centered at y[i].
+# If two bars, we place them at y[i] - bar_height/2 and y[i] + bar_height/2.
+for i, (group, values) in enumerate(group_data.items()):
+    group_colors = (colors[group] if isinstance(colors[group], list) else [colors[group]])
+    
+    if len(values) == 1:
+        # Only one bar for this group, center it
+        b = plt.barh(y[i], values[0], height=bar_height, color=group_colors[0])
+        plt.bar_label(b, [values[0]], fontsize=20, padding=5)
+        # Add legend label if not already present
+        if group_colors[0] in legends and legends[group_colors[0]] not in added_legend_labels:
+            b.set_label(legends[group_colors[0]])
+            added_legend_labels.add(legends[group_colors[0]])
+    else:
+        # Two bars for this group
+        lower_y = y[i] - bar_height/2
+        upper_y = y[i] + bar_height/2
+        # Untargeted vs targeted order
+        for val, col, ypos in zip(values, group_colors, [lower_y, upper_y]):
+            b = plt.barh(ypos, val, height=bar_height, color=col)
+            plt.bar_label(b, [val], fontsize=20, padding=5)
+            # Add legend only if not already added
+            if col in legends and legends[col] not in added_legend_labels:
+                b.set_label(legends[col])
+                added_legend_labels.add(legends[col])
+
+# Add a legend with larger font size
+plt.legend(loc="upper left", fontsize=25, ncol=1)
+
+# Set y-ticks and labels
+plt.yticks(y, groups, fontsize=25)
+
+# Increase axis label and tick sizes
+plt.xticks(fontsize=20)
+
+# Update axis labels with larger font size
+plt.xlabel("Requests per Second (RPS)", fontsize=25, labelpad=10)
+# plt.ylabel("Scenario", fontsize=20, labelpad=10)
+
+# Set a suitable x-axis limit if desired
+plt.xlim(0, 22000)
+
+# Add grid lines for better readability
+plt.grid(axis='x', linestyle='--', alpha=0.7)
+
+plt.tight_layout()
+
+# Save the horizontal figure
+plt.savefig("syscount-req-horizontal.pdf")
+plt.savefig("syscount-req-horizontal.png")
 
 plt.show()
