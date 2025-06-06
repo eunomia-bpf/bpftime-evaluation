@@ -1,6 +1,10 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import json
+import matplotlib as mpl
+
+mpl.rcParams['pdf.fonttype'] = 42
+mpl.rcParams['ps.fonttype'] = 42
 
 structure_data = ""
 

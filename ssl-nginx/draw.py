@@ -1,6 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import matplotlib
+import matplotlib as mpl
+
+mpl.rcParams['pdf.fonttype'] = 42
+mpl.rcParams['ps.fonttype'] = 42
 
 # Increase font sizes globally
 plt.rcParams.update({

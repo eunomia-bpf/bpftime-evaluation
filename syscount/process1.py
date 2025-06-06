@@ -2,6 +2,10 @@ import re
 import statistics
 import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib as mpl
+
+mpl.rcParams['pdf.fonttype'] = 42
+mpl.rcParams['ps.fonttype'] = 42
 
 def get_stats_and_plot(log_file_path, label, color):
     # Regular expressions to extract the numerical values for requests per second and transfer per second
